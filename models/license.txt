@@ -1,0 +1,11 @@
+Model Information:
+* title:	Human Body
+* source:	https://sketchfab.com/3d-models/human-body-4e2217df08ac4f1386bd3dfc5a70944b
+* author:	dungdao (https://sketchfab.com/dung2606)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Human Body" (https://sketchfab.com/3d-models/human-body-4e2217df08ac4f1386bd3dfc5a70944b) by dungdao (https://sketchfab.com/dung2606) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
