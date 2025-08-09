@@ -24,20 +24,19 @@ const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
 scene.add(groundMesh);
 */
 
-
 //Adding the light
-const light = new THREE.HemisphereLight( 0xfffffff, 0x00000, 1 );
-scene.add( light );
+const light = new THREE.HemisphereLight(0xfffffff, 0x00000, 1);
+scene.add(light);
 
 //adding the model
 modelLoader.load("./models/scene.gltf", (gltf) => {
   const model = gltf.scene;
-  model.position.set(0, -5, 0);
+  model.position.set(0, -6, 1);
   scene.add(model);
 });
 
 //Adding color for the background
-const color = new THREE.Color().setHex( 0x112233 );
+const color = new THREE.Color().setHex(0x112233);
 scene.background = color;
 
 //adding the scene on the web site
@@ -46,13 +45,22 @@ renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
 //set position of camera
-const control = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 10, 5);
-control.update();
+camera.position.set(0, 0, 0);
+
+//config the orbit control
+const OrbitControl = new OrbitControls(camera, renderer.domElement);
+OrbitControl.minDistance = 7.5;
+OrbitControl.minPolarAngle = Math.PI / 4;
+OrbitControl.maxPolarAngle = Math.PI / 2.5;
+OrbitControl.enablePan = false;
 
 //redering on the web site
 function animate() {
-  // requestAnimationFrame( animate );
-  control.update();
+  //OrbitControl.update();
   renderer.render(scene, camera);
 }
+
+/* tips* 
+  USING THE LEFT BUTTOM YOU CAN ROTATE THE CAMERA
+  USING THE RIGHT BUTTOM YOU CAN MOVE THE CAMERA
+*/
