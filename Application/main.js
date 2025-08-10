@@ -12,20 +12,11 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
 let geometry;
 let material;
-
-/*
-//create the planeSize
-const groundGeometry = new THREE.PlaneGeometry(5, 5);
-groundGeometry.rotateX(-Math.PI / 2);
-const groundMaterial = new THREE.MeshStandardMaterial({
-  color: 0x555555,
-  side: THREE.DoubleSide,
-});
-const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-scene.add(groundMesh);
-*/
 
 //Adding the light
 const light = new THREE.HemisphereLight(0xfffffff, 0x000000, 1);
@@ -42,9 +33,9 @@ modelLoader.load("./models/scene.gltf", (gltf) => {
 geometry = new THREE.BoxGeometry(2, 1.3, 0.9);
 material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 material.wireframe = true;
-const ToraxHitBox = new THREE.Mesh(geometry, material);
-ToraxHitBox.position.set(0, 2.2, 0.5);
-scene.add(ToraxHitBox);
+const toraxHitBox = new THREE.Mesh(geometry, material);
+toraxHitBox.position.set(0, 2.2, 0.5);
+scene.add(toraxHitBox);
 
 //Adding abdoman Hitbox
 geometry = new THREE.BoxGeometry(2, 1.5, 0.7);
@@ -146,17 +137,11 @@ scene.add(rightForearmHitBox);
 const color = new THREE.Color().setHex(0x112233);
 scene.background = color;
 
-//adding the scene on the web site
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setAnimationLoop(animate);
-document.body.appendChild(renderer.domElement);
-
 //set position of camera
-camera.position.set(0, 0, 2);
+camera.position.set(0, 0, 5);
 
 //config the orbit control
-const OrbitControl = new OrbitControls(camera, renderer.domElement);
-/*
+let OrbitControl = new OrbitControls(camera, renderer.domElement);
 OrbitControl.minDistance = 7.5;
 OrbitControl.maxDistance = 9;
 OrbitControl.minPolarAngle = Math.PI / 4;
@@ -164,14 +149,65 @@ OrbitControl.maxPolarAngle = Math.PI / 2.5;
 
 //True = you can move the camera
 //false = you can't move the camera
-OrbitControl.enablePan = true;
-*/
+OrbitControl.enablePan = false;
+
+function onPointerMove(event) {
+  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  window.requestAnimationFrame(render);
+}
+
+function render() {
+  // update the picking ray with the camera and pointer position
+  raycaster.setFromCamera(pointer, camera);
+
+  // calculate objects intersecting the picking ray
+  const intersects = raycaster.intersectObjects(scene.children);
+  const position = intersects[0].object.position;
+
+  OrbitControl.target = position;
+  OrbitControl.minDistance = 2;
+  OrbitControl.maxDistance = 2.5;
+}
 
 //redering on the web site
 function animate() {
   OrbitControl.update();
   renderer.render(scene, camera);
 }
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === " ") {
+    console.log(OrbitControl.getAzimuthalAngle());
+    console.log(OrbitControl.getPolarAngle());
+    OrbitControl.target = new THREE.Vector3(0, 0, 0);
+    OrbitControl.minDistance = 7.5;
+
+    /*
+    for (let i = 0; i <= Math.PI / 2; i++) {
+      OrbitControl.minPolarAngle = i;
+      OrbitControl.maxPolarAngle = i;
+    }
+
+    for (let i = 0; i <= Math.PI / 2.5; i++) {
+      OrbitControl.minAzimuthAngle = -Math.PI / 2;
+      OrbitControl.maxAzimuthAngle = -Math.PI / 2;
+    }
+
+    for (let i = 5; i >= 4; i--) {
+      OrbitControl.minDistance = i;
+      OrbitControl.maxDistance = i;
+    }
+    */
+  }
+});
+
+window.addEventListener("mousedown", onPointerMove);
+
+//adding the scene on the web site
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setAnimationLoop(animate);
+document.body.appendChild(renderer.domElement);
 
 /* tips:
   USING THE LEFT BUTTOM YOU CAN ROTATE THE CAMERA
