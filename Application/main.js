@@ -15,9 +15,6 @@ const camera = new THREE.PerspectiveCamera(
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
-let geometry;
-let material;
-
 //Adding the light
 const light = new THREE.HemisphereLight(0xfffffff, 0x000000, 1);
 scene.add(light);
@@ -29,109 +26,64 @@ modelLoader.load("./models/scene.gltf", (gltf) => {
   scene.add(model);
 });
 
+function CreateHitBox(
+  width,
+  height,
+  depth,
+  hitboxColor,
+  positionX,
+  positionY,
+  positionZ
+) {
+  const geometry = new THREE.BoxGeometry(width, height, depth);
+  const material = (new THREE.MeshBasicMaterial({
+    color: hitboxColor,
+  }));
+  material.wireframe = true;
+
+  const hitbox = new THREE.Mesh(geometry, material);
+  hitbox.position.set(positionX, positionY, positionZ);
+  scene.add(hitbox);
+}
+
 //Adding torax Hitbox
-geometry = new THREE.BoxGeometry(2, 1.3, 0.9);
-material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-material.wireframe = true;
-const toraxHitBox = new THREE.Mesh(geometry, material);
-toraxHitBox.position.set(0, 2.2, 0.5);
-scene.add(toraxHitBox);
+CreateHitBox(2, 1.3, 0.9, 0x00ff00, 0, 2.2, 0.5);
 
 //Adding abdoman Hitbox
-geometry = new THREE.BoxGeometry(2, 1.5, 0.7);
-material = new THREE.MeshBasicMaterial({ color: 0xdb1801 });
-material.wireframe = true;
-const abdomanHitBox = new THREE.Mesh(geometry, material);
-abdomanHitBox.position.set(0, 0.8, 0.6);
-scene.add(abdomanHitBox);
+CreateHitBox(2, 1.5, 0.7, 0xdb1801, 0, 0.8, 0.6);
 
 //Adding back Hitbox
-geometry = new THREE.BoxGeometry(2, 2.5, 0.9);
-material = new THREE.MeshBasicMaterial({ color: 0xdb0d42 });
-material.wireframe = true;
-const backHitBox = new THREE.Mesh(geometry, material);
-backHitBox.position.set(0, 1.5, -0.6);
-scene.add(backHitBox);
+CreateHitBox(2, 2.5, 0.9, 0xdb0d42, 0, 1.5, -0.6);
 
 //Adding quadriceps Hitbox
-geometry = new THREE.BoxGeometry(2.5, 2.5, 0.7);
-material = new THREE.MeshBasicMaterial({ color: 0x0d1edb });
-material.wireframe = true;
-const legsHitBox = new THREE.Mesh(geometry, material);
-legsHitBox.position.set(0, -1.2, 0.4);
-scene.add(legsHitBox);
+CreateHitBox(2.5, 2.5, 0.7, 0x0d1edb, 0, -1.2, 0.4);
 
 //Adding gluteus Hitbox
-geometry = new THREE.BoxGeometry(2, 1.3, 0.7);
-material = new THREE.MeshBasicMaterial({ color: 0xdbca0d });
-material.wireframe = true;
-const gluteusHitBox = new THREE.Mesh(geometry, material);
-gluteusHitBox.position.set(0, -0.4, -0.6);
-scene.add(gluteusHitBox);
+CreateHitBox(2, 1.3, 0.7, 0xdbca0d, 0, -0.4, -0.6);
 
 //Adding hamstring Hitbox
-geometry = new THREE.BoxGeometry(2.5, 1.7, 0.7);
-material = new THREE.MeshBasicMaterial({ color: 0x8d0ddb });
-material.wireframe = true;
-const hamstringHitBox = new THREE.Mesh(geometry, material);
-hamstringHitBox.position.set(0, -2, -0.6);
-scene.add(hamstringHitBox);
+CreateHitBox(2.5, 1.7, 0.7, 0x8d0ddb, 0, -2, -0.6);
 
 //Adding calf Hitbox
-geometry = new THREE.BoxGeometry(2.5, 2.3, 0.7);
-material = new THREE.MeshBasicMaterial({ color: 0xdc85b1 });
-material.wireframe = true;
-const calfHitBox = new THREE.Mesh(geometry, material);
-calfHitBox.position.set(0, -4, -0.9);
-scene.add(calfHitBox);
+CreateHitBox(2.5, 2.3, 0.7, 0xdc85b1, 0, -4, -0.9);
 
 //Adding Left Shoulders Hitbox
-geometry = new THREE.BoxGeometry(0.7, 0.7, 1);
-material = new THREE.MeshBasicMaterial({ color: 0x0dc7db });
-material.wireframe = true;
-const leftShouldersHitBox = new THREE.Mesh(geometry, material);
-leftShouldersHitBox.position.set(-1.4, 2.4, -0.2);
-scene.add(leftShouldersHitBox);
+CreateHitBox(0.7, 0.7, 1, 0x0dc7db, -1.4, 2.4, -0.2);
 
 //Adding Right Shoulders Hitbox
-geometry = new THREE.BoxGeometry(0.7, 0.7, 1);
-material = new THREE.MeshBasicMaterial({ color: 0x0dc7db });
-material.wireframe = true;
-const rightShouldersHitBox = new THREE.Mesh(geometry, material);
-rightShouldersHitBox.position.set(1.4, 2.4, -0.2);
-scene.add(rightShouldersHitBox);
+CreateHitBox(0.7, 0.7, 1, 0x0dc7db, 1.4, 2.4, -0.2);
 
 //Adding Left Biceps Hitbox
-geometry = new THREE.BoxGeometry(1, 1.3, 1.1);
-material = new THREE.MeshBasicMaterial({ color: 0x0ddb65 });
-material.wireframe = true;
-const leftBicepsHitBox = new THREE.Mesh(geometry, material);
-leftBicepsHitBox.position.set(-1.4, 1.4, -0.25);
-scene.add(leftBicepsHitBox);
+CreateHitBox(1, 1.3, 1.1, 0x0ddb65, -1.4, 1.4, -0.25);
 
 //Adding Right Biceps Hitbox
-geometry = new THREE.BoxGeometry(1, 1.3, 1.1);
-material = new THREE.MeshBasicMaterial({ color: 0x0ddb65 });
-material.wireframe = true;
-const rightBicepsHitBox = new THREE.Mesh(geometry, material);
-rightBicepsHitBox.position.set(1.4, 1.4, -0.25);
-scene.add(rightBicepsHitBox);
+CreateHitBox(1, 1.3, 1.1, 0x0ddb65, 1.4, 1.4, -0.25);
 
 //Adding Left forearm Hitbox
-geometry = new THREE.BoxGeometry(0.8, 1, 1);
-material = new THREE.MeshBasicMaterial({ color: 0xdb8d85 });
-material.wireframe = true;
-const leftForearmHitBox = new THREE.Mesh(geometry, material);
-leftForearmHitBox.position.set(1.8, 0.25, -0.25);
-scene.add(leftForearmHitBox);
+CreateHitBox(0.8, 1, 1, 0xdb8d85, 1.8, 0.25, -0.25);
 
 //Adding Right forearm Hitbox
-geometry = new THREE.BoxGeometry(0.8, 1, 1);
-material = new THREE.MeshBasicMaterial({ color: 0xdb8d85 });
-material.wireframe = true;
-const rightForearmHitBox = new THREE.Mesh(geometry, material);
-rightForearmHitBox.position.set(-1.8, 0.25, -0.25);
-scene.add(rightForearmHitBox);
+CreateHitBox(0.8, 1, 1, 0xdb8d85, -1.8, 0.25, -0.25);
 
 //Adding color for the background
 const color = new THREE.Color().setHex(0x112233);
@@ -182,6 +134,7 @@ window.addEventListener("keydown", (event) => {
     console.log(OrbitControl.getPolarAngle());
     OrbitControl.target = new THREE.Vector3(0, 0, 0);
     OrbitControl.minDistance = 7.5;
+    OrbitControl.maxDistance = 9;
 
     /*
     for (let i = 0; i <= Math.PI / 2; i++) {
