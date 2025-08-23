@@ -36,10 +36,11 @@ function CreateHitBox(
   positionZ
 ) {
   const geometry = new THREE.BoxGeometry(width, height, depth);
-  const material = (new THREE.MeshBasicMaterial({
+  const material = new THREE.MeshBasicMaterial({
     color: hitboxColor,
-  }));
-  material.wireframe = true;
+  });
+  material.visible = false;
+  material.wireframe = false;
 
   const hitbox = new THREE.Mesh(geometry, material);
   hitbox.position.set(positionX, positionY, positionZ);
