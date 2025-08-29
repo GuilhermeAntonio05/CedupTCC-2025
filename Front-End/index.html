@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>My first three.js app</title>
+        <style>
+            :root{
+                --background: #041333;   
+                --green:#2BFF50;
+            }
+
+            *{
+                padding: 0xp;
+                margin: 0px;
+            }
+
+            @media (max-width:400) {
+                :root{
+                    --background: red;   
+                    --green:#2BFF50;
+                }
+
+                .sidebar{
+                    display: none;
+                }
+            }
+           
+            body { margin: 0; }
+            
+            .model{
+                width: 100%;
+                height: 100%;
+                background-color: var(--background);
+            }
+
+            .container{
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                width: 100vw;
+            }
+
+            .navbar{
+                height: 50px;
+                width: 100vw;
+                background-color: var(--background);
+            }
+
+            hr{
+                background-color:var(--green);
+                height: 1px;
+                border: none;
+            }
+
+            .content{
+                display: flex;
+                flex-direction: row;
+                background-color: var(--background);
+                height: 100%;
+            }
+
+            .sidebar{
+                width: 315px;
+                background-color: var(--background);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar" id="navbar"></nav> <hr>
+            <div class="content">
+                <div class="sidebar" id="sidebar"></div>
+                <div class="model" id="model"></div>
+            </div>
+        </div>
+
+        <!--Used for render the model-->
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+                }
+            }       
+        </script>
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>

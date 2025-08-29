@@ -6,12 +6,9 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 const renderer = new THREE.WebGLRenderer();
 const modelLoader = new GLTFLoader();
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+const WIDTH = document.getElementById("model").offsetWidth;
+const HEIGHT = document.getElementById("model").offsetHeight;
+const camera = new THREE.PerspectiveCamera(75, WIDTH / HEIGHT, 0.1, 1000);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
@@ -39,8 +36,8 @@ function CreateHitBox(
   const material = new THREE.MeshBasicMaterial({
     color: hitboxColor,
   });
-  material.visible = false;
-  material.wireframe = false;
+  material.visible = true;
+  material.wireframe = true;
 
   const hitbox = new THREE.Mesh(geometry, material);
   hitbox.position.set(positionX, positionY, positionZ);
@@ -87,7 +84,7 @@ CreateHitBox(0.8, 1, 1, 0xdb8d85, 1.8, 0.25, -0.25);
 CreateHitBox(0.8, 1, 1, 0xdb8d85, -1.8, 0.25, -0.25);
 
 //Adding color for the background
-const color = new THREE.Color().setHex(0x112233);
+const color = new THREE.Color().setHex(0xffffff);
 scene.background = color;
 
 //set position of camera
@@ -105,8 +102,14 @@ OrbitControl.maxPolarAngle = Math.PI / 2.5;
 OrbitControl.enablePan = false;
 
 function onPointerMove(event) {
-  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  const model = document.getElementById("model");
+  const rect = model.getBoundingClientRect();
+
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  console.log("Pointer X: " + pointer.x, "Pointer y: " + pointer.y);
+  console.log("Event X: " + event.clientX, "Event Y: " + event.clientY);
+
   window.requestAnimationFrame(render);
 }
 
@@ -131,37 +134,18 @@ function animate() {
 
 window.addEventListener("keydown", (event) => {
   if (event.key === " ") {
-    console.log(OrbitControl.getAzimuthalAngle());
-    console.log(OrbitControl.getPolarAngle());
     OrbitControl.target = new THREE.Vector3(0, 0, 0);
     OrbitControl.minDistance = 7.5;
     OrbitControl.maxDistance = 9;
-
-    /*
-    for (let i = 0; i <= Math.PI / 2; i++) {
-      OrbitControl.minPolarAngle = i;
-      OrbitControl.maxPolarAngle = i;
-    }
-
-    for (let i = 0; i <= Math.PI / 2.5; i++) {
-      OrbitControl.minAzimuthAngle = -Math.PI / 2;
-      OrbitControl.maxAzimuthAngle = -Math.PI / 2;
-    }
-
-    for (let i = 5; i >= 4; i--) {
-      OrbitControl.minDistance = i;
-      OrbitControl.maxDistance = i;
-    }
-    */
   }
 });
 
 window.addEventListener("mousedown", onPointerMove);
 
 //adding the scene on the web site
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(WIDTH, HEIGHT);
 renderer.setAnimationLoop(animate);
-document.body.appendChild(renderer.domElement);
+document.getElementById("model").appendChild(renderer.domElement);
 
 /* tips:
   USING THE LEFT BUTTOM YOU CAN ROTATE THE CAMERA
