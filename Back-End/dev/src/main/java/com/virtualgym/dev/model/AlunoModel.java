@@ -16,7 +16,7 @@ public class AlunoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Aluno_id", nullable = false)
+	@Column(name = "Aluno_id")
 	private Long id;
 	@Column(name = "Nome", nullable = false)
 	private String nome;
@@ -31,7 +31,7 @@ public class AlunoModel {
 	@Column(name = "Genero", nullable = false)
 	private String genero;
 	@ManyToOne
-	@JoinColumn(name = "fk_Mensalidade_D", nullable = false)
+	@JoinColumn(name = "fk_Mensalidade_ID")
 	private MensalidadeModel mensalidade;
 	@Column(name = "Data_Vencimento", nullable = false)
 	private Date data_vencimento;
