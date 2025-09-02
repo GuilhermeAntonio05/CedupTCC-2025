@@ -23,6 +23,13 @@ public class MensalidadeModel {
 		return "MensalidadeModel [id: " + id + ", estado: " + estado + " ]";
 	}
 
+	MensalidadeModel(){
+	}
+	
+	public MensalidadeModel(String estado) {
+		this.estado = estado;
+	}
+	
 	public MensalidadeModel(Long id, String estado) {
 		this.id = id;
 		this.estado = estado;

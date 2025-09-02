@@ -16,14 +16,15 @@ public class AlunoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Aluno_id")
+	@Column(name = "Aluno_ID")
 	private Long id;
 	@Column(name = "Nome", nullable = false)
 	private String nome;
 	@Column(name = "Email", nullable = false)
 	private String email;
 	@Column(name = "CPF", nullable = false)
-	private String cpf;
+	private String cpf;	@Column(name = "Telefone", nullable = false)
+	private String telefone;
 	@Column(name = "Peso", nullable = false)
 	private float peso;
 	@Column(name = "Data_nascimento", nullable = false)
@@ -38,17 +39,23 @@ public class AlunoModel {
 
 	@Override
 	public String toString() {
-		return "AlunoModel [id: " + id + ", nome: " + nome + ", email: " + email + ", cpf: " + cpf + ", peso: " + peso
-				+ ", data_nascimento: " + data_nascimento + ", genero: " + genero + ", mensalidade: " + mensalidade
-				+ ", data_vencimento: " + data_vencimento + "]";
+		return "AlunoModel [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", telefone="
+				+ telefone + ", peso=" + peso + ", data_nascimento=" + data_nascimento + ", genero=" + genero
+				+ ", mensalidade=" + mensalidade + ", data_vencimento=" + data_vencimento + "]";
 	}
 
-	public AlunoModel(Long id, String nome, String email, String cpf, float peso, Date data_nascimento, String genero,
-			MensalidadeModel mensalidade, Date data_vencimento) {
+	public AlunoModel() {
+
+	}
+
+
+	public AlunoModel(Long id, String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
+			String genero, MensalidadeModel mensalidade, Date data_vencimento) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
+		this.telefone = telefone;
 		this.peso = peso;
 		this.data_nascimento = data_nascimento;
 		this.genero = genero;
@@ -56,12 +63,29 @@ public class AlunoModel {
 		this.data_vencimento = data_vencimento;
 	}
 
-	public Long getId() {
-		return id;
+	public AlunoModel(String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
+			String genero, MensalidadeModel mensalidade, Date data_vencimento) {
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.peso = peso;
+		this.data_nascimento = data_nascimento;
+		this.genero = genero;
+		this.mensalidade = mensalidade;
+		this.data_vencimento = data_vencimento;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getNome() {
