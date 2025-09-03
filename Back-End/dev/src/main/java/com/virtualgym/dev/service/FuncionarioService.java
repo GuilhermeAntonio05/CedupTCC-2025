@@ -1,0 +1,41 @@
+package com.virtualgym.dev.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.virtualgym.dev.model.AlunoModel;
+import com.virtualgym.dev.model.FuncionarioModel;
+import com.virtualgym.dev.repository.AlunoRepository;
+import com.virtualgym.dev.repository.FuncionarioRepository;
+
+@Service
+public class FuncionarioService {
+	
+	FuncionarioRepository funcionarioRepository;
+	
+	public FuncionarioService(	FuncionarioRepository funcionarioRepository) {
+		this.funcionarioRepository = funcionarioRepository;
+	}
+	
+	public void criar(FuncionarioModel funcionarioModel){
+		funcionarioRepository.save(funcionarioModel);
+	}
+	
+	public void deletar(FuncionarioModel funcionarioModel) {
+		funcionarioRepository.delete(funcionarioModel);
+	}
+	
+	public void deletarPorId(long id) {
+		funcionarioRepository.deleteById(id);
+	}
+	
+	public List<FuncionarioModel> buscarTodos() {
+		return funcionarioRepository.findAll();
+	}
+	
+	public FuncionarioModel buscarPorId(long id) {
+		return funcionarioRepository.getById(id);
+	}
+
+}
