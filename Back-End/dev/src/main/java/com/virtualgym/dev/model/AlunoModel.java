@@ -23,7 +23,8 @@ public class AlunoModel {
 	@Column(name = "Email", nullable = false)
 	private String email;
 	@Column(name = "CPF", nullable = false)
-	private String cpf;	@Column(name = "Telefone", nullable = false)
+	private String cpf;
+	@Column(name = "Telefone", nullable = false)
 	private String telefone;
 	@Column(name = "Peso", nullable = false)
 	private float peso;
@@ -36,21 +37,22 @@ public class AlunoModel {
 	private MensalidadeModel mensalidade;
 	@Column(name = "Data_Vencimento", nullable = false)
 	private Date data_vencimento;
+	@Column(name = "Senha", nullable = false)
+	private String senha;
 
 	@Override
 	public String toString() {
 		return "AlunoModel [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", telefone="
 				+ telefone + ", peso=" + peso + ", data_nascimento=" + data_nascimento + ", genero=" + genero
-				+ ", mensalidade=" + mensalidade + ", data_vencimento=" + data_vencimento + "]";
+				+ ", mensalidade=" + mensalidade + ", data_vencimento=" + data_vencimento + ", senha=" + senha + "]";
 	}
 
 	public AlunoModel() {
 
 	}
 
-
 	public AlunoModel(Long id, String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			String genero, MensalidadeModel mensalidade, Date data_vencimento) {
+			String genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -61,10 +63,11 @@ public class AlunoModel {
 		this.genero = genero;
 		this.mensalidade = mensalidade;
 		this.data_vencimento = data_vencimento;
+		this.senha = senha;
 	}
 
 	public AlunoModel(String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			String genero, MensalidadeModel mensalidade, Date data_vencimento) {
+			String genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
@@ -74,6 +77,15 @@ public class AlunoModel {
 		this.genero = genero;
 		this.mensalidade = mensalidade;
 		this.data_vencimento = data_vencimento;
+		this.senha = senha;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getTelefone() {

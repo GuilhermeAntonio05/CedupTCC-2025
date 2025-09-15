@@ -11,6 +11,8 @@ const HEIGHT = document.getElementById("model").offsetHeight;
 const camera = new THREE.PerspectiveCamera(75, WIDTH / HEIGHT, 0.1, 1000);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
+const MINDISTANCE = 11;
+const MAXDISTANCE = 12;
 
 //Adding the light
 const light = new THREE.HemisphereLight(0xfffffff, 0x000000, 1);
@@ -88,12 +90,12 @@ const color = new THREE.Color().setHex(0xffffff);
 scene.background = color;
 
 //set position of camera
-camera.position.set(0, 0, 5);
+camera.position.set(0, -10, 5);
 
 //config the orbit control
 let OrbitControl = new OrbitControls(camera, renderer.domElement);
-OrbitControl.minDistance = 7.5;
-OrbitControl.maxDistance = 9;
+OrbitControl.minDistance = MINDISTANCE;
+OrbitControl.maxDistance = MAXDISTANCE;
 OrbitControl.minPolarAngle = Math.PI / 4;
 OrbitControl.maxPolarAngle = Math.PI / 2.5;
 
@@ -135,8 +137,8 @@ function animate() {
 window.addEventListener("keydown", (event) => {
   if (event.key === " ") {
     OrbitControl.target = new THREE.Vector3(0, 0, 0);
-    OrbitControl.minDistance = 7.5;
-    OrbitControl.maxDistance = 9;
+    OrbitControl.minDistance = MINDISTANCE;
+    OrbitControl.maxDistance = MAXDISTANCE;
   }
 });
 

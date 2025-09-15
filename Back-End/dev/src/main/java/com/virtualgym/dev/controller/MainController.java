@@ -20,8 +20,9 @@ public class MainController {
 	AlunoRepository alunoRepository;
 
 	@GetMapping
-	public String hello() {
-		return "Hello World ";
+	public List<AlunoModel> buscarTodos() {
+		AlunoService alunoService = new AlunoService(alunoRepository);
+		return alunoService.buscarTodos();
 	}
 
 	@PostMapping
