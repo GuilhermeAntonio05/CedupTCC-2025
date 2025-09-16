@@ -1,11 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 :root {
   --background: #041333;
   --green: #2bff50;
-}
-
-* {
-  padding: 0px;
-  margin: 0px;
+  --gray:#e5e5e5;
 }
 
 body {
@@ -32,6 +36,22 @@ body {
   height: 100px;
   width: 100vw;
   background-color: var(--background);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+.navIcon {
+  height: 80px;
+  width: 80px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 hr {
@@ -52,12 +72,6 @@ hr {
   background-color: var(--background);
 }
 
-.navIcon {
-  margin-left: 90%;
-  height: 80px;
-  width: 80px;
-}
-
 .menuIcon {
   display: none;
 }
@@ -66,12 +80,11 @@ hr {
   display: none;
 }
 
-
 @media (max-width: 1200px) {
   .findBar {
     display: flex;
     position: absolute;
-    height: 50px;
+    height: 65px;
     width: 400px;
     top: 17%;
     left: 50%;
@@ -79,10 +92,25 @@ hr {
   }
 
   .inputFindBar {
+    border-color: var(--gray);
+    border: 1px;
+    border-style: solid;
     border-radius: 100px;
     height: 100%;
     width: 100%;
+    font-size: 25px;
+    padding-left: 20px;
   }
+
+  .findBar img {
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .menuIcon {
     display: block;
     height: 60px;
@@ -109,14 +137,14 @@ hr {
     background-color: white;
     box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
     border-radius: 100px;
-    border: 1px #e5e5e5 solid;
+    border: 1px var(--gray) solid;
   }
 
   .select {
     box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
     height: 100px;
     width: 100px;
-    background-color: #2bff50;
+    background-color: var(--green);
     border-radius: 100%;
     display: flex;
     align-items: center;
