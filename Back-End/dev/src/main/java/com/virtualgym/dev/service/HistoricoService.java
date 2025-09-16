@@ -1,6 +1,7 @@
 package com.virtualgym.dev.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,8 +35,8 @@ public class HistoricoService {
 		return historicoRepository.findAll();
 	}
 	
-	public HistoricoModel buscarPorId(long id) {
-		return historicoRepository.getById(id);
+	public Optional<HistoricoModel> buscarPorId(long id) {
+		return historicoRepository.findById(id);
 	}
 
 }

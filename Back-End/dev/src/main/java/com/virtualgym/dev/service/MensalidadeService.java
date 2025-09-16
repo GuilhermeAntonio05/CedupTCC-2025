@@ -1,6 +1,7 @@
 package com.virtualgym.dev.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,8 +35,8 @@ public class MensalidadeService {
 		return mensalidadeRepository.findAll();
 	}
 	
-	public MensalidadeModel buscarPorId(long id) {
-		return mensalidadeRepository.getById(id);
+	public Optional<MensalidadeModel> buscarPorId(long id) {
+		return mensalidadeRepository.findById(id);
 	}
 
 }

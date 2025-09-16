@@ -5,52 +5,51 @@ use virtualgym;
 /* Lógico_1: */
 
 CREATE TABLE Aluno (
-    Aluno_ID int not null PRIMARY KEY,
+    Aluno_ID int not null PRIMARY KEY auto_increment,
     Nome varchar(200) not null,
-    Email varchar(200) not null,
-    CPF varchar(11) not null,
+    Email varchar(200) not null UNIQUE,
+    CPF varchar(11) not null UNIQUE,
     Peso decimal(5,2) not null,
     Telefone varchar(20) not null,
     Data_Nascimento date  not null,
     Senha varchar(200) not null,
     fk_Mensalidade_ID int,
     Data_Vencimento date not null,
-    UNIQUE (Email, CPF)
+    Genero char(1) not null
 );
 
 CREATE TABLE Funcionario (
     Nome varchar(200) not null,
-    Email varchar(200) not null,
-    CPF varchar(14) not null,
+    Email varchar(200) not null UNIQUE,
+    CPF varchar(14) not null UNIQUE,
     Telefone varchar(20) not null,
     Data_Nascimento Date not null,
     Genero char(1) not null,
     Cargo varchar(200) not null,
     Salario decimal(7,2) not null,
-    Funcionario_ID int PRIMARY KEY,
-    UNIQUE (Email, CPF)
+    Funcionario_ID int PRIMARY KEY auto_increment
 );
 
 CREATE TABLE Exercicios (
-    Exercicio_ID int not null PRIMARY KEY,
+    Exercicio_ID int not null PRIMARY KEY auto_increment,
     Grupo_Muscular varchar(255) not null,
     Nome varchar(255) not null
 );
 
 CREATE TABLE Mensalidade (
-    Mensalidade_ID int PRIMARY KEY,
+    Mensalidade_ID int PRIMARY KEY auto_increment,
     Estado varchar(200) not null UNIQUE
 );
 
 CREATE TABLE Treino (
-    Treino_ID int not null PRIMARY KEY,
+    Treino_ID int not null PRIMARY KEY auto_increment,
     Serie tinyint not null,
     Repeticoes tinyint not null,
     fk_Funcionario_ID int
 );
 
 CREATE TABLE Historico (
-    Historico_ID int PRIMARY KEY,
+    Historico_ID int PRIMARY KEY auto_increment,
     Peso text not null,
     fk_Treino_ID int not null
 );
@@ -58,13 +57,13 @@ CREATE TABLE Historico (
 CREATE TABLE Aluno_Treino (
     fk_Treino_ID int not null,
     fk_Aluno_ID int not null,
-    Aluno_Treino_ID int PRIMARY KEY
+    Aluno_Treino_ID int PRIMARY KEY auto_increment
 );
 
 CREATE TABLE Treino_Exercicios (
     fk_Treino_ID int not null,
     fk_Exercicio_ID int not null,
-    Treino_Exercicios_ID int PRIMARY KEY
+    Treino_Exercicios_ID int PRIMARY KEY auto_increment
 );
 
 CREATE TABLE Mensalidade_Seq (
@@ -133,7 +132,6 @@ ALTER TABLE Treino_Exercicios ADD CONSTRAINT FK_Treino_Exercicios_2
     FOREIGN KEY (fk_Exercicio_ID)
     REFERENCES Exercicios (Exercicio_ID)
     ON DELETE RESTRICT;
-
 insert into funcionario_seq (next_val)value(1);
 insert into aluno_seq (next_val)value(1);
 insert into mensalidade_seq (next_val)value(1);

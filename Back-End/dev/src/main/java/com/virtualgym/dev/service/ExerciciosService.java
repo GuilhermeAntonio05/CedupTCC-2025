@@ -1,6 +1,7 @@
 package com.virtualgym.dev.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -32,8 +33,8 @@ public class ExerciciosService {
 		return exerciciosRepository.findAll();
 	}
 	
-	public ExerciciosModel buscarPorId(long id) {
-		return exerciciosRepository.getById(id);
+	public Optional<ExerciciosModel> buscarPorId(long id) {
+		return exerciciosRepository.findById(id);
 	}
 
 }
