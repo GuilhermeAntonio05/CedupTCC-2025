@@ -38,8 +38,8 @@ function CreateHitBox(
   const material = new THREE.MeshBasicMaterial({
     color: hitboxColor,
   });
-  material.visible = false;
-  material.wireframe = false;
+  material.visible = true;
+  material.wireframe = true;
 
   const hitbox = new THREE.Mesh(geometry, material);
   hitbox.position.set(positionX, positionY, positionZ);
