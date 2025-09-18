@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtualgym.dev.dto.AlunoLoginDTO;
-import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.service.AlunoService;
 

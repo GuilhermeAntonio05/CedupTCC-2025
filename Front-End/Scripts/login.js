@@ -1,7 +1,6 @@
 const form = document.getElementById("teste");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-<<<<<<< HEAD
 
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
@@ -28,12 +27,6 @@ form.addEventListener("submit", (e) => {
     .catch((error) => {
       console.error("Erro:", error);
     });
-=======
-  const email = document.getElementById("email");
-  const senha = document.getElementById("senha");
-
-  console.log(email.value, senha.value);
->>>>>>> cde5afed0fb9116f5c809bc1dccca071f8019d85
 });
 
 fetch("http://localhost:8080/login")

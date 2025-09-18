@@ -20,10 +20,11 @@ public class ChooseAccountController {
 	@Autowired
 	AlunoRepository alunoRepository;
 	
+	/*
 	@GetMapping
 	public List<AlunoModel> getContas(@ResponseBody List<AlunoLoginDTO> alunos){
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		return alunoService.buscarTodos();
 	}
-	
+	*/
 }

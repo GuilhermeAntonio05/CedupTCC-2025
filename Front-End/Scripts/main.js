@@ -25,11 +25,6 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
     model.position.set(0, -6, 1);
     scene.add(model);
   });
-<<<<<<< HEAD
-=======
-  material.visible = true;
-  material.wireframe = true;
->>>>>>> cde5afed0fb9116f5c809bc1dccca071f8019d85
 
   function CreateHitBox(
     width,
