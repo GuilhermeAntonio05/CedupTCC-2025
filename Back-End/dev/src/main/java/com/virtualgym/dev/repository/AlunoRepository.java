@@ -7,4 +7,8 @@ import com.virtualgym.dev.model.AlunoModel;
 
 @Repository
 public interface AlunoRepository extends JpaRepository<AlunoModel, Long>{
+	
+	AlunoModel findByEmail(String email);
+
+	AlunoModel findById(int i);
 }

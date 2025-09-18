@@ -2,32 +2,71 @@
 <html lang="pt-BR">
     <head>
         <meta charset="utf-8">
-        <title>My first three.js app</title>
         <link rel="stylesheet" href="./styles/mainStyle.css">
         <link rel="icon" type="image/x-icon" href="../images/icons/vgicon.ico">
+        <title>Virtual Gym</title>
     </head>
     <body>
         <div class="container">
+
             <nav class="navbar" id="navbar">
                 <div class="logo">
                     <img src="../images/icons/logoVG.png"
-                        alt="Logo Virtual Gym" class="navIcon">
+                        alt="Logo Virtual Gym" class="navLogo">
                     <span>VIRTUAL GYM</span>
                 </div>
-                <img src="./images/icons/do-utilizador.png" class="navIcon">
+
+                <img src="./images/icons/do-utilizador.png" class="navIcon"
+                    onclick="openMenu()">
             </nav>
-            <hr>
+            <hr class="navHr">
+
             <div class="content">
-                <div class="sidebar" id="sidebar"></div>
+                <div class="sidebar" id="sidebar">
+
+                </div>
+
                 <div class="model" id="model">
-                    <div class="findBar">
+
+                    <div class="findBar" id="findBar">
                         <input type="text" class="inputFindBar"
                             placeholder="Pesquise aqui">
-                        <button><img src="images/icons/lupa.png"></button>
+                        <button class="button"><img src="images/icons/lupa.png"
+                                class="button"></button>
+                    </div>
+
+                    <div class="modelMenu" id="menu">
+                        <div class="modelMenuContent">
+                            <div class="modelMenuItem" id="menuItem">
+                                <img src="./images/icons/do-utilizador.png"
+                                    class="menuIcon">
+                                <span id="Username"
+                                    onload="getUsername()"></span>
+                            </div>
+                            <hr>
+
+                            <div class="modelMenuItem" id="menuItem"
+                                onclick="changeAccount()">
+                                <img src="./images/icons/do-utilizador.png"
+                                    class="menuIcon">
+                                <span>Trocar de conta</span>
+                            </div>
+                            <hr>
+
+                            <div class="modelMenuItem" id="menuItem"
+                                onclick="logout()">
+                                <img src="./images/icons/do-utilizador.png"
+                                    class="menuIcon">
+                                <span>Sair da conta</span>
+                            </div>
+                            <hr>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="menuContent">
             <div class="menu">
                 <img src="./images/icons/casa.png" class="menuIcon">
@@ -38,6 +77,7 @@
                 <img src="./images/icons/historia.png" class="menuIcon">
             </div>
         </div>
+
         <!--Used for render the model-->
         <script type="importmap">
             {
@@ -48,6 +88,7 @@
             }       
         </script>
         <script type="module" src="./Scripts/main.js"></script>
-        <script src="Scripts/autorization.js"></script>
+        <script src="Scripts/autenticator.js"></script>
+        <script src="Scripts/menuIndex.js"></script>
     </body>
 </html>

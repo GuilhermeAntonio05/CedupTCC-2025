@@ -17,13 +17,6 @@ body {
   background-color: var(--background);
 }
 
-.model {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: var(--background);
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -46,6 +39,11 @@ body {
   width: 80px;
 }
 
+.navLogo {
+  height: 60px;
+  width: 60px;
+}
+
 .logo{
   display: flex;
   align-items: center;
@@ -54,7 +52,7 @@ body {
   font-weight: 600;
 }
 
-hr {
+.navHr {
   background-color: var(--green);
   height: 1px;
   border: none;
@@ -65,6 +63,58 @@ hr {
   flex-direction: row;
   background-color: var(--background);
   height: 100%;
+}
+
+.model {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+}
+
+.modelMenu{
+  display: none;
+  position: absolute;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(140, 140, 140,0.5);
+}
+
+.modelMenuContent{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  gap: 20px;
+}
+
+.modelMenuContent hr{
+  border: 1px white solid;
+  width: 100%;
+}
+
+.modelMenuContent img{
+ height: 100px;
+ width: 100px;
+}
+
+.modelMenuContent span{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  width: 100%;
+  font-size: 40px;
+  padding-left: 20px;
+}
+
+.modelMenuItem{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
 }
 
 .sidebar {
@@ -102,13 +152,16 @@ hr {
     padding-left: 20px;
   }
 
-  .findBar img {
+  .findBar .button {
     position: absolute;
     height: 45px;
     width: 45px;
     right: 5%;
     top: 50%;
     transform: translateY(-50%);
+    background-color: transparent;
+    color: transparent;
+    border: transparent;
   }
 
   .menuIcon {

@@ -1,6 +1,5 @@
 package com.virtualgym.dev.service;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,13 +37,19 @@ public class AlunoService {
 		return alunoRepository.findById(id);
 	}
 
-	public boolean consultarCadastrado(String email, String senha) {
-		List<AlunoModel> lista = this.buscarTodos();
+	public AlunoModel buscarPorEmail(String email) {
+		return alunoRepository.findByEmail(email);
+	}
 
-		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).getEmail().equals(email) && lista.get(i).getSenha().equals(senha)) {
+	public boolean consultarCadastrado(String email, String senha) {
+		AlunoModel aluno = this.buscarPorEmail(email);
+		
+		try {
+			if (aluno.getEmail().equals(email) && aluno.getSenha().equals(senha)) {
 				return true;
-			}
+			}	
+		}catch (NullPointerException e){
+			System.err.println("AlunoModel.consultarCadastrado(): Usuário inesxistente/Informações nulas não podem ser tratadas");
 		}
 
 		return false;
