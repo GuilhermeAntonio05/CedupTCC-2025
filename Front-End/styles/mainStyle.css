@@ -25,7 +25,6 @@ body {
   height: 100px;
   width: 100vw;
   background-color: var(--background);
-<<<<<<< HEAD
   align-items: center;
   justify-content: space-between;
   padding: 0px 5px;
@@ -47,8 +46,6 @@ body {
   color: var(--green);
   font-size: 16px;
   font-weight: 600;
-=======
->>>>>>> cde5afed0fb9116f5c809bc1dccca071f8019d85 
 }
 
 .navHr {
@@ -151,7 +148,6 @@ body {
     height: 100%;
     width: 100%;
   }
-<<<<<<< HEAD
 
   .findBar .button {
     position: absolute;
@@ -165,8 +161,6 @@ body {
     border: transparent;
   }
 
-=======
->>>>>>> cde5afed0fb9116f5c809bc1dccca071f8019d85
   .menuIcon {
     display: block;
     height: 60px;
