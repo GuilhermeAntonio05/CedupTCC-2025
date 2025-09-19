@@ -14,7 +14,7 @@ function openMenu() {
 
 function logout() {
   localStorage.removeItem("login");
-  localStorage.removeItem("session");
+  //localStorage.removeItem("session");
   window.location.href = "./pages/login.html";
 }
 

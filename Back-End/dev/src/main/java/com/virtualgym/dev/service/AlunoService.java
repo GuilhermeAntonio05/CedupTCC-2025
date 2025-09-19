@@ -41,7 +41,7 @@ public class AlunoService {
 		return alunoRepository.findByEmail(email);
 	}
 
-	public boolean consultarCadastrado(String email, String senha) {
+	public boolean consultarCadastradoValido(String email, String senha) {
 		AlunoModel aluno = this.buscarPorEmail(email);
 		
 		try {

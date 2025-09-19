@@ -4,6 +4,7 @@ form.addEventListener("submit", (e) => {
 
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
+  const lembrar = document.getElementById("lembrar").checked;
 
   fetch("http://localhost:8080/login", {
     method: "POST",
@@ -15,13 +16,22 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+
+        console.log(email,senha)
+        if (!localStorage.getItem("dataAccess") || !localStorage.getItem("dataAccess").includes(email)) {
+          localStorage.setItem(
+            "dataAccess",
+            (localStorage.getItem("dataAccess") || "") + " " + email
+          );
+        }
+
+        localStorage.setItem(
+          "lastSession",
+          `{"email":"${email}","lembrar":"${lembrar}"}`
+        );
+
         window.location.href = "../index.html";
         localStorage.setItem("login", "true");
-        localStorage.setItem(
-          "dataAccess",
-          (localStorage.getItem("dataAccess") || "") + " " + email
-        );
-        localStorage.setItem("session", email);
       }
     })
     .catch((error) => {
@@ -29,49 +39,30 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-fetch("http://localhost:8080/login")
-  .then((e) => e.text())
-  .then((e) => console.log(e));
+window.onload = () => {
+  const lastSession = JSON.parse(localStorage.getItem("lastSession"));
+  const emailInput = document.getElementById("email");
+  const senhaInput = document.getElementById("senha");
+  const lembrarInput = document.getElementById("lembrar").checked = true;
 
-const senhaInput = document.getElementById("senha");
-const toggleSenha = document.getElementById("toggleSenha");
-
-toggleSenha.addEventListener("click", () => {
-  const tipo =
-    senhaInput.getAttribute("type") === "password" ? "text" : "password";
-  senhaInput.setAttribute("type", tipo);
-
-  if (tipo === "password") {
-    toggleSenha.classList.remove("bxs-lock-open");
-    toggleSenha.classList.add("bxs-lock");
-  } else {
-    toggleSenha.classList.remove("bxs-lock");
-    toggleSenha.classList.add("bxs-lock-open");
+  if (lastSession) {
+    fetch(`http://localhost:8080/login?email=${lastSession.email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          emailInput.value = data.email;
+          senhaInput.value = data.senha;
+        }else{
+          alert("Erro ao carregar os dados da última sessão.");
+        }
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      });
   }
-});
-        const emailInput = document.getElementById("email");
-        const lembrarCheck = document.getElementById("lembrar");
-
-        window.onload = () => {
-          const savedEmail = localStorage.getItem("email");
-          const savedSenha = localStorage.getItem("senha");
-
-          if (savedEmail) {
-            emailInput.value = savedEmail;
-            lembrarCheck.checked = true;
-          }
-          if (savedSenha) {
-            senhaInput.value = savedSenha;
-          }
-        };
-        document
-          .getElementById("loginForm")
-          .addEventListener("submit", function () {
-            if (lembrarCheck.checked) {
-              localStorage.setItem("email", emailInput.value);
-            } else {
-              localStorage.removeItem("email");
-              localStorage.removeItem("senha");
-            }
-          });
-      
+};
