@@ -21,7 +21,7 @@ form.addEventListener("submit", (e) => {
         if (!localStorage.getItem("dataAccess") || !localStorage.getItem("dataAccess").includes(email)) {
           localStorage.setItem(
             "dataAccess",
-            (localStorage.getItem("dataAccess") || "") + " " + email
+            email + "," + (localStorage.getItem("dataAccess") || "")
           );
         }
 
@@ -43,18 +43,19 @@ window.onload = () => {
   const lastSession = JSON.parse(localStorage.getItem("lastSession"));
   const emailInput = document.getElementById("email");
   const senhaInput = document.getElementById("senha");
-  const lembrarInput = document.getElementById("lembrar").checked = true;
-
-  if (lastSession) {
+  const lembrar = lastSession.lembrar === "true";
+  
+  if (lembrar) {
     fetch(`http://localhost:8080/login?email=${lastSession.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+          document.getElementById("lembrar").checked = true;
           emailInput.value = data.email;
           senhaInput.value = data.senha;
         }else{

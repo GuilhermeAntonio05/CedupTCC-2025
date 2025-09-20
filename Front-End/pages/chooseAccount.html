@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles/loginStyle.css" />
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/chooseAccountStyle.css" />
     <link rel="icon" type="image/x-icon" href="../images/icons/vgicon.ico" />
     <title>Virtual Gym</title>
   </head>
@@ -19,31 +18,25 @@
       </div>
     </header>
     <div class="login-container">
-      <h1>Login</h1>
-      <form id="teste">
-        <div class="caixa-login">
-          <input type="email" placeholder="Email" id="email" required />
-          <i class="bx bxs-user"></i>
-        </div>
-        <div class="caixa-login">
-          <input type="password" placeholder="Senha" id="senha" required />
-          <i class='bx bxs-lock' id="toggleSenha" style="cursor: pointer;"></i>
-        </div>
-        <div class="caixa-lembrar-esqueci">
-          <label><input type="checkbox" id="lembrar" />Lembrar</label>
-          <a href="recuperar.html">Esqueci minha senha</a>
-        </div>
-        <div class="termos">
-          <input type="checkbox" id="termos" required />
-          <label for="termos">
-            Li e declaro, que aceito os
-            <a href="termos.html">Termos de privacidade</a> e suas
-            <a href="termos.html">Políticas de privacidade</a>.
-          </label>
-        </div>
-        <button type="submit">Entrar</button>
-      </form> 
+      <h1>Escolher Conta</h1>
+
+      <div id="container"></div>
+
+      <button class="botao-adicionar-conta" id="adicionarConta"
+        onclick="addAccount()">Adicionar Conta</button>
+
+      <div class="termos">
+        <input type="checkbox" id="termos" required />
+        <label for="termos">
+          Li e declaro, que aceito os
+          <a href="termos.html">Termos de privacidade</a> e suasF
+          <a href="termos.html">Políticas de privacidade</a>.
+        </label>
+      </div>
     </div>
-    <script src="../Scripts/login.js"></script>
+
+    <script src="../Scripts/autenticator.js"></script>
+    <script src="../Scripts/chooseAccount.js"></script>
+
   </body>
 </html>
