@@ -36,7 +36,8 @@ header .logo span {
 }
 
 body {
-  background: #f5f5f5;
+  background-image: url(../images/background/gym.png);
+  background-size: cover;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
