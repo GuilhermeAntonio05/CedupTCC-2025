@@ -12,7 +12,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   border-bottom: 2px solid #2bff50;
@@ -121,6 +121,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s;
+  margin-top: 10px;
 }
 button:hover {
   background-color: #23cc3a;

@@ -19,7 +19,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   border-bottom: 2px solid #2bff50;
@@ -123,6 +123,11 @@ body {
   background-color: var(--green);
   border-radius: 100px;
   border: none;
+  transition: all 0.3s;
+}
+
+.botao-adicionar-conta:hover{
+  transform: translateY(-5px);
 }
 
 .termos {
