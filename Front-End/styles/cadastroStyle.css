@@ -86,29 +86,6 @@ body {
   right: 20px;
   font-size: 20px;
 }
-.caixa-lembrar-esqueci {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 25px;
-  font-size: 16px;
-}
-.caixa-lembrar-esqueci label {
-  color: #000;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.caixa-lembrar-esqueci label input {
-  accent-color: #2bff50;
-}
-.caixa-lembrar-esqueci a {
-  color: #000;
-  text-decoration: none;
-}
-.caixa-lembrar-esqueci a:hover {
-  text-decoration: underline;
-}
 button {
   width: 100%;
   height: 45px;
