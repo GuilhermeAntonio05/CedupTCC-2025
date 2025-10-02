@@ -1,10 +1,12 @@
 package com.virtualgym.dev.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.virtualgym.dev.dto.AlunoDTO;
 import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 
@@ -29,8 +31,17 @@ public class AlunoService {
 		alunoRepository.deleteById(id);
 	}
 
-	public List<AlunoModel> buscarTodos() {
-		return alunoRepository.findAll();
+	public List<AlunoDTO> buscarTodos() {
+		List<AlunoDTO> dto = new ArrayList<AlunoDTO>();
+		List<AlunoModel> ALUNOS = alunoRepository.findAll();
+
+		for (AlunoModel aluno : ALUNOS) {
+			dto.add(new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getEmail(), aluno.getCpf(), aluno.getTelefone(),
+					aluno.getPeso(), aluno.getData_nascimento(), aluno.getGenero(), aluno.getMensalidade(),
+					aluno.getData_nascimento()));
+		}
+
+		return dto;
 	}
 
 	public Optional<AlunoModel> buscarPorId(long id) {
@@ -43,15 +54,42 @@ public class AlunoService {
 
 	public boolean consultarCadastradoValido(String email, String senha) {
 		AlunoModel aluno = this.buscarPorEmail(email);
-		
+
 		try {
 			if (aluno.getEmail().equals(email) && aluno.getSenha().equals(senha)) {
 				return true;
-			}	
-		}catch (NullPointerException e){
-			System.err.println("AlunoModel.consultarCadastrado(): Usuário inesxistente/Informações nulas não podem ser tratadas");
+			}
+		} catch (NullPointerException e) {
+			System.err.println(
+					"AlunoService.consultarCadastrado(): Usuário inesxistente/Informações nulas não podem ser tratadas");
 		}
 
 		return false;
+	}
+
+	public List<AlunoDTO> buscarQuantidade(int quantidade) {
+		int registros = quantidade;
+		List<AlunoDTO> dto = new ArrayList<AlunoDTO>();
+		List<AlunoModel> ALUNOS = alunoRepository.findAll();
+
+		if (registros < 10) {
+			registros = 10;
+		}
+
+		try {
+			for (int i = registros - 10; i < registros; i++) {
+				AlunoModel aluno = ALUNOS.get(i);
+
+				dto.add(new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getEmail(), aluno.getCpf(),
+						aluno.getTelefone(), aluno.getPeso(), aluno.getData_nascimento(), aluno.getGenero(),
+						aluno.getMensalidade(), aluno.getData_nascimento()));
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.err.println(
+					"AlunoService.buscarQuantidade(): Usuário inesxistente/Informações nulas não podem ser tratadas");
+			return null;
+		}
+
+		return dto;
 	}
 }

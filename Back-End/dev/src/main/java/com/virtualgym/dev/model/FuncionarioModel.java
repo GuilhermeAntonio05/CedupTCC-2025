@@ -33,12 +33,14 @@ public class FuncionarioModel {
 	private String cargo;
 	@Column(name = "Salario", nullable = false)
 	private double salario;
-
+	@Column(name = "Senha", nullable = false)
+	private String senha;
+	
 	public FuncionarioModel() {
 	}
 
 	public FuncionarioModel(Long id, String nome, String email, String cpf, String telefone, Date dataNascimento,
-			char genero, String cargo, double salario) {
+			char genero, String cargo, double salario, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -48,10 +50,11 @@ public class FuncionarioModel {
 		this.genero = genero;
 		this.cargo = cargo;
 		this.salario = salario;
+		this.senha = senha;
 	}
 
 	public FuncionarioModel(String nome, String email, String cpf, String telefone, Date dataNascimento, char genero,
-			String cargo, double salario) {
+			String cargo, double salario, String senha)  {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
@@ -60,13 +63,22 @@ public class FuncionarioModel {
 		this.genero = genero;
 		this.cargo = cargo;
 		this.salario = salario;
+		this.senha = senha;
 	}
 
 	@Override
 	public String toString() {
 		return "FuncionarioModel [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", telefone="
 				+ telefone + ", dataNascimento=" + dataNascimento + ", genero=" + genero + ", cargo=" + cargo
-				+ ", salario=" + salario + "]";
+				+ ", salario=" + salario + ", senha=" + senha + "]";
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+	
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getNome() {
