@@ -2,24 +2,22 @@ Drop database virtualgym;
 create database virtualgym;
 use virtualgym;
 
-/* Lógico_1: */
-
 CREATE TABLE Aluno (
     Aluno_ID int not null PRIMARY KEY auto_increment,
-    Nome varchar(200) not null UNIQUE,
+    Nome varchar(200) not null,
     Email varchar(200) not null UNIQUE,
-    CPF varchar(14) not null,
+    CPF varchar(14) not null UNIQUE,
     Peso decimal(5,2) not null,
     Telefone varchar(20) not null,
     Data_Nascimento date  not null,
     Senha varchar(200) not null,
-    fk_Mensalidade_ID int ,
+    fk_Mensalidade_ID int default 1,
     Data_Vencimento date not null,
     Genero enum("f","m") default "m" not null
-
 );
 
 CREATE TABLE Funcionario (
+    Funcionario_ID int PRIMARY KEY auto_increment,
     Nome varchar(200) not null,
     Email varchar(200) not null UNIQUE,
     CPF varchar(14) not null UNIQUE,
@@ -28,7 +26,7 @@ CREATE TABLE Funcionario (
     Genero enum("f","m") default "m" not null,
     Cargo varchar(200) not null,
     Salario decimal(7,2) not null,
-    Funcionario_ID int PRIMARY KEY auto_increment
+    Senha varchar(200) not null
 
 );
 
@@ -143,3 +141,6 @@ insert into exercicios_seq (next_val)value(1);
 insert into historico_seq (next_val)value(1);
 insert into aluno_treino_seq (next_val)value(1);
 insert into treino_exercicios_seq (next_val)value(1);
+
+insert into mensalidade (Estado) 
+values ("pago"),("atrasado"),("cancelado");

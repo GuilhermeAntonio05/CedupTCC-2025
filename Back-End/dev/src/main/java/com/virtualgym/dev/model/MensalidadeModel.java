@@ -33,6 +33,10 @@ public class MensalidadeModel {
 	public MensalidadeModel(Long id, String estado) {
 		this.id = id;
 		this.estado = estado;
+	}	
+	
+	public MensalidadeModel(Long id) {
+		this.id = id;
 	}
 
 	public Long getId() {
