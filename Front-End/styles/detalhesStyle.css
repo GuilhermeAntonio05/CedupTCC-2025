@@ -5,34 +5,41 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+:root {
+--background: #041333;
+--green: #2bff50;
+--gray: #e5e5e5;
+}
+
 header {
-  width: 100%;
-  height: 60px;
-  background: #001f3f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-bottom: 2px solid #2bff50;
+width: 100%;
+height: 60px;
+background: var(--background);
+display: flex;
+justify-content: center;
+align-items: center;
+position: flex;
+top: 0;
+left: 0;
+border-bottom: 2px solid var(--green);
 }
 
 header .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+display: flex;
+align-items: center;
+gap: 8px;
 }
 
 header .logo img {
-  height: 40px;
+height: 40px;
 }
 
 header .logo span {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2bff50;
-  text-transform: uppercase;
+font-size: 16px;
+font-weight: 600;
+color: var(--green);
+text-transform: uppercase;
 }
 
 body {
@@ -41,14 +48,10 @@ body {
 }
 
 .sidebar {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 220px;
+  width: 315px;
   height: 100%;
-  background: #001f3f;
-  padding: 20px 0;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  background: var(--background);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar nav ul {
@@ -71,27 +74,42 @@ body {
 }
 
 .sidebar nav ul li a:hover {
-  background: #2bff50;
-  color: #001f3f;
+  background: var(--green);
+  color: var(--background);
   border-radius: 8px;
 }
 
+
 .content {
-  margin-left: 240px;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
-  max-width: 900px;
-  margin: 100px auto 40px auto;
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.contentDetails{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
   background: #fff;
-  padding: 25px;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 95%;
+  width: 95%;
+  padding: 10px;
+  border: 1px solid var(--gray);
 }
 
 .title {
@@ -105,7 +123,7 @@ body {
   font-size: 18px;
   font-weight: 600;
   color: #001f3f;
-  margin: 20px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 .autor {
@@ -133,7 +151,7 @@ ul li {
   padding: 12px 25px;
   border-radius: 30px;
   font-weight: bold;
-  margin-top: 25px;
+  margin-top: 8px;
   text-decoration: none;
   transition: 0.3s;
 }

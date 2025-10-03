@@ -5,17 +5,24 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+:root {
+  --background: #041333;
+  --green: #2bff50;
+  --gray: #e5e5e5;
+}
+
 header {
   width: 100%;
   height: 60px;
-  background: #001f3f;
+  background: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  border-bottom: 2px solid #2bff50;
+  border-bottom: 2px solid var(--green);
 }
 
 header .logo {
@@ -31,9 +38,10 @@ header .logo img {
 header .logo span {
   font-size: 16px;
   font-weight: 600;
-  color: #2bff50;
+  color: var(--green);
   text-transform: uppercase;
 }
+
 body {
   background-image: url(../images/background/gym.png);
   background-size: cover;
@@ -80,7 +88,7 @@ body {
   color: rgb(0, 0, 0);
 }
 .caixa-login i {
-  color: #001f3f;
+  color: var(--background);
   position: absolute;
   top: 25%;
   right: 20px;
@@ -100,7 +108,7 @@ body {
   gap: 5px;
 }
 .caixa-lembrar-esqueci label input {
-  accent-color: #2bff50;
+  accent-color: var(--green);
 }
 .caixa-lembrar-esqueci a {
   color: #000;
@@ -112,7 +120,7 @@ body {
 button {
   width: 100%;
   height: 45px;
-  background-color: #2bff50;
+  background-color: var(--green);
   border: none;
   border-radius: 10px;
   outline: none;
@@ -134,12 +142,12 @@ button:hover {
   color: #000;
 }
 .termos label a {
-  color: #001f3f;
+  color: var(--background);
   font-weight: 600;
   text-decoration: none;
 }
 #termos {
-  accent-color: #2bff50;
+  accent-color: var(--green);
 }
 .termos label a:hover {
   text-decoration: underline;

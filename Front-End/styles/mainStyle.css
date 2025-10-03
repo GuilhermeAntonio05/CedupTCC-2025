@@ -27,6 +27,36 @@ body {
   width: 100vw;
 }
 
+header {
+  width: 100%;
+  height: 60px;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: flex;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid var(--green);
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .logo span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -184,8 +214,36 @@ tr {
 }
 
 .sidebar {
+  top: 60px;
   width: 315px;
-  background-color: var(--background);
+  height: 100%;
+  background: var(--background);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background: var(--green);
+  color: var(--background);
+  border-radius: 8px;
 }
 
 .navIcon {
@@ -224,6 +282,7 @@ tr {
   color: transparent;
   border: transparent;
 }
+
 @media (max-width: 1200px) {
   .menuIcon {
     display: block;
