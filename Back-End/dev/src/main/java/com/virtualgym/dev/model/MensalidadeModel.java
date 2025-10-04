@@ -15,7 +15,7 @@ public class MensalidadeModel {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Mensalidade_ID")
 	private Long id;
-	@Column(name = "Estado", nullable = false)
+	@Column(name = "Estado")
 	private String estado;
 
 	@Override

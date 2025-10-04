@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.virtualgym.dev.model.AlunoModel;
+import com.virtualgym.dev.dto.AlunoCadastroDTO;
 import com.virtualgym.dev.model.FuncionarioModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.repository.FuncionarioRepository;
@@ -26,7 +26,7 @@ public class CadastroController {
 	FuncionarioRepository funcionarioRepository;
 	
 	@PostMapping("/aluno")
-	public void criarAluno(@RequestBody AlunoModel reponseAlunoModel) {
+	public void criarAluno(@RequestBody AlunoCadastroDTO reponseAlunoModel) {
 		AlunoService alunoService = new AlunoService(alunoRpeository);
 		alunoService.criar(reponseAlunoModel);
 	}

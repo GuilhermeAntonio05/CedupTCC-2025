@@ -10,6 +10,9 @@ function fetchAlunos() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+        let message = document.getElementById("errorMessage");
+        message.textContent = "";
+
         for (let aluno of data) {
           let row = document.createElement("tr");
           row.innerHTML = `
@@ -53,8 +56,10 @@ function proximo() {
 }
 
 function anterior() {
-  position -= 10;
-  if (position < 0) position = 0;
+  if (position > 10) {
+    position -= 10;
+  }
+  let tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
   fetchAlunos();
 }

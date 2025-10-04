@@ -18,13 +18,38 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmarSenha.setCustomValidity("");
     }
   });
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    window.location.href = "index.html";
-  });
 });
+
+function cadastrar() {
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const cpf = document.getElementById("cpf").value;
+  const telefone = document.getElementById("telefone").value;
+  const peso = document.getElementById("peso").value;
+  const data_nascimento = document.getElementById("data_nascimento").value;
+  const genero = document.getElementById("genero").value;
+  const senha = document.getElementById("senha").value;
+
+  fetch("http://localhost:8080/cadastro/aluno", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nome,
+      email,
+      cpf,
+      telefone,
+      peso,
+      data_nascimento,
+      genero,
+      senha,
+    }),
+  })
+    .then((data) => {
+      if (data) {
+        window.location.href = "HomeFuncionario.html";
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}

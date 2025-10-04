@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
-    />
-    <link rel="stylesheet" href="../styles/loginStyle.css" />
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+    <link rel="stylesheet" href="../styles/cadastroStyle.css" />
     <link rel="icon" type="image/x-icon" href="../images/icons/vgicon1.ico" />
     <title>Virtual Gym</title>
   </head>
@@ -18,61 +17,91 @@
         <span>VIRTUAL GYM</span>
       </div>
     </header>
+
     <div class="login-container">
       <h1>Cadastro</h1>
-      <form id="teste">
-        <div class="caixa-login">
-          <input
-            type="text"
-            placeholder="CPF"
-            id="cpf"
-            required
-            maxlength="14"
-            inputmode="numeric"
-            autocomplete="off"
-          />
-          <i class="fi fi-sr-id-card"></i>
+        <div class="form-grid">
+          <div class="caixa-login">
+            <input type="text" placeholder="Nome" id="nome" required />
+            <i class="fi fi-sr-user"></i>
+          </div>
+
+          <div class="caixa-login">
+            <input
+              type="text"
+              placeholder="CPF"
+              id="cpf"
+              required
+              maxlength="14"
+              inputmode="numeric"
+              autocomplete="off" />
+            <i class="fi fi-sr-id-card"></i>
+          </div>
+
+          <div class="caixa-login">
+            <input type="text" placeholder="Telefone" id="telefone" required />
+            <i class="fi fi-sr-phone-call"></i>
+          </div>
+
+          <div class="caixa-login">
+            <input
+              type="number"
+              step="0.01"
+              placeholder="Peso (kg)"
+              id="peso"
+              required />
+            <i class="fi fi-sr-weight"></i>
+          </div>
+
+          <div class="caixa-login">
+            <input
+              type="date"
+              placeholder="Data de Nascimento"
+              id="data_nascimento"
+              required />
+          </div>
+
+          <div class="caixa-login">
+            <select id="genero" required>
+              <option value>Selecione o Gênero</option>
+              <option value="m">Masculino</option>
+              <option value="f">Feminino</option>
+            </select>
+            <i class="fi fi-sr-venus-mars"></i>
+          </div>
+
+          <div class="caixa-login form-full">
+            <input type="email" placeholder="Email" id="email" required />
+            <i class="fi fi-sr-envelope"></i>
+          </div>
+
+          <div class="caixa-login form-full">
+            <input type="password" placeholder="Senha" id="senha" required />
+            <i class="fi fi-sr-lock" style="cursor: pointer"></i>
+          </div>
+
+          <div class="caixa-login form-full">
+            <input
+              type="password"
+              placeholder="Confirmar Senha"
+              id="confirmarSenha"
+              required />
+            <i class="fi fi-sr-lock" style="cursor: pointer"></i>
+          </div>
         </div>
-        <div class="caixa-login">
-          <input type="text" placeholder="Nome" id="nome" required />
-          <i class="fi fi-sr-user"></i>
-        </div>
-        <div class="caixa-login">
-          <input type="email" placeholder="Email" id="email" required />
-          <i class="fi fi-sr-envelope"></i>
-        </div>
-        <div class="caixa-login">
-          <input
-            type="date"
-            placeholder="Data de Nascimento"
-            id="data"
-            required
-          />
-        </div>
-        <div class="caixa-login">
-          <input type="password" placeholder="Senha" id="senha" required />
-             id="toggleSenha" style="cursor: pointer"></i>
-        </div>
-        <div class="caixa-login">
-          <input
-            type="password"
-            placeholder="Confirmar Senha"
-            id="confirmarSenha"
-            required
-          />
-          <i class="fi fi-sr-lock" style="cursor: pointer"></i>
-        </div>
+
         <div class="termos">
           <input type="checkbox" id="termos" required />
           <label for="termos">
-            Li e declaro, que aceito os
-            <a href="termos.html">Termos de privacidade</a> e suas
+            Li e aceito os
+            <a href="termos.html">Termos de uso</a> e as
             <a href="termos.html">Políticas de privacidade</a>.
           </label>
         </div>
-        <button type="submit">Entrar</button>
-      </form>
+
+        <button onclick="cadastrar()">Cadastrar</button>
     </div>
+
     <script src="../Scripts/cadastro.js"></script>
   </body>
 </html>

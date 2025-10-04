@@ -31,7 +31,7 @@ public class AlunoModel {
 	@Column(name = "Data_nascimento", nullable = false)
 	private Date data_nascimento;
 	@Column(name = "Genero", nullable = false)
-	private String genero;
+	private char genero;
 	@ManyToOne
 	@JoinColumn(name = "fk_Mensalidade_ID")
 	private MensalidadeModel mensalidade;
@@ -52,7 +52,7 @@ public class AlunoModel {
 	}
 
 	public AlunoModel(Long id, String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			String genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
+			char genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -67,7 +67,7 @@ public class AlunoModel {
 	}
 
 	public AlunoModel(String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			String genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
+			char genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
@@ -140,11 +140,11 @@ public class AlunoModel {
 		this.data_nascimento = data_nascimento;
 	}
 
-	public String getGenero() {
+	public char getGenero() {
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(char genero) {
 		this.genero = genero;
 	}
 

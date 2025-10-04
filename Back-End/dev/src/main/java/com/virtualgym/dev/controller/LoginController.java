@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.virtualgym.dev.dto.AlunoLoginDTO;
+import com.virtualgym.dev.dto.LoginDTO;
 import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.service.AlunoService;
@@ -24,16 +24,16 @@ public class LoginController {
 	AlunoRepository alunoRepository;
 
 	@PostMapping()
-	public boolean consultarCadastradoValido(@RequestBody AlunoLoginDTO response) {
+	public boolean consultarCadastradoValido(@RequestBody LoginDTO response) {
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		return alunoService.consultarCadastradoValido(response.email(), response.senha());
 	}
 	
 	@GetMapping()
-	public AlunoLoginDTO consultarCadastro(@PathParam("email") String email) {
+	public LoginDTO consultarCadastro(@PathParam("email") String email) {
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		AlunoModel alunoModel = alunoService.buscarPorEmail(email);
-		return new AlunoLoginDTO(alunoModel.getEmail(),alunoModel.getSenha());
+		return new LoginDTO(alunoModel.getEmail(),alunoModel.getSenha());
 	}
 }
 	
