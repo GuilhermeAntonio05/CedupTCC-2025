@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --background: #041333;
+  --green: #2bff50;
+  --gray: #e5e5e5;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: flex;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid var(--green);
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .logo span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  background-color: var(--background);
+  align-items: center;
+}
+
+.navIcon {
+  height: 80px;
+  width: 80px;
+}
+
+.navLogo {
+  height: 60px;
+  width: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navHr {
+  background-color: var(--green);
+  height: 1px;
+  border: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background);
+  height: 100%;
+}
+
+.model {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.confirmDelete{
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  padding: 10px;
+  background-color: red;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  background: #2bff50;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  border:none;
+}
+
+.btn:hover {
+  background: #24cc40;
+  transform: translateY(-5px);
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  margin: auto;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+} 
+
+.tbIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.tbButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 100px;
+}
+
+.tbHr{
+  border: 1px #e5e5e5 solid;
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+th,td {
+  border-left: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 4px;
+}
+
+tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tbButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.modelMenu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(140, 140, 140, 0.5);
+}
+
+.modelMenuContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25px;
+  height: 50%;
+  gap: 20px;
+}
+
+.modelMenuContent hr {
+  border: 1px white solid;
+  width: 100%;
+}
+
+.modelMenuContent img {
+  height: 100px;
+  width: 100px;
+}
+
+.modelMenuContent span {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  width: 100%;
+  font-size: 40px;
+  padding-left: 20px;
+}
+
+.modelMenuItem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+}
+
+.sidebar {
+  width: 315px;
+  height: 100%;
+  background: var(--background);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background: var(--green);
+  color: var(--background);
+  border-radius: 8px;
+}
+
+.navIcon {
+  height: 80px;
+  width: 80px;
+}
+
+.menuIcon {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    display: none;
+  }
+}
