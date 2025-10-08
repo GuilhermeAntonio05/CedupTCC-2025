@@ -52,6 +52,7 @@ body {
   overflow: hidden;
   position: relative;
 }
+
 .login-container {
   width: 400px;
   background-color: #fff;
@@ -62,6 +63,7 @@ body {
   border-radius: 16px;
   padding: 35px;
 }
+
 .login-container h1 {
   color: #001f3f;
   text-align: center;
@@ -69,10 +71,12 @@ body {
   font-size: 28px;
   font-weight: 600;
 }
+
 .caixa-login {
   position: relative;
   margin-bottom: 30px;
 }
+
 .caixa-login input {
   width: 100%;
   height: 50px;
@@ -84,9 +88,11 @@ body {
   font-size: 16px;
   background: #fff;
 }
+
 .caixa-login input::placeholder {
   color: rgb(0, 0, 0);
 }
+
 .caixa-login i {
   color: var(--background);
   position: absolute;
@@ -94,6 +100,7 @@ body {
   right: 20px;
   font-size: 20px;
 }
+
 .caixa-lembrar-esqueci {
   display: flex;
   align-items: center;
@@ -101,22 +108,27 @@ body {
   margin-bottom: 25px;
   font-size: 16px;
 }
+
 .caixa-lembrar-esqueci label {
   color: #000;
   display: flex;
   align-items: center;
   gap: 5px;
 }
+
 .caixa-lembrar-esqueci label input {
   accent-color: var(--green);
 }
+
 .caixa-lembrar-esqueci a {
   color: #000;
   text-decoration: none;
 }
+
 .caixa-lembrar-esqueci a:hover {
   text-decoration: underline;
 }
+
 button {
   width: 100%;
   height: 45px;
@@ -131,24 +143,42 @@ button {
   transition: all 0.3s;
   margin-top: 10px;
 }
+
 button:hover {
   background-color: #23cc3a;
   transform: translateY(-5px);
 }
+
 .termos {
   margin-top: 15px;
   text-align: left;
   font-size: 16px;
   color: #000;
 }
+
 .termos label a {
   color: var(--background);
   font-weight: 600;
   text-decoration: none;
 }
+
 #termos {
   accent-color: var(--green);
 }
+
 .termos label a:hover {
   text-decoration: underline;
+}
+
+.link{
+  width: 100%;
+  margin-top: 5px;
+  text-align: center;
+  
+}
+
+.link a{
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
 }

@@ -15,9 +15,9 @@ function openMenu() {
 function logout() {
   localStorage.removeItem("login");
   //localStorage.removeItem("session");
-  window.location.href = "./pages/login.html";
+  window.location.href = "../../pages/aluno/login.html";
 }
 
 function changeAccount() {
-  window.location.href = "./pages/chooseAccount.html";
+  window.location.href = "../../pages/aluno/chooseAccount.html";
 }

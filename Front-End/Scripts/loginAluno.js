@@ -6,7 +6,7 @@ form.addEventListener("submit", (e) => {
   const senha = document.getElementById("senha").value;
   const lembrar = document.getElementById("lembrar").checked;
 
-  fetch("http://localhost:8080/login", {
+  fetch("http://localhost:8080/login/aluno", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -16,8 +16,6 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-
-        console.log(email,senha)
         if (!localStorage.getItem("dataAccess") || !localStorage.getItem("dataAccess").includes(email)) {
           localStorage.setItem(
             "dataAccess",
@@ -30,8 +28,9 @@ form.addEventListener("submit", (e) => {
           `{"email":"${email}","lembrar":"${lembrar}"}`
         );
 
-        window.location.href = "../index.html";
+        window.location.href = "../../";
         localStorage.setItem("login", "true");
+        localStorage.setItem("isWorker", "false");
       }
     })
     .catch((error) => {

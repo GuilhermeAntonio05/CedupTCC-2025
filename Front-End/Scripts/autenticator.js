@@ -1,13 +1,13 @@
 function Autenticated() {
-  const logged = Boolean(localStorage.getItem("login") == "true");
+  const logged = Boolean(localStorage.getItem("login") == "true")  && Boolean(localStorage.getItem("isWorker") == "false");
   if (!logged) {
-    window.location.href = "../pages/login.html";
+    window.location.href = "../../pages/aluno/login.html";
     localStorage.removeItem("login");
   }
 }
 
 function main() {
-    Autenticated();
+  Autenticated();
 }
 
 main();

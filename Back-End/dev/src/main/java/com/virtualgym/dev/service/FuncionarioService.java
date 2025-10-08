@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.model.FuncionarioModel;
 import com.virtualgym.dev.repository.FuncionarioRepository;
 
@@ -40,6 +41,25 @@ public class FuncionarioService {
 	
 	public Optional<FuncionarioModel> buscarPorId(long id) {
 		return funcionarioRepository.findById(id);
+	}
+
+	public FuncionarioModel buscarPorEmail(String email) {
+		return funcionarioRepository.findByEmail(email);
+	}
+	
+	public boolean consultarCadastradoValido(String email, String senha) {
+		FuncionarioModel funcionario = this.buscarPorEmail(email);
+
+		try {
+			if (funcionario.getEmail().equals(email) && funcionario.getSenha().equals(senha)) {
+				return true;
+			}
+		} catch (NullPointerException e) {
+			System.err.println(
+					"AlunoService.consultarCadastrado(): Usuário inesxistente/Informações nulas não podem ser tratadas");
+		}
+
+		return false;
 	}
 
 }

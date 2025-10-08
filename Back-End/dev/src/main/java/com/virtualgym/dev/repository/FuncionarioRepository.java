@@ -8,4 +8,6 @@ import com.virtualgym.dev.model.FuncionarioModel;
 @Repository
 public interface FuncionarioRepository extends JpaRepository<FuncionarioModel, Long>{
 
+	FuncionarioModel findByEmail(String email);
+
 }
