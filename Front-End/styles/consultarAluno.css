@@ -106,10 +106,17 @@ header .logo span {
 
 .confirmDelete{
   position: absolute;
+  display: none;
+  align-items: center;
+  flex-direction: column;
   top: 45%;
   left: 45%;
   padding: 10px;
-  background-color: red;
+  background-color: white;
+  border: solid 3px var(--gray);
+  border-radius: 50px;
+  padding: 20px;
+  box-shadow: 0px 2px 20px black;
 }
 
 .btn {

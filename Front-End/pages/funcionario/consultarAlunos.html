@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../styles/consultarAluno.css">
-        <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico">
+        <link rel="icon" type="image/x-icon"
+            href="../../images/icons/vgicon1.ico">
         <title>Virtual Gym</title>
     </head>
     <body>
@@ -21,10 +22,11 @@
                 <div class="sidebar" id="sidebar">
                     <nav>
                         <ul>
-                            <li><a href="../../index.html">Início</a></li>
+                            <li><a href="HomeFuncionario.html">Início</a></li>
                             <li><a href="treino.html">Treino</a></li>
                             <li><a href="historico.html">Histórico</a></li>
-                            <li><a href="./HomeFuncionario.html">Consultar Alunos</a></li>
+                            <li><a href="consultarAlunos.html">Consultar
+                                    Alunos</a></li>
                             <li><a href="cadastro.html">Adicionar Aluno</a></li>
                             <li><a onclick="openMenu()"> Configurações</a></li>
                         </ul>
@@ -33,10 +35,15 @@
 
                 <div class="model" id="model">
 
-                    <div class="confirmDelete">
-                        <p>Você está prestes a deletar o aluno de ID: <span id="deleteId"></span></p>
-                        <button class="btn" onclick="confirmDelete()">Confirmar</button>
-                        <button class="btn" onclick="cancelDelete()">Cancelar</button>
+                    <div class="confirmDelete" id="confirmDelete">
+                        <p>Você está prestes a deletar o aluno de ID: <span
+                                id="deleteId"></span></p>
+                        <div>
+                            <button class="btn"
+                                onclick="confirmDelete()">Confirmar</button>
+                            <button class="btn"
+                                onclick="cancelDelete()" >Cancelar</button>
+                        </div>
                     </div>
 
                     <div class="tableContainer">
@@ -92,7 +99,7 @@
 
                             <div class="modelMenuItem" id="menuItem"
                                 onclick="changeAccount()">
-                                <img src="./images/icons/exchange.png"
+                                <img src="../../images/icons/exchange.png"
                                     class="menuIcon">
                                 <span>Trocar de conta</span>
                             </div>
@@ -100,7 +107,7 @@
 
                             <div class="modelMenuItem" id="menuItem"
                                 onclick="logout()">
-                                <img src="./images/icons/sair.png"
+                                <img src="../../images/icons/sair.png"
                                     class="menuIcon">
                                 <span>Sair da conta</span>
                             </div>
@@ -113,9 +120,7 @@
         </div>
 
         <script src="../../Scripts/getAlunos.js"></script>
-        <!--
-            <script src="../../Scripts/autenticator.js"></script>
-        -->
+        <script src="../../Scripts/autenticatorFuncionario.js"></script>
         <script src="../../Scripts/menuIndex.js"></script>
     </body>
 </html>

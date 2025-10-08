@@ -33,8 +33,14 @@ function fetchAlunos() {
                     : "Outro"
                 }</td>
                 <td class="actions">
-                  <button class="tbButton" onclick="${aluno.id}"><img class="tbIcon" src="../images/icons/pencil.png" alt="editar"></button>
-                  <button class="tbButton" onclick="deletar('${aluno.id}')"><img class="tbIcon" src="../images/icons/bin.png" alt="deletar"></button>
+                  <button class="tbButton" onclick="${
+                    aluno.id
+                  }"><img class="tbIcon" src="../../images/icons/pencil.png" alt="editar"></button>
+                  <button class="tbButton" onclick="openMenuDelete(${
+                    aluno.id
+                  }, '${
+            aluno.nome
+          }')"><img class="tbIcon" src="../../images/icons/bin.png" alt="deletar"></button>
                 </td>
                     `;
           tableBody.appendChild(row);
@@ -42,9 +48,9 @@ function fetchAlunos() {
       }
     })
     .catch((error) => {
-        let message = document.getElementById("errorMessage");
-        message.textContent = "Nenhum aluno encontrado.";
-        console.error("Erro ao buscar alunos:", error);
+      let message = document.getElementById("errorMessage");
+      message.textContent = "Nenhum aluno encontrado.";
+      console.error("Erro ao buscar alunos:", error);
     });
 }
 
@@ -62,6 +68,29 @@ function anterior() {
   let tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
   fetchAlunos();
+}
+
+let UserForDelete;
+
+function openMenuDelete(id, nome) {
+  let box = document.getElementById("confirmDelete");
+  box.style.display = "flex";
+  document.getElementById("deleteId").innerText = `${id}, ${nome} `;
+  UserForDelete = id;
+}
+
+function confirmDelete() {
+  fetch(`http://localhost:8080/home?id=${UserForDelete}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  }).then(window.location.reload());
+  let box = document.getElementById("confirmDelete");
+  box.style.display = "none";
+}
+
+function cancelDelete() {
+  let box = document.getElementById("confirmDelete");
+  box.style.display = "none";
 }
 
 fetchAlunos();

@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../styles/mainStyle.css">
-        <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico">
+        <link rel="icon" type="image/x-icon"
+            href="../../images/icons/vgicon1.ico">
         <title>Virtual Gym</title>
     </head>
     <body>
@@ -21,11 +22,9 @@
                 <div class="sidebar" id="sidebar">
                     <nav>
                         <ul>
-                            <li><a href="../../index.html">Início</a></li>
-                            <li><a href="treino.html">Treino</a></li>
-                            <li><a href="historico.html">Histórico</a></li>
-                            <li><a href="./HomeFuncionario.html">Conferir
-                                    Alunos</a></li>
+                            <li><a href="HomeFuncionario.html">Início</a></li>
+                            <li><a href="consultarTreinos.html">Consultar Treinos</a></li>
+                            <li><a href="consultarAlunos.html">Consultar Alunos</a></li>
                             <li><a href="cadastro.html">Adicionar Aluno</a></li>
                             <li><a onclick="openMenu()"> Configurações</a></li>
                         </ul>
@@ -33,47 +32,6 @@
                 </div>
 
                 <div class="model" id="model">
-                    <div class="tableContainer">
-                        <h1>Alunos</h1>
-                        <hr class="tbHr">
-                        <table class="table" id="table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>CPF</th>
-                                    <th>Peso</th>
-                                    <th>Telefone</th>
-                                    <th>Data de Nascimento</th>
-                                    <th>Mensalidade</th>
-                                    <th>Data de Vencimento</th>
-                                    <th>Genero</th>
-                                    <th class="actions">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                            </tbody>
-                        </table>
-                        <span id="errorMessage"></span>
-                        <div class="tbButtons">
-                            <button class="tbButton"
-                                style="height: 60px; width: 60px;"
-                                onclick="anterior()">
-                                <img class="tbIcon"
-                                    src="../../images/icons/seta-esquerda.png"
-                                    alt="anterior">
-                            </button>
-                            <button class="tbButton"
-                                style="height: 60px; width: 60px;"
-                                onclick="proximo()">
-                                <img class="tbIcon"
-                                    src="../../images/icons/seta-direita.png"
-                                    alt="próximo">
-                            </button>
-                        </div>
-                    </div>
-
                     <div class="modelMenu" id="menu">
                         <div class="modelMenuContent">
                             <div class="modelMenuItem" id="menuItem">
@@ -107,9 +65,7 @@
         </div>
 
         <script src="../../Scripts/getAlunos.js"></script>
-        <!--
-            <script src="../../Scripts/autenticator.js"></script>
-        -->
+        <script src="../../Scripts/autenticatorFuncionario.js"></script>
         <script src="../../Scripts/menuIndex.js"></script>
     </body>
 </html>
