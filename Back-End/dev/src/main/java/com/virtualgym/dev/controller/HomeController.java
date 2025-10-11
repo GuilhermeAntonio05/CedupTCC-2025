@@ -32,4 +32,11 @@ public class HomeController {
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		alunoService.deletarPorId(id);
 	}
+
+	@GetMapping("/funcionario")
+	public void statusAlunos(){
+		AlunoService alunoStatus = new AlunoService(alunoRepository);
+		alunoStatus.retornarStatus();
+	}
+
 }

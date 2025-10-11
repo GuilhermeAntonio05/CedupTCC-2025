@@ -1,0 +1,22 @@
+.graficos-container {
+    display: flex;
+    gap: 20px; /* espaço entre gráficos */
+    padding: 20px 0 20px 0;
+}
+
+.dashboard-chart {
+    width: 250px;
+    height: 300px; /* espaço para o título + gráfico */
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.dashboard-chart canvas {
+    width: 100% !important;
+    height: 250px !important;
+    display: block;
+}
+
