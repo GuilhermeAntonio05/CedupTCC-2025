@@ -30,6 +30,10 @@ public class AlunoService {
 		alunoRepository.save(aluno);
 	}
 
+	public void retornarStatus(){
+		List<AlunoDTO> alunoModels = this.buscarTodos();
+	}
+
 	public void criar(AlunoModel aluno) {
 		alunoRepository.save(aluno);
 	}
