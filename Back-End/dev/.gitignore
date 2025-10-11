@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Deploy aplication ###
+./Back-End/dev/target
