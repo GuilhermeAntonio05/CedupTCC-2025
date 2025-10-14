@@ -27,6 +27,7 @@ CREATE TABLE funcionario (
     Genero enum("f","m") default "m" not null,
     Cargo varchar(200) not null,
     Salario decimal(7,2) not null,
+    Senha varchar(200) not null,
     Funcionario_ID int PRIMARY KEY auto_increment
 );
 
