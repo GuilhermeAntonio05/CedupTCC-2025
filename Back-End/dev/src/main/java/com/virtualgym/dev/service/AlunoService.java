@@ -29,9 +29,10 @@ public class AlunoService {
 				new MensalidadeModel(1L), Date.valueOf(LocalDate.now().plusMonths(1l)));
 		alunoRepository.save(aluno);
 	}
-
+	
+	
 	public void retornarStatus(){
-		List<AlunoDTO> alunoModels = this.buscarTodos();
+		this.buscarTodos();
 	}
 
 	public void criar(AlunoModel aluno) {

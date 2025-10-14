@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -23,24 +22,43 @@ public class TreinoModel {
 	@Column(name = "Repeticoes", nullable = false)
 	private int repeticoes;
 	@ManyToOne
-	@JoinColumn(name = "fk_Funcionario_ID", nullable = true)
+	@JoinColumn(name = "fk_Funcionario_ID")
 	private FuncionarioModel funcionario;
-
+	@ManyToOne
+	@JoinColumn(name = "fk_Exercicios_ID", nullable = false)
+	private ExerciciosModel exercicios;
+	
 	public TreinoModel() {
 	}
 
-	public TreinoModel(Long id, int serie, int repeticoes, FuncionarioModel funcionario) {
+	public TreinoModel(Long id, int serie, int repeticoes, FuncionarioModel funcionario, ExerciciosModel exercicios) {
 		this.id = id;
 		this.serie = serie;
 		this.repeticoes = repeticoes;
 		this.funcionario = funcionario;
+		this.exercicios = exercicios;
 
 	}
 
-	public TreinoModel(int serie, int repeticoes, FuncionarioModel funcionario) {
+	public TreinoModel(int serie, int repeticoes, FuncionarioModel funcionario, ExerciciosModel exercicios) {
 		this.serie = serie;
 		this.repeticoes = repeticoes;
 		this.funcionario = funcionario;
+		this.exercicios = exercicios;
+	}
+	
+	public TreinoModel(Long id, int serie, int repeticoes, ExerciciosModel exercicios) {
+		this.id = id;
+		this.serie = serie;
+		this.repeticoes = repeticoes;
+		this.exercicios = exercicios;
+
+	}
+
+	public TreinoModel(int serie, int repeticoes, ExerciciosModel exercicios) {
+		this.serie = serie;
+		this.repeticoes = repeticoes;
+		this.exercicios = exercicios;
 	}
 
 	public int getSerie() {
@@ -70,11 +88,19 @@ public class TreinoModel {
 	public Long getId() {
 		return id;
 	}
+	
+	public ExerciciosModel getExercicios() {
+		return exercicios;
+	}
+	
+	public void setExercicios(ExerciciosModel exercicios) {
+		this.exercicios = exercicios;
+	}
 
 	@Override
 	public String toString() {
 		return "TreinoModel [id=" + id + ", serie=" + serie + ", repeticoes=" + repeticoes + ", funcionario="
-				+ funcionario + ", exerciciosModel=" + "]";
+				+ funcionario + ", exercicios=" + exercicios + "]";
 	}
 
 }

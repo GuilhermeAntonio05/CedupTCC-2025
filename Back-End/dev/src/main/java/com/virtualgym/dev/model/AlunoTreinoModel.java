@@ -16,12 +16,12 @@ public class AlunoTreinoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Aluno_Treino_ID")
-	private long id;
+	private Long id;
 	@ManyToOne
-	@JoinColumn(name = "fk_Aluno_ID", nullable = false)
+	@JoinColumn(name = "fk_Aluno_ID")
 	private AlunoModel alunoID;
 	@ManyToOne
-	@JoinColumn(name = "fk_Treino_ID", nullable = false)
+	@JoinColumn(name = "fk_Treino_ID")
 	private TreinoModel treinoID;
 
 	public AlunoTreinoModel() {
@@ -62,5 +62,5 @@ public class AlunoTreinoModel {
 	public String toString() {
 		return "AlunoTreinoModel [id=" + id + ", alunoID=" + alunoID + ", treinoID=" + treinoID + "]";
 	}
-	
+
 }
