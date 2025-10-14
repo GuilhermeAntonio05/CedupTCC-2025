@@ -38,6 +38,8 @@ public class AlunoModel {
 	private MensalidadeModel mensalidade;
 	@Column(name = "Data_Vencimento", nullable = false)
 	private Date data_vencimento;
+	@Column(name = "Data_Inscricao", nullable = false)
+	private Date data_inscricao;
 	@Column(name = "Senha", nullable = false)
 	private String senha;
 
@@ -45,7 +47,8 @@ public class AlunoModel {
 	public String toString() {
 		return "AlunoModel [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", telefone="
 				+ telefone + ", peso=" + peso + ", data_nascimento=" + data_nascimento + ", genero=" + genero
-				+ ", mensalidade=" + mensalidade + ", data_vencimento=" + data_vencimento + ", senha=" + senha + "]";
+				+ ", mensalidade=" + mensalidade + ", data_vencimento=" + data_vencimento + ", data_inscricao="
+				+ data_inscricao + ", senha=" + senha + "]";
 	}
 
 	public AlunoModel() {
@@ -53,7 +56,7 @@ public class AlunoModel {
 	}
 
 	public AlunoModel(Long id, String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			char genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
+			char genero, MensalidadeModel mensalidade, Date data_vencimento, Date data_inscricao, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -64,11 +67,12 @@ public class AlunoModel {
 		this.genero = genero;
 		this.mensalidade = mensalidade;
 		this.data_vencimento = data_vencimento;
+		this.data_inscricao = data_inscricao;
 		this.senha = senha;
 	}
 
 	public AlunoModel(String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,
-			char genero, String senha, MensalidadeModel mensalidade, Date data_vencimento) {
+			char genero, MensalidadeModel mensalidade, Date data_vencimento, Date data_inscricao, String senha) {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
@@ -78,6 +82,7 @@ public class AlunoModel {
 		this.genero = genero;
 		this.mensalidade = mensalidade;
 		this.data_vencimento = data_vencimento;
+		this.data_inscricao = data_inscricao;
 		this.senha = senha;
 	}
 
@@ -165,4 +170,12 @@ public class AlunoModel {
 		this.data_vencimento = data_vencimento;
 	}
 
+	public Date getData_inscricao() {
+		return data_inscricao;
+	}
+	
+	public void setData_inscricao(Date data_inscricao) {
+		this.data_inscricao = data_inscricao;
+	}
+	
 }

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,14 +26,9 @@ public class AlunoService {
 
 	public void criar(AlunoCadastroDTO response) {
 		AlunoModel aluno = new AlunoModel(response.nome(), response.email(), response.cpf(), response.telefone(),
-				response.peso(), response.data_nascimento(), response.genero(), response.senha(),
-				new MensalidadeModel(1L), Date.valueOf(LocalDate.now().plusMonths(1l)));
+				response.peso(), response.data_nascimento(), response.genero(), new MensalidadeModel(1L),
+				Date.valueOf(LocalDate.now().plusMonths(1l)), Date.valueOf(LocalDate.now()), response.senha());
 		alunoRepository.save(aluno);
-	}
-	
-	
-	public void retornarStatus(){
-		this.buscarTodos();
 	}
 
 	public void criar(AlunoModel aluno) {
@@ -88,12 +84,11 @@ public class AlunoService {
 		int limitador = 0;
 		List<AlunoDTO> dto = new ArrayList<AlunoDTO>();
 		List<AlunoModel> ALUNOS = alunoRepository.findAll();
-		
-		
-		if(ALUNOS.size() < registros) {
+
+		if (ALUNOS.size() < registros) {
 			limitador = registros - ALUNOS.size();
 		}
-		
+
 		try {
 			for (int i = registros - 10; i < (registros - limitador); i++) {
 				AlunoModel aluno = ALUNOS.get(i);
