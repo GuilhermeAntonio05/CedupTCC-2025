@@ -1,12 +1,27 @@
-window.addEventListener('DOMContentLoaded', () => {
+// Função para buscar status dos alunos
+async function fetchStatusAlunos() {
+    const response = await fetch("http://localhost:8080/home/dashboard/pagamentosMes");
+    const data = await response.json(); // agora retorna JSON
+    return data;
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
     const ctx = document.getElementById('statusAlunosChart').getContext('2d');
-    const statusAlunosChart = new Chart(ctx, {
-        type: 'bar',  // mudou de doughnut para bar
+
+    // Buscar dados do backend
+    const statusData = await fetchStatusAlunos();
+
+    new Chart(ctx, {
+        type: 'bar',
         data: {
             labels: ['Pagaram', 'Cancelaram', 'Pendentes'],
             datasets: [{
                 label: 'Status dos Alunos',
-                data: [120, 30, 15],
+                data: [
+                    statusData.PAGO,
+                    statusData.CANCELADO,
+                    statusData.ATRASADO
+                ],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.7)',
                     'rgba(255, 99, 132, 0.7)',
@@ -23,18 +38,10 @@ window.addEventListener('DOMContentLoaded', () => {
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    position: 'top'
-                },
-                title: {
-                    display: false
-                }
+                legend: { position: 'top' },
+                title: { display: false }
             },
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+            scales: { y: { beginAtZero: true } }
         }
     });
 });

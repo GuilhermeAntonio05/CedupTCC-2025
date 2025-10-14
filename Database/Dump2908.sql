@@ -15,6 +15,7 @@ CREATE TABLE aluno (
     Senha varchar(200) not null,
     fk_Mensalidade_ID int ,
     Data_Vencimento date not null,
+    Data_Inscricao date not null,
     Genero enum("f","m") default "m" not null
 );
 

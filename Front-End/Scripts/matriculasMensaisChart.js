@@ -1,16 +1,21 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => { // async aqui
   const ctx = document.getElementById('matriculasMensaisChart').getContext('2d');
+
+  // Buscar dados do backend
+  const response = await fetch('http://localhost:8080/home/dashboard/evolucaoMatriculas');
+  const dados = await response.json();
+
+  // Separar labels e valores
+  const labels = Object.keys(dados); // ex: "JAN/2025"
+  const valores = Object.values(dados); // contagem de matrículas
 
   const matriculasMensaisChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: [
-        'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 
-        'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
-      ],
+      labels: labels,
       datasets: [{
         label: 'Matrículas',
-        data: [15, 22, 18, 30, 45, 50, 55, 48, 40, 60, 65, 70],
+        data: valores,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         fill: true,
@@ -33,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
         y: {
           beginAtZero: true,
           ticks: {
-            stepSize: 10
+            stepSize: 1
           }
         }
       }
