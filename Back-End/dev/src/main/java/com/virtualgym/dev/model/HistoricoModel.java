@@ -1,5 +1,7 @@
 package com.virtualgym.dev.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,22 +21,26 @@ public class HistoricoModel {
 	private Long id;
 	@Column(name = "Peso", nullable = false)
 	private String peso;
+	@Column(name = "Data_Treino", nullable = false)
+	private Date data;
 	@ManyToOne
-	@JoinColumn(name = "fk_Treino_ID", nullable = false)
-	private TreinoModel treino;
+	@JoinColumn(name = "fk_Aluno_Treino_ID", nullable = false)
+	private AlunoTreinoModel treino;
 
 	public HistoricoModel() {
 	}
 
-	public HistoricoModel(Long id, String peso, TreinoModel treino) {
+	public HistoricoModel(Long id, String peso, AlunoTreinoModel treino, Date data) {
 		this.id = id;
 		this.peso = peso;
 		this.treino = treino;
+		this.data = data;
 	}
 
-	public HistoricoModel(String peso, TreinoModel treino) {
+	public HistoricoModel(String peso, AlunoTreinoModel treino, Date data) {
 		this.peso = peso;
 		this.treino = treino;
+		this.data = data;
 	}
 
 	public String getPeso() {
@@ -45,21 +51,29 @@ public class HistoricoModel {
 		this.peso = peso;
 	}
 
-	public TreinoModel getTreino() {
+	public AlunoTreinoModel getTreino() {
 		return treino;
 	}
 
-	public void setTreino(TreinoModel treino) {
+	public void setTreino(AlunoTreinoModel treino) {
 		this.treino = treino;
 	}
 
 	public long getId() {
 		return id;
 	}
+	
+	public Date getData() {
+		return data;
+	}
+	
+	public void setData(Date data) {
+		this.data = data;
+	}
 
 	@Override
 	public String toString() {
-		return "HistoricoModel [id=" + id + ", peso=" + peso + ", treino=" + treino + "]";
+		return "HistoricoModel [id=" + id + ", peso=" + peso + ", data=" + data + ", treino=" + treino + "]";
 	}
 
 }
