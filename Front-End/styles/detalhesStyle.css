@@ -13,18 +13,18 @@
 }
 
 header {
-width: 100%;
-height: 60px;
-background: var(--background);
-display: flex;
-justify-content: center;
-align-items: center;
-position: flex;
-top: 0;
-left: 0;
-border-bottom: 2px solid var(--green);
+  width: 100%;
+  height: 60px;
+  background: var(--background);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: flex;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid var(--green);
+  padding-left: 40px;
 }
-
 header .logo {
 display: flex;
 align-items: center;
