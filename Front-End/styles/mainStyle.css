@@ -16,7 +16,8 @@ button {
 }
 
 body {
-  margin: 0;
+  height: 100%;
+  overflow: hidden;
   background-color: var(--background);
 }
 
@@ -25,6 +26,7 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 header {
@@ -32,12 +34,13 @@ header {
   height: 60px;
   background: var(--background);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: flex;
   top: 0;
   left: 0;
   border-bottom: 2px solid var(--green);
+  padding-left: 40px;
 }
 
 header .logo {
@@ -96,14 +99,42 @@ header .logo span {
   background-color: var(--background);
   height: 100%;
 }
+.welcome {
+  text-align: center;
+}
 
+.welcome-text {
+  color: var(--background);
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 .model {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   background-color: white;
+  padding: 60px 0;
+  box-sizing: border-box;
 }
-
 .tableContainer {
   display: flex;
   flex-direction: column;
@@ -127,7 +158,7 @@ table {
   gap: 10px;
   align-items: center;
   justify-content: center;
-} 
+}
 
 .tbIcon {
   height: 20px;
@@ -145,13 +176,14 @@ table {
   border-radius: 100px;
 }
 
-.tbHr{
+.tbHr {
   border: 1px #e5e5e5 solid;
   width: 95%;
   margin-bottom: 10px;
 }
 
-th,td {
+th,
+td {
   border-left: 1px solid #e5e5e5;
   text-align: center;
   padding: 4px;
@@ -257,30 +289,34 @@ tr {
 
 .findBar {
   display: flex;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 400px;
-  top: 17%;
-  left: 50%;
-  transform: translate(-50%);
+  position: relative;
+  transform: scale(1.05);
 }
 
 .inputFindBar {
   border-radius: 100px;
   height: 100%;
   width: 100%;
+  padding-left: 20px;
+  border: 2px solid #001133;
+  box-sizing: border-box;
 }
 
 .findBar .button {
   position: absolute;
-  height: 45px;
-  width: 45px;
-  right: 5%;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-  color: transparent;
-  border: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {

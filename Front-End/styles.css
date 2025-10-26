@@ -10,16 +10,16 @@
 header {
   width: 100%;
   height: 60px;
-  background: #001f3f;
+  background: var(--background);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: flex;
   top: 0;
   left: 0;
-  border-bottom: 2px solid #2bff50;
+  border-bottom: 2px solid var(--green);
+  padding-left: 40px;
 }
-
 header .logo {
   display: flex;
   align-items: center;
