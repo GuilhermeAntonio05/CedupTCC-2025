@@ -25,10 +25,10 @@ window.onload = () => {
           let accountDiv = document.createElement("div");
           accountDiv.className = "caixa-login";
           accountDiv.innerHTML = `<div class="usuario" onclick="selectAccount('${data}')">
-              <img src="../images/icons/do-utilizador.png" alt="icone usuário" />
+              <img src="../../images/icons/do-utilizador.png" alt="icone usuário" />
               <span>${data}</span>
               </div>
-              <img src="../images/icons/close.png" alt="icone fechar" class="close-icon" onclick="removeAccount('${data}')"/>
+              <img src="../../images/icons/close.png" alt="icone fechar" class="close-icon" onclick="removeAccount('${data}')"/>
             `;
           container.appendChild(accountDiv);
         }
@@ -59,7 +59,7 @@ function removeAccount(user) {
 function selectAccount(user) {
   const email = dataUser.get(user);
   localStorage.setItem("lastSession", `{"email":"${email}","lembrar":"true"}`);
-  window.location.href = "../index.html";
+  window.location.href = "../../";
 }
 
 function addAccount() {

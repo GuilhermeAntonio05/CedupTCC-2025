@@ -29,8 +29,10 @@ function getExercicios() {
         let card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-              <h1>${e[0].name}</h1>
-              <span>Por: Alex Miguel</span>
+              <div class="card-header">      
+                <h1>${e[0].name}</h1>
+                <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino()">
+              </div>
               <hr>
               <ul> `;
 
@@ -44,7 +46,7 @@ function getExercicios() {
               </ul>
               <hr>
               <a href="detalhes.html">
-                <button>Iniciar</button>
+                <button onclick="deletarTreino(${e[0].name})">Iniciar</button>
               </a>`;
         console.log(card);
         container.appendChild(card);
@@ -53,5 +55,22 @@ function getExercicios() {
     .catch((err) => console.error(err));
 }
 
+function deletarTreino(id) {
+  fetch(`http://localhost:8080/treino/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("Treino deletado com sucesso");
+        getExercicios();
+      } else {
+        console.error("Erro ao deletar treino");
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao deletar treino:", error);
+    });
+}
 
 getExercicios();

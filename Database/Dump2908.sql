@@ -54,7 +54,8 @@ CREATE TABLE treino (
 CREATE TABLE historico (
     Historico_ID int PRIMARY KEY auto_increment,
     Peso text not null,
-    fk_Treino_ID int
+    Data_Treino date not null,
+    fk_Aluno_Treino_ID int
 );
 
 CREATE TABLE mensalidade_Seq (
@@ -106,8 +107,8 @@ ALTER TABLE treino ADD CONSTRAINT FK_Treino_3
     REFERENCES Exercicios (Exercicio_ID);
  
 ALTER TABLE historico ADD CONSTRAINT FK_Historico_2
-    FOREIGN KEY (fk_Treino_ID)
-    REFERENCES Treino (Treino_ID)
+    FOREIGN KEY (fk_Aluno_Treino_ID)
+    REFERENCES aluno_treino (Aluno_Treino_ID)
     ON DELETE RESTRICT;
  
 ALTER TABLE aluno_treino ADD CONSTRAINT FK_Aluno_Treino_2
@@ -132,12 +133,12 @@ values ("pago"),("atrasado"),("cancelado");
 
 -- Torax
 INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Torax', 'Supino reto'),
-('Torax', 'Supino inclinado'),
-('Torax', 'Crucifixo com halteres'),
-('Torax', 'Crossover na polia'),
-('Torax', 'Flexão de braço'),
-('Torax', 'Peck deck');
+('Peito', 'Supino reto'),
+('Peito', 'Supino inclinado'),
+('Peito', 'Crucifixo com halteres'),
+('Peito', 'Crossover na polia'),
+('Peito', 'Flexão de braço'),
+('Peito', 'Peck deck');
 
 -- Abdomen
 INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES

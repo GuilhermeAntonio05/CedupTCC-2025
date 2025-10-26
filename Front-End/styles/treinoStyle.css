@@ -105,13 +105,23 @@ header .logo span {
   justify-content: center;
 }
 
-
-.cardContainer{
-  margin-top:15px;
+.cardContainer {
+  margin-top: 15px;
   display: grid;
   grid-template-columns: auto auto auto;
   min-width: 250px;
   gap: 20px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header img:hover {
+  cursor: pointer;
 }
 
 .card {
