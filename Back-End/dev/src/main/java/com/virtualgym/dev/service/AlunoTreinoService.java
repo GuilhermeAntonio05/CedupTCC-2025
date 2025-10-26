@@ -6,12 +6,16 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.virtualgym.dev.dto.CadastroTreinoDTO;
 import com.virtualgym.dev.dto.TreinoDTO;
 import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.model.AlunoTreinoModel;
+import com.virtualgym.dev.model.ExerciciosModel;
 import com.virtualgym.dev.model.TreinoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.repository.AlunoTreinoRepository;
+import com.virtualgym.dev.repository.ExerciciosRepository;
+import com.virtualgym.dev.repository.TreinoRepository;
 
 @Service
 public class AlunoTreinoService {
@@ -33,6 +37,18 @@ public class AlunoTreinoService {
 
 	public void deletarPorId(long id) {
 		alunoTreinoRepository.deleteById(id);
+	}
+	
+
+	public void deletarPorGrupoMuscular(AlunoRepository alunoRepository, String EMAIL, String GRUPO_MUSCULAR) {
+		AlunoModel aluno = alunoRepository.findByEmail(EMAIL);
+		List<AlunoTreinoModel> alunoTreinos = alunoTreinoRepository.findAllByAlunoID(aluno);
+		
+		for (AlunoTreinoModel alunoTreino: alunoTreinos) {
+			if(alunoTreino.getTreinoID().getExercicios().getGrupoMuscular().equals(GRUPO_MUSCULAR)) {
+				alunoTreinoRepository.deleteById(alunoTreino.getId());
+			}
+		}
 	}
 
 	public List<AlunoTreinoModel> buscarTodos() {
@@ -64,6 +80,65 @@ public class AlunoTreinoService {
 		}
 
 		return dto;
+	}
+
+	public void cadastroTreino(AlunoRepository alunoRepository, TreinoRepository treinoRepository,
+			ExerciciosRepository exerciciosRepository, CadastroTreinoDTO cadastroTreinoDTO) {
+		AlunoModel aluno = alunoRepository.findByEmail(cadastroTreinoDTO.email());
+		String[] seriesArray = cadastroTreinoDTO.series().stream().toArray(String[]::new);
+		String[] exerciciosArray = cadastroTreinoDTO.exercicios().stream().toArray(String[]::new);
+
+		List<ExerciciosModel> exerciciosModels = new ArrayList<ExerciciosModel>();
+
+		for (String exec : exerciciosArray) {
+			exerciciosModels.add(exerciciosRepository.findByNome(exec));
+		}
+
+		List<String[]> serie_repeticoes = new ArrayList<>();
+
+		for (String serie : seriesArray) {
+			serie_repeticoes.add(serie.split("x"));
+		}
+
+		List<AlunoTreinoModel> alunoTreinos = alunoTreinoRepository.findAllByAlunoID(aluno);
+
+		for (AlunoTreinoModel alunoTreino : alunoTreinos) {
+
+			if (alunoTreino.getTreinoID().getExercicios().getGrupoMuscular()
+					.equals(cadastroTreinoDTO.grupoMuscular())) {
+				alunoTreinoRepository.deleteById(alunoTreino.getId());
+				alunoTreinos = alunoTreinoRepository.findAllByAlunoID(aluno);
+			}
+		}
+
+		for (int i = 0; i < exerciciosArray.length; i++) {
+			Optional<ExerciciosModel> exercicio = exerciciosRepository.findById(exerciciosModels.get(i).getId());
+
+			TreinoModel treino = treinoRepository.findBySerieRepeticoesExercicios(
+					Integer.parseInt(serie_repeticoes.get(i)[0]), Integer.parseInt(serie_repeticoes.get(i)[1]),
+					exercicio);
+
+			if (alunoTreinos.isEmpty()) {
+				AlunoTreinoModel alunoTreinoModel = new AlunoTreinoModel(aluno, treino);
+				alunoTreinoRepository.save(alunoTreinoModel);
+			} else {
+
+				boolean encontrado = false;
+
+				for (AlunoTreinoModel alunoTreino : alunoTreinos) {
+					if (alunoTreino.getTreinoID().getId() == treino.getId()) {
+						encontrado = true;
+						break;
+					}
+				}
+
+				if (!encontrado) {
+					AlunoTreinoModel alunoTreinoModel = new AlunoTreinoModel(aluno, treino);
+					alunoTreinoRepository.save(alunoTreinoModel);
+				}
+			}
+
+		}
 	}
 
 }

@@ -26,10 +26,9 @@ function getExerciciosPorGrupo() {
     campo.innerHTML = `<option value="">Exercício</option>`;
   });
 
-  fetch(`http://localhost:8080/cadastro/treino`, {
-    method: "POST",
+  fetch(`http://localhost:8080/cadastro/treino/exercicios?grupo=${grupo}`, {
+    method: "GET",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ exec: `${grupo}` }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -46,16 +45,43 @@ function getExerciciosPorGrupo() {
 }
 
 function enviarCadastro() {
+  let grupoMuscular = document.getElementById("grupoMuscular").value;
+  let exercicios = Array.from(document.getElementsByClassName("exercicio")).map(
+    (select) => select.value
+  );
+  let series = Array.from(document.getElementsByClassName("series")).map(
+    (select) => select.value
+  );
+  let email = JSON.parse(localStorage.getItem("lastSession")).email;
 
-    let grupoMuscular = document.getElementById("grupoMuscular").value;
-    let exercicios = Array.from(document.getElementsByClassName("exercicio")).map(select => select.value);
-    let series = Array.from(document.getElementsByClassName("series")).map(select => select.value);
+  console.log({
+    grupoMuscular,
+    exercicios,
+    series,
+    email,
+  });
 
-    console.log({
+  fetch("http://localhost:8080/cadastro/treino", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
       grupoMuscular,
+      email,
+      series,
       exercicios,
-      series
+    }),
+  })
+    
+    .then((data) => {
+      if (data) {
+        console.log("Cadastro realizado com sucesso:", data);
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao realizar cadastro:", error);
     });
 }
+
+
 
 getGruposMusculares();
