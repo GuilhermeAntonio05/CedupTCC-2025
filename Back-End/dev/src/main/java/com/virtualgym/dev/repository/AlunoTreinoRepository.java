@@ -14,5 +14,5 @@ public interface AlunoTreinoRepository extends JpaRepository<AlunoTreinoModel, L
 	AlunoTreinoModel findByAlunoID(AlunoModel aluno);
 
 	List<AlunoTreinoModel> findAllByAlunoID(AlunoModel aluno);
-
+	
 }

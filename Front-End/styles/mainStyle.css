@@ -131,10 +131,46 @@ header .logo span {
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding-top: 20px;
   background-color: white;
-  padding: 60px 0;
   box-sizing: border-box;
 }
+
+.modelRender {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.treinos {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  align-items: center;
+}
+
+.treinos .card {
+  width:50%;
+  height: 50%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  text-decoration: underline solid black 1px;
+}
+
+.text-left {
+  justify-content: left;
+}
+
+.text-right {
+  justify-content: right;
+}
+
 .tableContainer {
   display: flex;
   flex-direction: column;

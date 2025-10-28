@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.virtualgym.dev.dto.TreinoDTO;
 import com.virtualgym.dev.model.AlunoTreinoModel;
+import com.virtualgym.dev.model.TreinoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.repository.AlunoTreinoRepository;
 import com.virtualgym.dev.service.AlunoTreinoService;
@@ -35,5 +36,11 @@ public class TreinoController {
 	public List<AlunoTreinoModel> coletarAlunoETreinos(@RequestParam("email") String email) {
 		AlunoTreinoService  alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
 		return alunoTreinoService.buscarPorEmail(alunoRepository, email);
+	}
+	
+	@GetMapping("/exercicios")
+	public List<TreinoModel> coletarTreinosPorGrupo(@RequestParam("email") String email,@RequestParam("grupo") String grupo) {
+		AlunoTreinoService  alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
+		return alunoTreinoService.buscarTreinosPorGrupo(alunoRepository, email, grupo);
 	}
 }
