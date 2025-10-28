@@ -31,7 +31,7 @@ function getExercicios() {
         card.innerHTML = `
               <div class="card-header">      
                 <h1>${e[0].name}</h1>
-                <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino()">
+                <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino('${e[0].name}')">
               </div>
               <hr>
               <ul> `;
@@ -46,17 +46,16 @@ function getExercicios() {
               </ul>
               <hr>
               <a href="detalhes.html">
-                <button onclick="deletarTreino(${e[0].name})">Iniciar</button>
+                <button>Iniciar</button>
               </a>`;
-        console.log(card);
         container.appendChild(card);
       });
     })
     .catch((err) => console.error(err));
 }
 
-function deletarTreino(id) {
-  fetch(`http://localhost:8080/treino/${id}`, {
+function deletarTreino(name) {
+  fetch(`http://localhost:8080/treino?grupo=${name}&email=${JSON.parse(localStorage.getItem("lastSession")).email}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   })

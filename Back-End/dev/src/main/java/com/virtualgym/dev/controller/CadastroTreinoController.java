@@ -62,10 +62,4 @@ public class CadastroTreinoController {
 		alunoTreinoService.cadastroTreino(alunoRepository, treinoRepository, exerciciosRepository, cadastroTreinoDTO);
 	}
 	
-	@DeleteMapping
-	public void deletarTreino(@RequestParam("grupo") String grupoMuscular, @RequestParam("email") String email) {
-		AlunoTreinoService alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
-		alunoTreinoService.deletarPorGrupoMuscular(alunoRepository, email, grupoMuscular);
-	}
-
 }

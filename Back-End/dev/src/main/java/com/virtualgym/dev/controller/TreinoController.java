@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,5 +43,12 @@ public class TreinoController {
 	public List<TreinoModel> coletarTreinosPorGrupo(@RequestParam("email") String email,@RequestParam("grupo") String grupo) {
 		AlunoTreinoService  alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
 		return alunoTreinoService.buscarTreinosPorGrupo(alunoRepository, email, grupo);
+	}
+
+	@DeleteMapping
+	public void deletarTreino(@RequestParam("grupo") String grupoMuscular, @RequestParam("email") String email) {
+		AlunoTreinoService alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
+		System.out.println("chegou!" + grupoMuscular +" "+ email);
+		alunoTreinoService.deletarPorGrupoMuscular(alunoRepository, email, grupoMuscular);
 	}
 }

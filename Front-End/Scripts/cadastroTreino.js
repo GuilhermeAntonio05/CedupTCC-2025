@@ -76,6 +76,8 @@ function enviarCadastro() {
       if (data) {
         console.log("Cadastro realizado com sucesso:", data);
       }
+
+      window.location.href = "treino.html";
     })
     .catch((error) => {
       console.error("Erro ao realizar cadastro:", error);

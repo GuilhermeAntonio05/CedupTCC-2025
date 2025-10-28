@@ -1,8 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
-import { FontLoader } from "three/addons/loaders/FontLoader.js";
 
 //Creating model
 //declaring usefull variables
@@ -110,9 +108,6 @@ OrbitControl.minDistance = MINDISTANCE;
 OrbitControl.maxDistance = MAXDISTANCE;
 OrbitControl.minPolarAngle = Math.PI / 4;
 OrbitControl.maxPolarAngle = Math.PI / 2.5;
-console.log(OrbitControl.target);
-console.log(OrbitControl.minDistance);
-console.log(OrbitControl.maxDistance);
 
 //True = you can move the camera
 //false = you can't move the camera
@@ -150,7 +145,6 @@ function render() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        console.log(data);
         document.getElementsByClassName("card")[0].innerHTML =
           data[0].exercicios.nome;
         document.getElementsByClassName("card")[1].innerHTML =
