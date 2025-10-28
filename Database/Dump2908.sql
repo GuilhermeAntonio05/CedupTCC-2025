@@ -140,6 +140,15 @@ INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
 ('Peito', 'Flexão de braço'),
 ('Peito', 'Peck deck');
 
+-- Tríceps
+INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
+('Triceps', 'Tríceps testa'),
+('Triceps', 'Tríceps na polia'),
+('Triceps', 'Mergulho entre bancos'),
+('Triceps', 'Tríceps coice'),
+('Triceps', 'Tríceps francês'),
+('Triceps', 'Tríceps banco');
+
 -- Abdomen
 INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
 ('Abdomen', 'Abdominal reto'),
@@ -282,3 +291,11 @@ INSERT INTO Treino (Serie, Repeticoes, fk_Funcionario_ID, fk_Exercicios_ID) VALU
 (3, 8, NULL, 58), (3, 10, NULL, 58), (3, 12, NULL, 58),
 (3, 8, NULL, 59), (3, 10, NULL, 59), (3, 12, NULL, 59),
 (3, 8, NULL, 60), (3, 10, NULL, 60), (3, 12, NULL, 60);
+
+INSERT INTO Treino (Serie, Repeticoes, fk_Funcionario_ID, fk_Exercicios_ID) VALUES
+(3, 8, NULL, 7), (3, 10, NULL, 7), (3, 12, NULL, 7),
+(3, 8, NULL, 8), (3, 10, NULL, 8), (3, 12, NULL, 8),
+(3, 8, NULL, 9), (3, 10, NULL, 9), (3, 12, NULL, 9),
+(3, 8, NULL, 10), (3, 10, NULL, 10), (3, 12, NULL, 10),
+(3, 8, NULL, 11), (3, 10, NULL, 11), (3, 12, NULL, 11),
+(3, 8, NULL, 12), (3, 10, NULL, 12), (3, 12, NULL, 12);

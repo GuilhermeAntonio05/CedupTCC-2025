@@ -141,4 +141,16 @@ public class AlunoTreinoService {
 		}
 	}
 
+	public List<TreinoModel> buscarTreinosPorGrupo(AlunoRepository alunoRepository, String email, String grupo) {
+		List<AlunoTreinoModel> treinosEncontrados = this.buscarPorEmail(alunoRepository, email);
+		List<TreinoModel> treinos = new ArrayList<>();
+		
+		for(AlunoTreinoModel alunoTreinoModel : treinosEncontrados) {
+			if(alunoTreinoModel.getTreinoID().getExercicios().getGrupoMuscular().equals(grupo)) {
+				treinos.add(alunoTreinoModel.getTreinoID());
+			}
+		}
+		return treinos;
+	}
+
 }

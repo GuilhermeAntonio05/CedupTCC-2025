@@ -21,8 +21,11 @@
           <nav>
             <ul>
               <li><a href="index.html">Início</a></li>
-              <li><a href="./pages/aluno/treino.html">Treino</a></li>
-              <li><a href="./pages/aluno/historico.html">Histórico</a></li>
+              <li><a href="./pages/aluno/cadastroTreino.html">Cadastrar Treino
+                </a></li>
+              <li><a href="./pages/aluno/treino.html">Consultar Treinos</a></li>
+              <li><a href="./pages/aluno/historico.html">Consultar
+                  Histórico</a></li>
               <li><a onclick="openMenu()"> Configurações</a></li>
             </ul>
           </nav>
@@ -41,11 +44,18 @@
               <input
                 type="text"
                 class="inputFindBar"
-                placeholder="Pesquise aqui"
-              />
+                placeholder="Pesquise aqui" />
               <button class="button">
                 <img src="images/icons/lupa.png" class="button" />
               </button>
+            </div>
+          </div>
+
+          <div id="modelRender" class="modelRender"> 
+            <div id="treinos" class="treinos">
+              <div class="card text-right">Rosca direta</div><div class="card text-left">Rosca concentrada</div>
+              <div class="card text-right">Rosca alternada</div><div class="card text-left">Rosca 21</div>
+              <div class="card text-right">Rosca martelo</div><div class="card text-left">Rosca Scott</div>
             </div>
           </div>
 
@@ -60,8 +70,7 @@
               <div
                 class="modelMenuItem"
                 id="menuItem"
-                onclick="changeAccount()"
-              >
+                onclick="changeAccount()">
                 <img src="./images/icons/do-utilizador.png" class="menuIcon" />
                 <span>Trocar de conta</span>
               </div>
@@ -98,7 +107,7 @@
       }
     </script>
     <script type="module" src="./Scripts/main.js"></script>
-    <!-- <script src="Scripts/autenticator.js"></script>-->
+    <script src="Scripts/autenticator.js"></script>
     <script src="Scripts/menuIndex.js"></script>
   </body>
 </html>
