@@ -290,12 +290,10 @@ INSERT INTO Treino (Serie, Repeticoes, fk_Funcionario_ID, fk_Exercicios_ID) VALU
 (3, 8, NULL, 57), (3, 10, NULL, 57), (3, 12, NULL, 57),
 (3, 8, NULL, 58), (3, 10, NULL, 58), (3, 12, NULL, 58),
 (3, 8, NULL, 59), (3, 10, NULL, 59), (3, 12, NULL, 59),
-(3, 8, NULL, 60), (3, 10, NULL, 60), (3, 12, NULL, 60);
-
-INSERT INTO Treino (Serie, Repeticoes, fk_Funcionario_ID, fk_Exercicios_ID) VALUES
-(3, 8, NULL, 7), (3, 10, NULL, 7), (3, 12, NULL, 7),
-(3, 8, NULL, 8), (3, 10, NULL, 8), (3, 12, NULL, 8),
-(3, 8, NULL, 9), (3, 10, NULL, 9), (3, 12, NULL, 9),
-(3, 8, NULL, 10), (3, 10, NULL, 10), (3, 12, NULL, 10),
-(3, 8, NULL, 11), (3, 10, NULL, 11), (3, 12, NULL, 11),
-(3, 8, NULL, 12), (3, 10, NULL, 12), (3, 12, NULL, 12);
+(3, 8, NULL, 60), (3, 10, NULL, 60), (3, 12, NULL, 60),
+(3, 8, NULL, 61), (3, 10, NULL, 61), (3, 12, NULL, 61),
+(3, 8, NULL, 62), (3, 10, NULL, 62), (3, 12, NULL, 62),
+(3, 8, NULL, 63), (3, 10, NULL, 63), (3, 12, NULL, 63),
+(3, 8, NULL, 64), (3, 10, NULL, 64), (3, 12, NULL, 64),
+(3, 8, NULL, 65), (3, 10, NULL, 65), (3, 12, NULL, 65),
+(3, 8, NULL, 66), (3, 10, NULL, 66), (3, 12, NULL, 66);

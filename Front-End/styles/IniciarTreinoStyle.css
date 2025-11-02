@@ -16,15 +16,16 @@ button {
 }
 
 body {
-  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   background-color: var(--background);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
 }
 
 header {
@@ -38,13 +39,13 @@ header {
   top: 0;
   left: 0;
   border-bottom: 2px solid var(--green);
+  padding-left: 40px;
 }
 
 header .logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 40px;
 }
 
 header .logo img {
@@ -100,71 +101,90 @@ header .logo span {
 
 .model {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   background-color: white;
-  justify-content: center;
 }
 
-.cardContainer {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  min-width: 250px;
-  gap: 20px;
-  height: 500px;
-}
-
-.card-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-header img:hover {
-  cursor: pointer;
-}
-
-.card {
-  max-height: 280px;
-  box-shadow: 0px 10px 5px var(--gray);
-  background-color: white;
-  border-radius: 10px;
-  padding: 25px 25px 25px 25px;
-  border: 1px solid var(--gray);
-}
-
-.card span {
-  color: rgb(100, 100, 100);
-  font-weight: 700;
-}
-
-.card ul {
-  list-style: none;
-}
-
-.card h1 {
+.inputsh1 {
+  text-align: center;
   color: var(--green);
-}
-
-.card hr {
-  width: 100%;
-  height: 1px;
-  border: none;
-  background-color: var(--gray);
   margin: 10px 0px;
 }
 
-.card button {
-  background-color: var(--green);
+.inputs h1{
+  color: var(--background);
+  font-size: 25px;
+}
+
+.buttonConfirmar {
   color: white;
   border-radius: 100px;
   font-size: larger;
   font-weight: bold;
-  width: 100%;
-  height: 50px;
-  border: var(--green);
+  width: 150px;
+  height: 45px;
+  border: var(--gray);
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--green);
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.buttonSubmit {
+  background-color: var(--gray);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: var(--background);
+  font-weight: bold;
+  cursor: not-allowed;
+  width: 80%;
+  font-size: larger;
+  font-weight: bold;
+  margin: 0px auto 20px auto ;
+}
+
+.inputs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.inputs {
+  border: 2px solid var(--gray);
+  border-radius: 15px;
+  background-color: #f8fff8;
+  box-shadow: 0 0 10px var(--gray);
+  padding: 20px;
+  width: 80%;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.inputs:hover {
+  transform: translateY(-5px);
+}
+
+.inputs input {
+  padding: 10px;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .inputs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .modelMenu {
@@ -251,34 +271,6 @@ header .logo span {
 
 .menuIcon {
   display: none;
-}
-
-.findBar {
-  display: flex;
-  position: absolute;
-  height: 50px;
-  width: 400px;
-  top: 17%;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.inputFindBar {
-  border-radius: 100px;
-  height: 100%;
-  width: 100%;
-}
-
-.findBar .button {
-  position: absolute;
-  height: 45px;
-  width: 45px;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: transparent;
-  border: transparent;
 }
 
 @media (max-width: 1200px) {

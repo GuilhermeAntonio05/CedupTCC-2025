@@ -16,15 +16,18 @@ button {
 }
 
 body {
-  margin: 0;
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: var(--background);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 header {
@@ -38,13 +41,13 @@ header {
   top: 0;
   left: 0;
   border-bottom: 2px solid var(--green);
+  padding-left: 40px;
 }
 
 header .logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 40px;
 }
 
 header .logo img {
@@ -97,74 +100,143 @@ header .logo span {
   background-color: var(--background);
   height: 100%;
 }
+.welcome {
+  text-align: center;
+}
+
+.welcome-text {
+  color: var(--background);
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
 .model {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding: 20px 0px;
   background-color: white;
-  justify-content: center;
+  box-sizing: border-box;
 }
 
-.cardContainer {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  min-width: 250px;
-  gap: 20px;
-  height: 500px;
+.modelRender {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
 }
 
-.card-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.treinos {
+  margin-top: 2%;
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(200px);
+  justify-items: center;
   align-items: center;
 }
 
-.card-header img:hover {
-  cursor: pointer;
+.treinos .card {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: underline solid black 1px;
 }
 
-.card {
-  max-height: 280px;
-  box-shadow: 0px 10px 5px var(--gray);
+.text-left {
+  justify-content: left;
+}
+
+.text-right {
+  justify-content: right;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  margin: auto;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tbIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.tbButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
   background-color: white;
-  border-radius: 10px;
-  padding: 25px 25px 25px 25px;
-  border: 1px solid var(--gray);
-}
-
-.card span {
-  color: rgb(100, 100, 100);
-  font-weight: 700;
-}
-
-.card ul {
-  list-style: none;
-}
-
-.card h1 {
-  color: var(--green);
-}
-
-.card hr {
-  width: 100%;
-  height: 1px;
-  border: none;
-  background-color: var(--gray);
-  margin: 10px 0px;
-}
-
-.card button {
-  background-color: var(--green);
-  color: white;
+  border: 1px solid #e5e5e5;
   border-radius: 100px;
-  font-size: larger;
-  font-weight: bold;
-  width: 100%;
-  height: 50px;
-  border: var(--green);
+}
+
+.tbHr {
+  border: 1px #e5e5e5 solid;
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+th,
+td {
+  border-left: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 4px;
+}
+
+tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tbButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 10px;
 }
 
 .modelMenu {
@@ -213,6 +285,7 @@ header .logo span {
 }
 
 .sidebar {
+  top: 60px;
   width: 315px;
   height: 100%;
   background: var(--background);
@@ -255,30 +328,34 @@ header .logo span {
 
 .findBar {
   display: flex;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 400px;
-  top: 17%;
-  left: 50%;
-  transform: translate(-50%);
+  position: relative;
+  transform: scale(1.05);
 }
 
 .inputFindBar {
   border-radius: 100px;
   height: 100%;
   width: 100%;
+  padding-left: 20px;
+  border: 2px solid #001133;
+  box-sizing: border-box;
 }
 
 .findBar .button {
   position: absolute;
-  height: 45px;
-  width: 45px;
-  right: 5%;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-  color: transparent;
-  border: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {

@@ -14,5 +14,8 @@ public interface TreinoRepository extends JpaRepository<TreinoModel, Long> {
 
 	@Query("Select t from TreinoModel as t where serie = :ser and repeticoes = :rep and exercicios = :exec")
 	TreinoModel findBySerieRepeticoesExercicios(int ser, int rep, Optional<ExerciciosModel> exec);
-
+	
+	@Query("Select t from TreinoModel as t where serie = :ser and repeticoes = :rep and exercicios = :exec")
+	TreinoModel findBySerieRepeticoesExercicios(int ser, int rep, ExerciciosModel exec);
+	
 }

@@ -1,7 +1,5 @@
 function getExercicios() {
-  const session = JSON.parse(localStorage.getItem("lastSession"));
-  if (!session) return;
-  const email = session.email;
+  const email = JSON.parse(localStorage.getItem("lastSession")).email;
   const exercicios = [];
 
   fetch(`http://localhost:8080/treino?email=${email}`, {
@@ -31,7 +29,7 @@ function getExercicios() {
         card.innerHTML = `
               <div class="card-header">      
                 <h1>${e[0].name}</h1>
-                <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino()">
+                <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino('${e[0].name}')">
               </div>
               <hr>
               <ul> `;
@@ -45,25 +43,33 @@ function getExercicios() {
         card.innerHTML += `
               </ul>
               <hr>
-              <a href="detalhes.html">
-                <button onclick="deletarTreino(${e[0].name})">Iniciar</button>
+              <a onclick="saveTreino('${e[0].name}')" href="iniciarTreino.html">
+                <button>Iniciar</button>
               </a>`;
-        console.log(card);
         container.appendChild(card);
       });
     })
     .catch((err) => console.error(err));
 }
 
-function deletarTreino(id) {
-  fetch(`http://localhost:8080/treino/${id}`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  })
+function saveTreino(name) {
+  localStorage.setItem("treino", name);
+}
+
+function deletarTreino(name) {
+  fetch(
+    `http://localhost:8080/treino?grupo=${name}&email=${
+      JSON.parse(localStorage.getItem("lastSession")).email
+    }`,
+    {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         console.log("Treino deletado com sucesso");
-        getExercicios();
+        window.location.reload();
       } else {
         console.error("Erro ao deletar treino");
       }
