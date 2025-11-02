@@ -20,4 +20,5 @@ public interface ExerciciosRepository extends JpaRepository<ExerciciosModel, Lon
 	ExerciciosModel findByNome(String string);
 	
 	ExerciciosModel findByGrupoMuscular(String string);
+
 }

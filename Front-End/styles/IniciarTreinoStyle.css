@@ -16,15 +16,15 @@ button {
 }
 
 body {
-  overflow: hidden;
-  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   background-color: var(--background);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
@@ -101,107 +101,90 @@ header .logo span {
 
 .model {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   background-color: white;
 }
 
-.confirmDelete{
-  position: absolute;
-  display: none;
-  align-items: center;
-  flex-direction: column;
-  top: 45%;
-  left: 45%;
-  padding: 10px;
-  background-color: white;
-  border: solid 3px var(--gray);
-  border-radius: 50px;
-  padding: 20px;
-  box-shadow: 0px 2px 20px black;
-}
-
-.btn {
-  display: inline-block;
+.inputsh1 {
   text-align: center;
-  background: #2bff50;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  margin-top: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-  border:none;
+  color: var(--green);
+  margin: 10px 0px;
 }
 
-.btn:hover {
-  background: #24cc40;
+.inputs h1{
+  color: var(--background);
+  font-size: 25px;
+}
+
+.buttonConfirmar {
+  color: white;
+  border-radius: 100px;
+  font-size: larger;
+  font-weight: bold;
+  width: 150px;
+  height: 45px;
+  border: var(--gray);
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--green);
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.buttonSubmit {
+  background-color: var(--gray);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: var(--background);
+  font-weight: bold;
+  cursor: not-allowed;
+  width: 80%;
+  font-size: larger;
+  font-weight: bold;
+  margin: 0px auto 20px auto ;
+}
+
+.inputs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.inputs {
+  border: 2px solid var(--gray);
+  border-radius: 15px;
+  background-color: #f8fff8;
+  box-shadow: 0 0 10px var(--gray);
+  padding: 20px;
+  width: 80%;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.inputs:hover {
   transform: translateY(-5px);
 }
 
-.tableContainer {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e5e5e5;
-  margin: auto;
+.inputs input {
   padding: 10px;
-  border-radius: 50px;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 80%;
 }
 
-table {
-  border-collapse: collapse;
-}
-
-.actions {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-} 
-
-.tbIcon {
-  height: 20px;
-  width: 20px;
-}
-
-.tbButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-  width: 45px;
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 100px;
-}
-
-.tbHr{
-  border: 1px #e5e5e5 solid;
-  width: 95%;
-  margin-bottom: 10px;
-}
-
-th,td {
-  border-left: 1px solid #e5e5e5;
-  text-align: center;
-  padding: 4px;
-}
-
-tr {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.tbButtons {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin-top: 10px;
+@media (max-width: 768px) {
+  .inputs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .modelMenu {
@@ -291,6 +274,46 @@ tr {
 }
 
 @media (max-width: 1200px) {
+  .menuIcon {
+    display: block;
+    height: 60px;
+    width: 60px;
+  }
+
+  .menuContent {
+    position: absolute;
+    height: 100px;
+    width: 400px;
+    left: 50%;
+    bottom: 6%;
+    transform: translate(-50%);
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    height: 80px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    border: 1px #e5e5e5 solid;
+  }
+
+  .select {
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    height: 100px;
+    width: 100px;
+    background-color: #2bff50;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .sidebar {
     display: none;
   }

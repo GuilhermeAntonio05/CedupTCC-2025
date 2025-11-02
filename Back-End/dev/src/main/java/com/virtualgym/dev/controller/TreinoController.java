@@ -40,7 +40,7 @@ public class TreinoController {
 	}
 	
 	@GetMapping("/exercicios")
-	public List<TreinoModel> coletarTreinosPorGrupo(@RequestParam("email") String email,@RequestParam("grupo") String grupo) {
+	public List<TreinoModel> coletarTreinosPorGrupo(@RequestParam("email") String email, @RequestParam("grupo") String grupo) {
 		AlunoTreinoService  alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
 		return alunoTreinoService.buscarTreinosPorGrupo(alunoRepository, email, grupo);
 	}

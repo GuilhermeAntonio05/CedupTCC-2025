@@ -24,7 +24,7 @@ public class HistoricoModel {
 	@Column(name = "Data_Treino", nullable = false)
 	private Date data;
 	@ManyToOne
-	@JoinColumn(name = "fk_Aluno_Treino_ID", nullable = false)
+	@JoinColumn(name = "fk_Aluno_Treino_ID")
 	private AlunoTreinoModel treino;
 
 	public HistoricoModel() {

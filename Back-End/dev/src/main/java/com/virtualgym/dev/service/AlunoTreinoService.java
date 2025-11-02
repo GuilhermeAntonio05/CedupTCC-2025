@@ -38,14 +38,13 @@ public class AlunoTreinoService {
 	public void deletarPorId(long id) {
 		alunoTreinoRepository.deleteById(id);
 	}
-	
 
 	public void deletarPorGrupoMuscular(AlunoRepository alunoRepository, String EMAIL, String GRUPO_MUSCULAR) {
 		AlunoModel aluno = alunoRepository.findByEmail(EMAIL);
 		List<AlunoTreinoModel> alunoTreinos = alunoTreinoRepository.findAllByAlunoID(aluno);
-		
-		for (AlunoTreinoModel alunoTreino: alunoTreinos) {
-			if(alunoTreino.getTreinoID().getExercicios().getGrupoMuscular().equals(GRUPO_MUSCULAR)) {
+
+		for (AlunoTreinoModel alunoTreino : alunoTreinos) {
+			if (alunoTreino.getTreinoID().getExercicios().getGrupoMuscular().equals(GRUPO_MUSCULAR)) {
 				alunoTreinoRepository.deleteById(alunoTreino.getId());
 			}
 		}
@@ -144,9 +143,9 @@ public class AlunoTreinoService {
 	public List<TreinoModel> buscarTreinosPorGrupo(AlunoRepository alunoRepository, String email, String grupo) {
 		List<AlunoTreinoModel> treinosEncontrados = this.buscarPorEmail(alunoRepository, email);
 		List<TreinoModel> treinos = new ArrayList<>();
-		
-		for(AlunoTreinoModel alunoTreinoModel : treinosEncontrados) {
-			if(alunoTreinoModel.getTreinoID().getExercicios().getGrupoMuscular().equals(grupo)) {
+
+		for (AlunoTreinoModel alunoTreinoModel : treinosEncontrados) {
+			if (alunoTreinoModel.getTreinoID().getExercicios().getGrupoMuscular().equals(grupo)) {
 				treinos.add(alunoTreinoModel.getTreinoID());
 			}
 		}

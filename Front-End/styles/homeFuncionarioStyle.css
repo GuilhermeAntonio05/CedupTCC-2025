@@ -16,16 +16,18 @@ button {
 }
 
 body {
-  overflow: hidden;
-  margin: 0;
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: var(--background);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 header {
@@ -98,46 +100,78 @@ header .logo span {
   background-color: var(--background);
   height: 100%;
 }
+.welcome {
+  text-align: center;
+}
+
+.welcome-text {
+  color: var(--background);
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
 .model {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding: 20px 0px;
   background-color: white;
+  box-sizing: border-box;
 }
 
-.confirmDelete{
-  position: absolute;
+.modelRender {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.treinos {
+  margin-top: 2%;
   display: none;
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(200px);
+  justify-items: center;
   align-items: center;
-  flex-direction: column;
-  top: 45%;
-  left: 45%;
-  padding: 10px;
-  background-color: white;
-  border: solid 3px var(--gray);
-  border-radius: 50px;
-  padding: 20px;
-  box-shadow: 0px 2px 20px black;
 }
 
-.btn {
-  display: inline-block;
-  text-align: center;
-  background: #2bff50;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  margin-top: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-  border:none;
+.treinos .card {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: underline solid black 1px;
 }
 
-.btn:hover {
-  background: #24cc40;
-  transform: translateY(-5px);
+.text-left {
+  justify-content: left;
+}
+
+.text-right {
+  justify-content: right;
 }
 
 .tableContainer {
@@ -163,7 +197,7 @@ table {
   gap: 10px;
   align-items: center;
   justify-content: center;
-} 
+}
 
 .tbIcon {
   height: 20px;
@@ -181,13 +215,14 @@ table {
   border-radius: 100px;
 }
 
-.tbHr{
+.tbHr {
   border: 1px #e5e5e5 solid;
   width: 95%;
   margin-bottom: 10px;
 }
 
-th,td {
+th,
+td {
   border-left: 1px solid #e5e5e5;
   text-align: center;
   padding: 4px;
@@ -250,6 +285,7 @@ tr {
 }
 
 .sidebar {
+  top: 60px;
   width: 315px;
   height: 100%;
   background: var(--background);
@@ -290,7 +326,79 @@ tr {
   display: none;
 }
 
+.findBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 400px;
+  position: relative;
+  transform: scale(1.05);
+}
+
+.inputFindBar {
+  border-radius: 100px;
+  height: 100%;
+  width: 100%;
+  padding-left: 20px;
+  border: 2px solid #001133;
+  box-sizing: border-box;
+}
+
+.findBar .button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
+  .menuIcon {
+    display: block;
+    height: 60px;
+    width: 60px;
+  }
+
+  .menuContent {
+    position: absolute;
+    height: 100px;
+    width: 400px;
+    left: 50%;
+    bottom: 6%;
+    transform: translate(-50%);
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    height: 80px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    border: 1px #e5e5e5 solid;
+  }
+
+  .select {
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    height: 100px;
+    width: 100px;
+    background-color: #2bff50;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .sidebar {
     display: none;
   }
