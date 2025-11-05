@@ -90,7 +90,12 @@ public class AlunoTreinoService {
 		List<ExerciciosModel> exerciciosModels = new ArrayList<ExerciciosModel>();
 
 		for (String exec : exerciciosArray) {
-			exerciciosModels.add(exerciciosRepository.findByNome(exec));
+			List<ExerciciosModel> encontrados = exerciciosRepository.findByNome(exec);
+			if (!encontrados.isEmpty()) {
+				exerciciosModels.add(encontrados.get(0));
+			} else {
+				System.out.println("Exercício não encontrado: " + exec);
+			}
 		}
 
 		List<String[]> serie_repeticoes = new ArrayList<>();

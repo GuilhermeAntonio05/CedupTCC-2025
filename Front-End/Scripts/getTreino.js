@@ -140,13 +140,15 @@ function enviarTreino() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     })
-      .then((response) => {})
+      .then(() => {
+        localStorage.removeItem("treino");
+        window.location.href = "treino.html";
+      })
       .catch((error) => {
         console.error("Erro:", error);
       });
   });
 }
 
-//localStorage.removeItem("treino");
 
 getTreinoExercicios();

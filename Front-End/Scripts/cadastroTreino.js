@@ -54,36 +54,32 @@ function enviarCadastro() {
   );
   let email = JSON.parse(localStorage.getItem("lastSession")).email;
 
-  console.log({
-    grupoMuscular,
-    exercicios,
-    series,
-    email,
-  });
+  // Verificação de duplicatas (exercício + série iguais)
+  let combinacoes = exercicios.map((ex, i) => `${ex}-${series[i]}`);
+  let duplicados = combinacoes.filter((c, i) => combinacoes.indexOf(c) !== i);
+
+  if (duplicados.length > 0) {
+    alert("Há exercícios com as mesmas séries! Verifique antes de enviar.");
+    return;
+  }
 
   fetch("http://localhost:8080/cadastro/treino", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       grupoMuscular,
-      email,
-      series,
       exercicios,
+      series,
+      email,
     }),
   })
-    
     .then((data) => {
-      if (data) {
-        console.log("Cadastro realizado com sucesso:", data);
-      }
-
+      if (data) console.log("Cadastro realizado com sucesso:", data);
       window.location.href = "treino.html";
     })
     .catch((error) => {
       console.error("Erro ao realizar cadastro:", error);
     });
 }
-
-
 
 getGruposMusculares();
