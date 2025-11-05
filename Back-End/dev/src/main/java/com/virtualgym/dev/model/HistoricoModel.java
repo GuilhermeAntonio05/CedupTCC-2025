@@ -1,7 +1,8 @@
 package com.virtualgym.dev.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class HistoricoModel {
 	@Column(name = "Peso", nullable = false)
 	private String peso;
 	@Column(name = "Data_Treino", nullable = false)
-	private Date data;
+	private Timestamp data;
 	@ManyToOne
 	@JoinColumn(name = "fk_Aluno_Treino_ID")
 	private AlunoTreinoModel treino;
@@ -30,14 +31,14 @@ public class HistoricoModel {
 	public HistoricoModel() {
 	}
 
-	public HistoricoModel(Long id, String peso, AlunoTreinoModel treino, Date data) {
+	public HistoricoModel(Long id, String peso, AlunoTreinoModel treino, Timestamp data) {
 		this.id = id;
 		this.peso = peso;
 		this.treino = treino;
 		this.data = data;
 	}
 
-	public HistoricoModel(String peso, AlunoTreinoModel treino, Date data) {
+	public HistoricoModel(String peso, AlunoTreinoModel treino, Timestamp data) {
 		this.peso = peso;
 		this.treino = treino;
 		this.data = data;
@@ -63,11 +64,11 @@ public class HistoricoModel {
 		return id;
 	}
 	
-	public Date getData() {
+	public Timestamp getData() {
 		return data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(Timestamp data) {
 		this.data = data;
 	}
 

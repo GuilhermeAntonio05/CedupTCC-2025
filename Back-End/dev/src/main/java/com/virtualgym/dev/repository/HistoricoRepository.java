@@ -7,5 +7,4 @@ import com.virtualgym.dev.model.HistoricoModel;
 
 @Repository
 public interface HistoricoRepository extends JpaRepository<HistoricoModel, Long> {
-
 }

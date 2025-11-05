@@ -2,9 +2,10 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/historicoStyle.css" />
-    <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../images/icons/vgicon1.ico" />
     <title>Histórico - Virtual Gym</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
       <hr class="navHr">
 
       <div class="content">
-       <div class="sidebar" id="sidebar">
+        <div class="sidebar" id="sidebar">
           <nav>
             <ul>
               <li><a href="../../index.html">Início</a></li>
@@ -34,6 +35,10 @@
         </div>
 
         <div class="model" id="model">
+
+          <div id="container-historico" class="container-historico">
+          </div>
+
           <div class="modelMenu" id="menu">
             <div class="modelMenuContent">
               <div class="modelMenuItem" id="menuItem">
@@ -66,20 +71,10 @@
       </div>
     </div>
 
-    <div class="menuContent">
-      <div class="menu">
-        <img src="./images/icons/casa.png" class="menuIcon">
-        <div class="select">
-          <img src="./images/icons/usuario-online.png"
-            class="menuIcon">
-        </div>
-        <img src="./images/icons/historia.png" class="menuIcon">
-      </div>
-    </div>
-
     <!--
       <script src="Scripts/autenticator.js"></script>
     -->
+    <script src="../../Scripts/getHistorico.js"></script>
     <script src="../../Scripts/menuIndex.js"></script>
   </body>
 </html>

@@ -54,7 +54,7 @@ CREATE TABLE treino (
 CREATE TABLE historico (
     Historico_ID int PRIMARY KEY auto_increment,
     Peso text not null,
-    Data_Treino date not null,
+    Data_Treino datetime not null,
     fk_Aluno_Treino_ID int
 );
 
