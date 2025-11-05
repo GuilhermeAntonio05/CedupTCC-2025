@@ -9,7 +9,7 @@ function fetchAlunos() {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data) {
+      if (data && data.length > 0) {
         let message = document.getElementById("errorMessage");
         message.textContent = "";
 
@@ -44,6 +44,8 @@ function fetchAlunos() {
                     `;
           tableBody.appendChild(row);
         }
+      } else {
+        message.textContent = "Nenhum funcionario encontrado.";
       }
     })
     .catch((error) => {

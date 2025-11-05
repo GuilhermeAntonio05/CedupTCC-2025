@@ -34,6 +34,7 @@ public class CadastroController {
 	@PostMapping("/funcionario")
 	public void criarAluno(@RequestBody FuncionarioModel responseFuncionarioModel) {
 		FuncionarioService funcionarioService = new FuncionarioService(funcionarioRepository);
+		System.out.println(responseFuncionarioModel);
 		funcionarioService.criar(responseFuncionarioModel);
 	}
 	

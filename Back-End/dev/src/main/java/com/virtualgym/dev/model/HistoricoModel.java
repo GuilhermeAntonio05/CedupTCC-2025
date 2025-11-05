@@ -1,8 +1,8 @@
 package com.virtualgym.dev.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

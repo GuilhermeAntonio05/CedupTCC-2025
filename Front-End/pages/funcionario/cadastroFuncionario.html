@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+    <link rel="stylesheet" href="../../styles/cadastroStyle.css" />
+    <link rel="icon" type="image/x-icon"
+      href="../../images/icons/vgicon1.ico" />
+    <title>Virtual Gym</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="../../images/icons/logoVG.png" alt="Logo Virtual Gym" />
+        <span>VIRTUAL GYM</span>
+      </div>
+    </header>
+
+    <div class="login-container">
+      <h1>Cadastro Funcionario</h1>
+      <div class="form-grid">
+        <div class="caixa-login">
+          <input type="text" placeholder="Nome" id="nome" required />
+          <i class="fi fi-sr-user"></i>
+        </div>
+
+        <div class="caixa-login">
+          <input
+            type="text"
+            placeholder="CPF"
+            id="cpf"
+            required
+            maxlength="14"
+            inputmode="numeric"
+            autocomplete="off" />
+          <i class="fi fi-sr-id-card"></i>
+        </div>
+
+        <div class="caixa-login">
+          <input type="text" placeholder="Telefone" id="telefone" required />
+          <i class="fi fi-sr-phone-call"></i>
+        </div>
+
+        <div class="caixa-login">
+          <select id="cargo" required>
+            <option value>Selecione o Cargo</option>
+            <option value="instrutor">Instrutor</option>
+            <option value="personal">Personal Trainer</option>
+            <option value="recepcionista">Recepcionista</option>
+            <option value="nutricionista">Nutricionista</option>
+            <option value="fisioterapeuta">Fisioterapeuta</option>
+          </select>
+          <i class="fi fi-sr-briefcase"></i>
+        </div>
+
+        <div class="caixa-login">
+          <input
+            type="date"
+            placeholder="Data de Nascimento"
+            id="data_nascimento"
+            required />
+        </div>
+
+        <div class="caixa-login">
+          <select id="genero" required>
+            <option value>Selecione o Gênero</option>
+            <option value="m">Masculino</option>
+            <option value="f">Feminino</option>
+          </select>
+          <i class="fi fi-sr-venus-mars"></i>
+        </div>
+
+        <div class="caixa-login">
+          <input type="email" placeholder="Email" id="email" required />
+          <i class="fi fi-sr-envelope"></i>
+        </div>
+
+        <div class="caixa-login">
+          <input type="number" placeholder="Salario" id="salario" required />
+          <i class="fi fi-sr-dollar"></i>
+        </div>
+
+        <div class="caixa-login form-full">
+          <input type="password" placeholder="Senha" id="senha" required />
+          <i class="fi fi-sr-lock" style="cursor: pointer"></i>
+        </div>
+
+        <div class="caixa-login form-full">
+          <input
+            type="password"
+            placeholder="Confirmar Senha"
+            id="confirmarSenha"
+            required />
+          <i class="fi fi-sr-lock" style="cursor: pointer"></i>
+        </div>
+      </div>
+
+      <div class="termos">
+        <input type="checkbox" id="termos" required />
+        <label for="termos">
+          Li e aceito os
+          <a href="termos.html">Termos de uso</a> e as
+          <a href="termos.html">Políticas de privacidade</a>.
+        </label>
+      </div>
+
+      <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+
+    <script src="../../Scripts/cadastroFuncionario.js"></script>
+    <!--
+      <script src="../../Scripts/autenticatorFuncionario.js"></script>
+      -->
+  </body>
+</html>
