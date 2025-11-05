@@ -3,7 +3,7 @@ let position = 10;
 function fetchAlunos() {
   let tableBody = document.getElementById("tableBody");
 
-  fetch(`http://localhost:8080/home/aluno?position=${position}`, {
+  fetch(`http://localhost:8080/home/funcionario?position=${position}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -13,33 +13,32 @@ function fetchAlunos() {
         let message = document.getElementById("errorMessage");
         message.textContent = "";
 
-        for (let aluno of data) {
+        for (let funcionario of data) {
           let row = document.createElement("tr");
           row.innerHTML = `
-                <td>${aluno.id}</td>
-                <td>${aluno.nome}</td>
-                <td>${aluno.email}</td>
-                <td>${aluno.cpf}</td>
-                <td>${aluno.peso}</td>
-                <td>${aluno.telefone}</td>
-                <td>${aluno.data_nascimento}</td>
-                <td>${aluno.mensalidade.estado}</td>
-                <td>${aluno.data_vencimento}</td>
+                <td>${funcionario.id}</td>
+                <td>${funcionario.nome}</td>
+                <td>${funcionario.email}</td>
+                <td>${funcionario.cpf}</td>
+                <td>${funcionario.telefone}</td>
+                <td>${funcionario.dataNascimento}</td>
+                <td>${funcionario.cargo}</td>
+                <td>${funcionario.salario}</td>
                 <td>${
-                  aluno.genero === "m"
+                  funcionario.genero === "m"
                     ? "Masculino"
-                    : aluno.genero === "f"
+                    : funcionario.genero === "f"
                     ? "Feminino"
                     : "Outro"
                 }</td>
                 <td class="actions">
                   <button class="tbButton" onclick="${
-                    aluno.id
+                    funcionario.id
                   }"><img class="tbIcon" src="../../images/icons/pencil.png" alt="editar"></button>
                   <button class="tbButton" onclick="openMenuDelete(${
-                    aluno.id
+                    funcionario.id
                   }, '${
-            aluno.nome
+            funcionario.nome
           }')"><img class="tbIcon" src="../../images/icons/bin.png" alt="deletar"></button>
                 </td>
                     `;
@@ -49,8 +48,8 @@ function fetchAlunos() {
     })
     .catch((error) => {
       let message = document.getElementById("errorMessage");
-      message.textContent = "Nenhum aluno encontrado.";
-      console.error("Erro ao buscar alunos:", error);
+      message.textContent = "Nenhum funcionario encontrado.";
+      console.error("Erro ao buscar funcionario:", error);
     });
 }
 
@@ -80,7 +79,7 @@ function openMenuDelete(id, nome) {
 }
 
 function confirmDelete() {
-  fetch(`http://localhost:8080/home/aluno?id=${UserForDelete}`, {
+  fetch(`http://localhost:8080/home/funcionario?id=${UserForDelete}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   }).then(window.location.reload());

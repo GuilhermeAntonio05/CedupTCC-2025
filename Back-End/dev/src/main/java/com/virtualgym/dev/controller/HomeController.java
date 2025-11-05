@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.virtualgym.dev.dto.AlunoDTO;
+import com.virtualgym.dev.dto.FuncionarioDTO;
 import com.virtualgym.dev.repository.AlunoRepository;
+import com.virtualgym.dev.repository.FuncionarioRepository;
 import com.virtualgym.dev.service.AlunoService;
 import com.virtualgym.dev.service.DashboardService;
+import com.virtualgym.dev.service.FuncionarioService;
 
 @CrossOrigin(origins = "http://localhost:5173/")
 @RequestMapping("/home")
@@ -18,17 +21,32 @@ public class HomeController {
 
 	@Autowired
 	private AlunoRepository alunoRepository;
+	
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
 
-	@GetMapping
-	public List<AlunoDTO> buscarQuantidade(@RequestParam(value = "position") int quantidade) {
+	@GetMapping("/aluno")
+	public List<AlunoDTO> buscarQuantidadeAluno(@RequestParam(value = "position") int quantidade) {
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		return alunoService.buscarQuantidade(quantidade);
 	}
+	
+	@GetMapping("/funcionario")
+	public List<FuncionarioDTO> buscarQuantidadeProfessor(@RequestParam(value = "position") int quantidade) {
+		FuncionarioService funcionarioService = new FuncionarioService(funcionarioRepository);
+		return funcionarioService.buscarQuantidade(quantidade);
+	}
 
-	@DeleteMapping
+	@DeleteMapping("/aluno")
 	public void deletarAluno(@RequestParam("id") long id) {
 		AlunoService alunoService = new AlunoService(alunoRepository);
 		alunoService.deletarPorId(id);
+	}
+	
+	@DeleteMapping("/funcionario")
+	public void deletarFuncionario(@RequestParam("id") long id) {
+		FuncionarioService funcionarioService= new FuncionarioService(funcionarioRepository);
+		funcionarioService.deletarPorId(id);
 	}
 
     @GetMapping("/dashboard/pagamentosMes")

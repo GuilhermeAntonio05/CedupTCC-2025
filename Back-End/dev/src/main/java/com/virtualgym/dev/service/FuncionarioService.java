@@ -1,11 +1,14 @@
 package com.virtualgym.dev.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.virtualgym.dev.dto.AlunoDTO;
+import com.virtualgym.dev.dto.FuncionarioDTO;
 import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.model.FuncionarioModel;
 import com.virtualgym.dev.repository.FuncionarioRepository;
@@ -60,6 +63,33 @@ public class FuncionarioService {
 		}
 
 		return false;
+	}
+	
+	public List<FuncionarioDTO> buscarQuantidade(int quantidade) {
+		int registros = quantidade;
+		int limitador = 0;
+		List<FuncionarioDTO> dto = new ArrayList<FuncionarioDTO>();
+		List<FuncionarioModel> FUNCIONARIOS = funcionarioRepository.findAll();
+
+		if (FUNCIONARIOS.size() < registros) {
+			limitador = registros - FUNCIONARIOS.size();
+		}
+
+		try {
+			for (int i = registros - 10; i < (registros - limitador); i++) {
+				FuncionarioModel funcionario = FUNCIONARIOS.get(i);
+
+				dto.add(new FuncionarioDTO(funcionario.getId(), funcionario.getNome(), funcionario.getEmail(), funcionario.getCpf(),
+						funcionario.getTelefone(),funcionario.getDataNascimento(), funcionario.getGenero(),
+						funcionario.getCargo(), funcionario.getSalario()));
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.err.println(
+					"AlunoService.buscarQuantidade(): Usuário inesxistente/Informações nulas não podem ser tratadas");
+			return null;
+		}
+
+		return dto;
 	}
 
 }
