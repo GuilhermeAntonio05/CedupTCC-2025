@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtualgym.dev.dto.AlunoCadastroDTO;
+import com.virtualgym.dev.model.ExerciciosModel;
 import com.virtualgym.dev.model.FuncionarioModel;
 import com.virtualgym.dev.repository.AlunoRepository;
+import com.virtualgym.dev.repository.ExerciciosRepository;
 import com.virtualgym.dev.repository.FuncionarioRepository;
 import com.virtualgym.dev.service.AlunoService;
+import com.virtualgym.dev.service.ExerciciosService;
 import com.virtualgym.dev.service.FuncionarioService;
 
 @CrossOrigin(origins = "http://localhost:5173/")
@@ -25,6 +28,9 @@ public class CadastroController {
 	@Autowired
 	FuncionarioRepository funcionarioRepository;
 	
+	@Autowired
+	ExerciciosRepository exerciciosRepository;
+	
 	@PostMapping("/aluno")
 	public void criarAluno(@RequestBody AlunoCadastroDTO reponseAlunoModel) {
 		AlunoService alunoService = new AlunoService(alunoRpeository);
@@ -32,10 +38,16 @@ public class CadastroController {
 	}
 
 	@PostMapping("/funcionario")
-	public void criarAluno(@RequestBody FuncionarioModel responseFuncionarioModel) {
+	public void criarFuncionario(@RequestBody FuncionarioModel responseFuncionarioModel) {
 		FuncionarioService funcionarioService = new FuncionarioService(funcionarioRepository);
 		System.out.println(responseFuncionarioModel);
 		funcionarioService.criar(responseFuncionarioModel);
+	}
+	
+	@PostMapping("/exercicio")
+	public void criarExercicio(@RequestBody ExerciciosModel responseExercicioModel) {
+		ExerciciosService exerciciosService = new ExerciciosService(exerciciosRepository);
+		exerciciosService.criar(responseExercicioModel);
 	}
 	
 }

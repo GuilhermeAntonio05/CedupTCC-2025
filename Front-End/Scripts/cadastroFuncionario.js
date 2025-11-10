@@ -8,7 +8,6 @@ cpfInput.addEventListener("input", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("teste");
   const senha = document.getElementById("senha");
   const confirmarSenha = document.getElementById("confirmarSenha");
 

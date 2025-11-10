@@ -22,11 +22,11 @@ body {
 }
 
 .container {
+  min-height: 100vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  min-height: 100vh;
   width: 100vw;
 }
 
@@ -104,6 +104,7 @@ header .logo span {
 .model {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   background-color: white;
 }
@@ -162,7 +163,7 @@ header .logo span {
 
 .historico {
   background: #ffffff10;
-  margin: 20px;
+  margin: 20px 0px 0px 20px;
   width: 100%;
   color: var(--gray);
   transition: 0.3s ease;

@@ -6,8 +6,8 @@ cpfInput.addEventListener("input", function () {
   value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
   cpfInput.value = value;
 });
+
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("teste");
   const senha = document.getElementById("senha");
   const confirmarSenha = document.getElementById("confirmarSenha");
 
@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function cadastrar() {
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const cpf = document.getElementById("cpf").value;
-  const telefone = document.getElementById("telefone").value;
-  const peso = document.getElementById("peso").value;
-  const data_nascimento = document.getElementById("data_nascimento").value;
-  const genero = document.getElementById("genero").value;
-  const senha = document.getElementById("senha").value;
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const cpf = document.getElementById("cpf").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const peso = document.getElementById("peso").value.trim();
+  const data_nascimento = document.getElementById("data_nascimento").value.trim();
+  const genero = document.getElementById("genero").value.trim();
+  const senha = document.getElementById("senha").value.trim();
 
   fetch("http://localhost:8080/cadastro/aluno", {
     method: "POST",
