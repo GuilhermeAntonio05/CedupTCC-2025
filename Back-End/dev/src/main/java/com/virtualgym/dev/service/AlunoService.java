@@ -94,7 +94,7 @@ public class AlunoService {
 
 				dto.add(new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getEmail(), aluno.getCpf(),
 						aluno.getTelefone(), aluno.getPeso(), aluno.getData_nascimento(), aluno.getGenero(),
-						aluno.getMensalidade(), aluno.getData_nascimento()));
+						aluno.getMensalidade(), aluno.getData_vencimento()));
 			}
 		} catch (IndexOutOfBoundsException e) {
 			System.err.println(

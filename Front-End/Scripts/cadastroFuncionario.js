@@ -21,16 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function cadastrar() {
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const cpf = document.getElementById("cpf").value.trim();
-  const telefone = document.getElementById("telefone").value.trim();
-  const peso = document.getElementById("peso").value.trim();
-  const data_nascimento = document.getElementById("data_nascimento").value.trim();
-  const genero = document.getElementById("genero").value.trim();
-  const senha = document.getElementById("senha").value.trim();
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const cpf = document.getElementById("cpf").value;
+  const telefone = document.getElementById("telefone").value;
+  const salario = document.getElementById("salario").value;
+  const dataNascimento = document.getElementById("data_nascimento").value;
+  const cargo = document.getElementById("cargo").value;
+  const genero = document.getElementById("genero").value;
+  const senha = document.getElementById("senha").value;
 
-  fetch("http://localhost:8080/cadastro/aluno", {
+  fetch("http://localhost:8080/cadastro/funcionario", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,10 +40,11 @@ function cadastrar() {
       nome,
       email,
       cpf,
+      cargo,
       telefone,
-      peso,
-      data_nascimento,
+      dataNascimento,
       genero,
+      salario,
       senha,
     }),
   })

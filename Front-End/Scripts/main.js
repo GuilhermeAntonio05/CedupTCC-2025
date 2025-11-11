@@ -135,7 +135,6 @@ function render() {
   OrbitControl.minDistance = 2;
   OrbitControl.maxDistance = 2.5;
   document.getElementById("treinos").style.display = "grid";
-
   fetch(
     `http://localhost:8080/treino/exercicios?email=${
       JSON.parse(localStorage.getItem("lastSession")).email
@@ -145,25 +144,47 @@ function render() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        document.getElementsByClassName("card")[0].innerHTML =
-          data[0].exercicios.nome;
-        document.getElementsByClassName("card")[1].innerHTML =
-          data[1].exercicios.nome;
-        document.getElementsByClassName("card")[2].innerHTML =
-          data[2].exercicios.nome;
-        document.getElementsByClassName("card")[3].innerHTML =
-          data[3].exercicios.nome;
-        document.getElementsByClassName("card")[4].innerHTML =
-          data[4].exercicios.nome;
-        document.getElementsByClassName("card")[5].innerHTML =
-          data[5].exercicios.nome;
+        document.getElementsByClassName("card")[0].innerHTML = `
+          ${data[0].exercicios.nome} <img src="./images/icons/2.png" width="200px" height="100px">
+        `;
+        document.getElementsByClassName("card")[1].innerHTML = `
+          <img src="./images/icons/4.png" width="200px" height="100px"> ${data[1].exercicios.nome}
+        `;
+        document.getElementsByClassName("card")[2].innerHTML = `
+          ${data[2].exercicios.nome} <img src="./images/icons/1.png" width="200px" height="100px">
+        `;
+        document.getElementsByClassName("card")[3].innerHTML = `
+           <img src="./images/icons/1.png" width="200px" height="100px"> ${data[3].exercicios.nome}
+        `;
+        document.getElementsByClassName("card")[4].innerHTML = `
+        ${data[4].exercicios.nome} <img src="./images/icons/3.png" width="200px" height="100px"> 
+        `;
+        document.getElementsByClassName("card")[5].innerHTML = `
+       <img src="./images/icons/5.png" width="200px" height="100px"> ${data[5].exercicios.nome}
+        `;
       }
     })
     .catch((err) => {
       let element = document.getElementsByClassName("card");
-      for (let i = 0; i < element.length; i++) {
-       element[i].innerHTML = "Nenhum treino cadastrado.";
-      }
+
+         element[0].innerHTML = `
+         Nenhum treino cadastrado. <img src="./images/icons/2.png" width="200px" height="100px">
+        `;
+        element[1].innerHTML = `
+          <img src="./images/icons/4.png" width="200px" height="100px"> Nenhum treino cadastrado.
+        `;
+        element[2].innerHTML = `
+        Nenhum treino cadastrado. <img src="./images/icons/1.png" width="200px" height="100px">
+        `;
+        element[3].innerHTML = `
+           <img src="./images/icons/1.png" width="200px" height="100px"> Nenhum treino cadastrado.
+        `;
+        element[4].innerHTML = `
+       Nenhum treino cadastrado. <img src="./images/icons/3.png" width="200px" height="100px"> 
+        `;
+        element[5].innerHTML = `
+       <img src="./images/icons/5.png" width="200px" height="100px"> Nenhum treino cadastrado.
+        `;
     });
 }
 

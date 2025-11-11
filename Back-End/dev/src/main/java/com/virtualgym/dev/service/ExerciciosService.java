@@ -17,12 +17,27 @@ public class ExerciciosService {
 		this.exerciciosRepository = exerciciosRepository;
 	}
 
-	public void criar(ExerciciosModel aluno) {
-		exerciciosRepository.save(aluno);
+	public void criar(ExerciciosModel exercicio) {
+		List<ExerciciosModel> exercicios = exerciciosRepository.findAll();
+		boolean encontrado = false;
+
+		for (ExerciciosModel exec : exercicios) {
+			if (exec.getGrupoMuscular().equals(exercicio.getGrupoMuscular())
+					&& exercicio.getNome().equals(exec.getNome())) {
+				encontrado = true;
+				break;
+			}
+		}
+
+		if (!encontrado) {
+			exerciciosRepository.save(exercicio);
+		} else {
+			System.err.println("Duplicata encontrada!");
+		}
 	}
 
-	public void deletar(ExerciciosModel aluno) {
-		exerciciosRepository.delete(aluno);
+	public void deletar(ExerciciosModel exercicio) {
+		exerciciosRepository.delete(exercicio);
 	}
 
 	public void deletarPorId(long id) {

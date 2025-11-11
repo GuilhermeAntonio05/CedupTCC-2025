@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class ExerciciosModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Exercicio_ID")
 	private Long id;
 	@Column(name = "Grupo_Muscular", nullable = false)

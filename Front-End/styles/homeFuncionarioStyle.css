@@ -17,14 +17,15 @@ button {
 
 body {
   min-height: 100vh;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: var(--background);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
@@ -132,7 +133,7 @@ header .logo span {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding-top: 20px;
+  padding: 20px 0px;
   background-color: white;
   box-sizing: border-box;
 }
@@ -284,32 +285,11 @@ tr {
 }
 
 .sidebar {
-  position: relative;
   top: 60px;
   width: 315px;
   height: 100%;
   background: var(--background);
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-footer {
-  position: absolute;
-  bottom: 70px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  color: #ccc;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar nav {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: -50px;
 }
 
 .sidebar nav ul {
@@ -417,5 +397,9 @@ tr {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .sidebar {
+    display: none;
   }
 }

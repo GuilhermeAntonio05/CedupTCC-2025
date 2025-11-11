@@ -9,6 +9,7 @@
   padding: 0px;
   margin: 0px;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 button {
@@ -21,9 +22,11 @@ body {
 }
 
 .container {
+  min-height: 100vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-height: 100%;
   width: 100vw;
 }
 
@@ -101,6 +104,7 @@ header .logo span {
 .model {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   background-color: white;
 }
@@ -148,6 +152,125 @@ header .logo span {
   flex-direction: row;
   width: 100%;
   height: 100px;
+}
+
+.container-historico{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.historico {
+  background: #ffffff10;
+  margin: 20px 0px 0px 20px;
+  width: 100%;
+  color: var(--gray);
+  transition: 0.3s ease;
+}
+
+.historico h1 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.historico hr {
+  border: none;
+  height: 2px;
+  background: black;
+  margin-bottom: 15px;
+  margin-right: 50px;
+}
+
+.historico ul hr {
+  border: none;
+  height: 2px;
+  background: var(--green);
+  margin-bottom: 15px;
+}
+
+.historico ul {
+  border: 1px solid var(--gray);
+  background: #ffffff15;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0px 10px 5px var(--gray);
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.historico ul:hover {
+  background: #ffffff25;
+}
+
+.historico ul li {
+  color: black;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.historico button {
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.historico button:hover {
+  background: #23cc42;
+  transform: scale(1.05);
+}
+
+.load-more-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+  height: 80px;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.load-more-container hr {
+  flex: 1;
+  height: 2px;
+  background: #c0c0c0;
+  border: none;
+  opacity: 0.5;
+}
+
+#btn-carregar-mais {
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 15px rgba(43, 255, 80, 0.4);
+  position: relative;
+  z-index: 2;
+  
+}
+
+#btn-carregar-mais:hover {
+  background: #23cc42;
+  transform: scale(1.08);
+  box-shadow: 0px 8px 20px rgba(43, 255, 80, 0.6);
+  
 }
 
 .sidebar {
