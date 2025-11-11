@@ -19,7 +19,7 @@
             <hr class="navHr">
 
             <div class="content">
-                   <div class="sidebar" id="sidebar">
+                 <div class="sidebar" id="sidebar">
                     <nav>
                         <ul>
                             <li><a href="HomeFuncionario.html">Início</a></li>
@@ -38,25 +38,25 @@
                         </ul>
                     </nav>
                     <footer class="sidebar-footer">
-                        © 2025 Virtual Gym. <br />Todos os direitos reservados.
+                        © 2025 Virtual Gym. <br>Todos os direitos reservados.
                     </footer>
                 </div>
 
                 <div class="model" id="model">
 
                     <div class="confirmDelete" id="confirmDelete">
-                        <p>Você está prestes a deletar o funcionario de ID: <span
+                        <p>Você está prestes a deletar o aluno de ID: <span
                                 id="deleteId"></span></p>
                         <div>
                             <button class="btn"
                                 onclick="confirmDelete()">Confirmar</button>
                             <button class="btn"
-                                onclick="cancelDelete()" >Cancelar</button>
+                                onclick="cancelDelete()">Cancelar</button>
                         </div>
                     </div>
 
                     <div class="tableContainer">
-                        <h1>Funcionarios</h1>
+                        <h1>Exercicios</h1>
                         <hr class="tbHr">
                         <table class="table" id="table">
                             <thead>
@@ -65,10 +65,11 @@
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th>CPF</th>
+                                    <th>Peso</th>
                                     <th>Telefone</th>
                                     <th>Data de Nascimento</th>
-                                    <th>Cargo   </th>
-                                    <th>Sálario</th>
+                                    <th>Mensalidade</th>
+                                    <th>Data de Vencimento</th>
                                     <th>Genero</th>
                                     <th class="actions">Ações</th>
                                 </tr>
@@ -127,7 +128,7 @@
             </div>
         </div>
 
-        <script src="../../Scripts/getFuncionarios.js"></script>
+        <script src="../../Scripts/getAlunos.js"></script>
         <!--
         <script src="../../Scripts/autenticatorFuncionario.js"></script> -->
         <script src="../../Scripts/menuIndex.js"></script>
