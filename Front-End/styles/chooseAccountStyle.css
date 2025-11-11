@@ -147,3 +147,19 @@ body {
 .termos label a:hover {
   text-decoration: underline;
 }
+footer {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  width: 100%;
+  pointer-events: none;
+}
+
+footer p {
+  margin: 0;
+}

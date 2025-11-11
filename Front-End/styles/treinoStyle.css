@@ -213,10 +213,32 @@ header .logo span {
 }
 
 .sidebar {
+  position: relative;
+  top: 60px;
   width: 315px;
   height: 100%;
   background: var(--background);
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: -50px;
 }
 
 .sidebar nav ul {
@@ -292,9 +314,5 @@ header .logo span {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .sidebar {
-    display: none;
   }
 }

@@ -21,14 +21,21 @@
           <nav>
             <ul>
               <li><a href="index.html">Início</a></li>
-              <li><a href="./pages/aluno/cadastroTreino.html">Cadastrar Treino
-                </a></li>
+              <li>
+                <a href="./pages/aluno/cadastroTreino.html"
+                  >Cadastrar Treino
+                </a>
+              </li>
               <li><a href="./pages/aluno/treino.html">Consultar Treinos</a></li>
-              <li><a href="./pages/aluno/historico.html">Consultar
-                  Histórico</a></li>
+              <li>
+                <a href="./pages/aluno/historico.html">Consultar Histórico</a>
+              </li>
               <li><a onclick="openMenu()"> Configurações</a></li>
             </ul>
           </nav>
+          <footer class="sidebar-footer">
+            © 2025 Virtual Gym. <br />Todos os direitos reservados.
+          </footer>
         </div>
 
         <div class="model" id="model">
@@ -44,18 +51,22 @@
               <input
                 type="text"
                 class="inputFindBar"
-                placeholder="Pesquise aqui" />
+                placeholder="Pesquise aqui"
+              />
               <button class="button">
                 <img src="images/icons/lupa.png" class="button" />
               </button>
             </div>
           </div>
 
-          <div id="modelRender" class="modelRender"> 
+          <div id="modelRender" class="modelRender">
             <div id="treinos" class="treinos">
-              <div class="card text-right"></div><div class="card text-left"></div>
-              <div class="card text-right"></div><div class="card text-left"></div>
-              <div class="card text-right"></div><div class="card text-left"></div>
+              <div class="card text-right"></div>
+              <div class="card text-left"></div>
+              <div class="card text-right"></div>
+              <div class="card text-left"></div>
+              <div class="card text-right"></div>
+              <div class="card text-left"></div>
             </div>
           </div>
 
@@ -70,7 +81,8 @@
               <div
                 class="modelMenuItem"
                 id="menuItem"
-                onclick="changeAccount()">
+                onclick="changeAccount()"
+              >
                 <img src="./images/icons/do-utilizador.png" class="menuIcon" />
                 <span>Trocar de conta</span>
               </div>
@@ -107,7 +119,7 @@
       }
     </script>
     <script type="module" src="./Scripts/main.js"></script>
-    <script src="Scripts/autenticator.js"></script>
+    <!--<script src="Scripts/autenticator.js"></script>-->
     <script src="Scripts/menuIndex.js"></script>
   </body>
 </html>
