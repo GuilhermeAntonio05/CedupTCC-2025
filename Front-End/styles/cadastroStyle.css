@@ -14,8 +14,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
   border-bottom: 2px solid #2bff50;
 }
 
@@ -43,8 +41,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
+  padding: 0px;
 }
 
 .login-container {

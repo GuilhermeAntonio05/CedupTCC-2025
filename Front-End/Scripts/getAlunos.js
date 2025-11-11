@@ -33,14 +33,13 @@ function fetchAlunos() {
                     : "Outro"
                 }</td>
                 <td class="actions">
-                  <button class="tbButton" onclick="${
-                    aluno.id
-                  }"><img class="tbIcon" src="../../images/icons/pencil.png" alt="editar"></button>
-                  <button class="tbButton" onclick="openMenuDelete(${
-                    aluno.id
-                  }, '${
-            aluno.nome
-          }')"><img class="tbIcon" src="../../images/icons/bin.png" alt="deletar"></button>
+                  <button class="tbButton" onclick="editarAluno(${aluno.id})">
+                    <img class="tbIcon" src="../../images/icons/pencil.png" alt="editar">
+                  </button>
+
+                  <button class="tbButton" onclick="openMenuDelete(${aluno.id}, '${aluno.nome}')">
+                    <img class="tbIcon" src="../../images/icons/bin.png" alt="deletar">
+                  </button>
                 </td>
                     `;
           tableBody.appendChild(row);
@@ -93,6 +92,11 @@ function confirmDelete() {
 function cancelDelete() {
   let box = document.getElementById("confirmDelete");
   box.style.display = "none";
+}
+
+function editarAluno(id){
+  localStorage.setItem("alunoID", id);
+  window.location.href = "editarAluno.html";
 }
 
 fetchAlunos();
