@@ -250,7 +250,7 @@ tr {
 .modelMenuContent {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 83%;
   padding: 25px;
   height: 50%;
   gap: 20px;

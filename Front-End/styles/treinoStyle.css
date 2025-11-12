@@ -18,13 +18,17 @@ button {
 body {
   margin: 0;
   background-color: var(--background);
+  overflow-x: hidden;
 }
 
 .container {
+   min-height: 100vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  max-height: 100%;
+  width: 100vw;
+  
 }
 
 header {
@@ -99,11 +103,11 @@ header .logo span {
 }
 
 .model {
-  display: flex;
+   display: flex;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   background-color: white;
-  justify-content: center;
 }
 
 .cardContainer {
@@ -178,7 +182,7 @@ header .logo span {
 .modelMenuContent {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 83%;
   padding: 25px;
   height: 50%;
   gap: 20px;
@@ -213,13 +217,15 @@ header .logo span {
 }
 
 .sidebar {
-  position: relative;
+ position: relative;
   top: 60px;
   width: 315px;
   height: 100%;
   background: var(--background);
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .sidebar-footer {
   position: absolute;
@@ -234,7 +240,7 @@ header .logo span {
 }
 
 .sidebar nav {
-  flex-grow: 1;
+   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
