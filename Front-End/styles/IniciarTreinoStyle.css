@@ -113,7 +113,7 @@ header .logo span {
   margin: 10px 0px;
 }
 
-.inputs h1{
+.inputs h1 {
   color: var(--background);
   font-size: 25px;
 }
@@ -147,7 +147,7 @@ header .logo span {
   width: 80%;
   font-size: larger;
   font-weight: bold;
-  margin: 0px auto 20px auto ;
+  margin: 0px auto 20px auto;
 }
 
 .inputs-container {
@@ -198,7 +198,7 @@ header .logo span {
 .modelMenuContent {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 83%;
   padding: 25px;
   height: 50%;
   gap: 20px;
