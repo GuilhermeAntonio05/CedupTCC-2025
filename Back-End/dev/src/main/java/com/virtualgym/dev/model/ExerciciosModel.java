@@ -1,10 +1,14 @@
 package com.virtualgym.dev.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,6 +23,8 @@ public class ExerciciosModel {
 	private String grupoMuscular;
 	@Column(name = "Nome", nullable = false)
 	private String nome;
+	@OneToMany(mappedBy = "exercicios", cascade = CascadeType.ALL)
+	private List<TreinoModel> treino;
 
 	public ExerciciosModel() {
 	}

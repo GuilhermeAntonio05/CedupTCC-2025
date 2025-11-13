@@ -16,7 +16,7 @@ public interface ExerciciosRepository extends JpaRepository<ExerciciosModel, Lon
 
 	@Query("SELECT e.nome FROM ExerciciosModel e WHERE e.grupoMuscular = :exec")
 	List<String> findAllDistinctExercicios(@Param("exec") String exec);
-
+	
 	List<ExerciciosModel> findByNome(String nome);
 	
 	ExerciciosModel findByGrupoMuscular(String string);

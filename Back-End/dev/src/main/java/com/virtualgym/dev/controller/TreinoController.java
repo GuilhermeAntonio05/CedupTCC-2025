@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.virtualgym.dev.dto.TreinoDTO;
 import com.virtualgym.dev.model.AlunoTreinoModel;
+import com.virtualgym.dev.model.ExerciciosModel;
 import com.virtualgym.dev.model.TreinoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.repository.AlunoTreinoRepository;
+import com.virtualgym.dev.repository.ExerciciosRepository;
 import com.virtualgym.dev.service.AlunoTreinoService;
+import com.virtualgym.dev.service.ExerciciosService;
 
 @CrossOrigin(origins = "http://localhost:5173/")
 @RequestMapping("/treino")
@@ -26,6 +29,8 @@ public class TreinoController {
 	AlunoTreinoRepository alunoTreinoRepository;
 	@Autowired
 	AlunoRepository alunoRepository;
+	@Autowired
+	ExerciciosRepository exerciciosRepository;
 
 	@GetMapping
 	public List<TreinoDTO> coletarTreinos(@RequestParam("email") String email) {
@@ -48,7 +53,18 @@ public class TreinoController {
 	@DeleteMapping
 	public void deletarTreino(@RequestParam("grupo") String grupoMuscular, @RequestParam("email") String email) {
 		AlunoTreinoService alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
-		System.out.println("chegou!" + grupoMuscular +" "+ email);
 		alunoTreinoService.deletarPorGrupoMuscular(alunoRepository, email, grupoMuscular);
+	}
+	
+	@DeleteMapping("/exercicio")
+	public void deletarExercicio(@RequestParam("grupo") String grupoMuscular, @RequestParam("nome") String nome) {
+		ExerciciosService alunoTreinoService = new ExerciciosService(exerciciosRepository);
+		List<ExerciciosModel> aluno = alunoTreinoService.buscarPorNome(nome);
+		
+		for(ExerciciosModel exec: aluno) {
+			if(exec.getGrupoMuscular().equals(grupoMuscular)) {
+				alunoTreinoService.deletar(exec);
+			}
+		}
 	}
 }

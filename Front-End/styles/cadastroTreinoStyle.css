@@ -1,10 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+:root {
+  --background: #041333;
+  --green: #2bff50;
+  --gray:#e5e5e5;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+
+button,a{
+  cursor: pointer;
 }
 
 header {
@@ -146,6 +156,17 @@ button:hover {
 
 #termos {
   accent-color: #2bff50;
+}
+
+.btn-voltar{
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: 0.3s color;
+}
+
+.btn-voltar:hover{
+  color: #20cf3d;
 }
 
 /* Responsividade */

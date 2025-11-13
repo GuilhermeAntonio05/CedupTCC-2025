@@ -51,6 +51,10 @@ public class ExerciciosService {
 	public Optional<ExerciciosModel> buscarPorId(long id) {
 		return exerciciosRepository.findById(id);
 	}
+	
+	public List<ExerciciosModel> buscarPorNome(String nome) {
+		return exerciciosRepository.findByNome(nome);
+	}
 
 	public List<String> buscarDistintosGruposMusculares() {
 		return exerciciosRepository.findAllDistinctGruposMusculares();

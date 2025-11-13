@@ -7,7 +7,8 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
     <link rel="stylesheet" href="../../styles/cadastroStyle.css" />
-    <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../images/icons/vgicon1.ico" />
     <title>Virtual Gym</title>
   </head>
   <body>
@@ -20,33 +21,37 @@
 
     <div class="login-container">
       <h1>Cadastro de Exercício</h1>
-        <div class="form-grid">
-          <div class="caixa-login form-full">
-            <select id="grupoMuscular" required>
-              <option value>Selecione o Grupo Muscular</option>
-              <option value="Peito">Peito</option>
-              <option value="Triceps">Triceps</option>
-              <option value="Abdomen">Abdomen</option>
-              <option value="Costas">Costas</option>
-              <option value="Quadriceps">Quadriceps</option>
-              <option value="Gluteos">Gluteos</option>
-              <option value="Posterior">Posterior</option>
-              <option value="Panturrilhas">Panturrilhas</option>
-              <option value="Ombros">Ombros</option>
-              <option value="Biceps">Biceps</option>
-              <option value="Antebraco">Antebraco</option>
-            </select>
-            <i class="fi fi-sr-venus-mars"></i>
-          </div>
+      <div class="form-grid">
+        <div class="caixa-login form-full">
+          <select id="grupoMuscular" required>
+            <option value>Selecione o Grupo Muscular</option>
+            <option value="Peito">Peito</option>
+            <option value="Triceps">Triceps</option>
+            <option value="Abdomen">Abdomen</option>
+            <option value="Costas">Costas</option>
+            <option value="Quadriceps">Quadriceps</option>
+            <option value="Gluteos">Gluteos</option>
+            <option value="Posterior">Posterior</option>
+            <option value="Panturrilhas">Panturrilhas</option>
+            <option value="Ombros">Ombros</option>
+            <option value="Biceps">Biceps</option>
+            <option value="Antebraco">Antebraco</option>
+          </select>
+          <i class="fi fi-sr-venus-mars"></i>
+        </div>
 
-          <div class="caixa-login form-full">
-            <input type="text" placeholder="Nome do exercício" id="nome" required />
-            <i class="fi fi-sr-user"></i>
-          </div>
+        <div class="caixa-login form-full">
+          <input type="text" placeholder="Nome do exercício" id="nome"
+            required />
+          <i class="fi fi-sr-user"></i>
+        </div>
 
-
-        <button class="form-full" onclick="cadastrarExercicios()">Cadastrar</button>
+        <button class="form-full"
+          onclick="cadastrarExercicios()">Cadastrar</button>
+      </div>
     </div>
+
+    <a class="btn-voltar" href="HomeFuncionario.html">Voltar ao Início</a>
 
     <script src="../../Scripts/cadastroExercicios.js"></script>
     <!--

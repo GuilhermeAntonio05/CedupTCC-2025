@@ -2,7 +2,7 @@
 <html lang="pt-BR">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../../styles/consultarAluno.css">
+        <link rel="stylesheet" href="../../styles/consultarExercicios.css">
         <link rel="icon" type="image/x-icon"
             href="../../images/icons/vgicon1.ico">
         <title>Virtual Gym</title>
@@ -19,7 +19,7 @@
             <hr class="navHr">
 
             <div class="content">
-                 <div class="sidebar" id="sidebar">
+                <div class="sidebar" id="sidebar">
                     <nav>
                         <ul>
                             <li><a href="HomeFuncionario.html">Início</a></li>
@@ -29,7 +29,7 @@
                                     Funcionario</a></li>
                             <li><a href="cadastroExercicios.html">Adicionar
                                     Exercicios</a></li>
-                            <li><a href="consultarTreinos.html">Consultar
+                            <li><a href="consultarExercicios.html">Consultar
                                     Exercicios</a></li>
                             <li><a href="cadastro.html">Adicionar Aluno</a></li>
                             <li><a href="consultarAlunos.html">Consultar
@@ -56,28 +56,15 @@
                     </div>
 
                     <div class="tableContainer">
-                        <h1>Exercicios</h1>
+                        <h1 id="titulo">Exercicios</h1>
                         <hr class="tbHr">
-                        <table class="table" id="table">
+                        <table>
                             <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>CPF</th>
-                                    <th>Peso</th>
-                                    <th>Telefone</th>
-                                    <th>Data de Nascimento</th>
-                                    <th>Mensalidade</th>
-                                    <th>Data de Vencimento</th>
-                                    <th>Genero</th>
-                                    <th class="actions">Ações</th>
-                                </tr>
+                                <tr><th>nome</th> <th>Ações</th></tr>
                             </thead>
                             <tbody id="tableBody">
                             </tbody>
                         </table>
-                        <span id="errorMessage"></span>
                         <div class="tbButtons">
                             <button class="tbButton"
                                 style="height: 60px; width: 60px;"
@@ -128,7 +115,7 @@
             </div>
         </div>
 
-        <script src="../../Scripts/getAlunos.js"></script>
+        <script src="../../Scripts/getExercicios.js"></script>
         <!--
         <script src="../../Scripts/autenticatorFuncionario.js"></script> -->
         <script src="../../Scripts/menuIndex.js"></script>
