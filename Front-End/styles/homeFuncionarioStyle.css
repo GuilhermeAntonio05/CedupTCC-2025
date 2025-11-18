@@ -126,6 +126,93 @@ header .logo span {
   gap: 20px;
 }
 
+.parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+/* ESTILO BASE DOS CARDS */
+.parent > div {
+    border-radius: 18px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parent > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* TÍTULO */
+.parent > div h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+/* VALOR */
+.parent > div span {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* CORES DOS CARDS */
+.div1 { /* Pagaram */
+    background: linear-gradient(145deg, #0f8a2e, #1ed760);
+}
+
+.div2 { /* Pendentes */
+    background: linear-gradient(145deg, #d1a700, #ffe066);
+    color: #333;
+}
+
+.div3 { /* Cancelaram */
+    background: linear-gradient(145deg, #b31212, #ff4d4d);
+}
+
+/* GRID POSITIONS */
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 3;
+}
+
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 5;
+}
+
+.box-pagamentos {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+    width: 85%;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+}
+.titulo-pagamentos {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 .model {
   position: relative;
   display: flex;
@@ -419,4 +506,9 @@ tr {
     align-items: center;
     justify-content: center;
   }
+
+
+
+
+        
 }

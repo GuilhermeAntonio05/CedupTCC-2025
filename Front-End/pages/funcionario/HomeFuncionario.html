@@ -1,23 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../../styles/homeFuncionarioStyle.css">
-        <link rel="icon" type="image/x-icon"
-            href="../../images/icons/vgicon1.ico">
-        <title>Virtual Gym</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <div class="logo">
-                    <img src="../../images/icons/logoVG.png"
-                        alt="Logo Virtual Gym">
-                    <span>VIRTUAL GYM</span>
-                </div>
-            </header>
-            <hr class="navHr">
 
             <div class="content">
                 <div class="sidebar" id="sidebar">
@@ -43,49 +25,61 @@
                     </footer>
                 </div>
 
-                <div class="model" id="model">
-                    <div class="graficos-container">
-                        <div class="dashboard-chart">
-                            <h2>Status dos Alunos</h2>
-                            <canvas id="statusAlunosChart" width="1000"
-                                height="400"></canvas>
+            <div class="model" id="model">
+                <div class="box-pagamentos">
+                    <h2 class="titulo-pagamentos">Pagamentos</h2>
+                    <div class="parent">
+                        <div class="div1">
+                            <h2>Pagaram</h2>
+                            <p>R$ 0,00</p>
                         </div>
-                        <div class="dashboard-chart">
-                            <h2>Evolução de Matrículas Mensais</h2>
-                            <canvas id="matriculasMensaisChart" width="400"
-                                height="160"></canvas>
+
+                        <div class="div2">
+                            <h2>Pendentes</h2>
+                            <p>R$ 0,00</p>
                         </div>
-                    </div>
 
-                    <div class="modelMenu" id="menu">
-                        <div class="modelMenuContent">
-                            <div class="modelMenuItem" id="menuItem">
-                                <img src="./images/icons/do-utilizador.png"
-                                    class="menuIcon">
-                                <span id="Username"
-                                    onload="getUsername()"></span>
-                            </div>
-                            <hr>
-
-                            <div class="modelMenuQItem" id="menuItem"
-                                onclick="changeAccount()">
-                                <img src="./images/icons/exchange.png"
-                                    class="menuIcon">
-                                <span>Trocar de conta</span>
-                            </div>
-                            <hr>
-
-                            <div class="modelMenuItem" id="menuItem"
-                                onclick="logout()">
-                                <img src="./images/icons/sair.png"
-                                    class="menuIcon">
-                                <span>Sair da conta</span>
-                            </div>
-                            <hr>
-
+                        <div class="div3">
+                            <h2>Cancelaram</h2>
+                            <p>R$ 0,00</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="graficos-container">
+                    <div class="dashboard-chart">
+                        <h2>Status dos Alunos</h2>
+                        <canvas id="statusAlunosChart" width="1000" height="400"></canvas>
+                    </div>
+                    <div class="dashboard-chart">
+                        <h2>Evolução de Matrículas Mensais</h2>
+                        <canvas id="matriculasMensaisChart" width="400" height="160"></canvas>
+                    </div>
+                </div>
+
+                <div class="modelMenu" id="menu">
+                    <div class="modelMenuContent">
+                        <div class="modelMenuItem" id="menuItem">
+                            <img src="./images/icons/do-utilizador.png" class="menuIcon">
+                            <span id="Username" onload="getUsername()"></span>
+                        </div>
+                        <hr>
+
+                        <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
+                            <img src="./images/icons/exchange.png" class="menuIcon">
+                            <span>Trocar de conta</span>
+                        </div>
+                        <hr>
+
+                        <div class="modelMenuItem" id="menuItem" onclick="logout()">
+                            <img src="./images/icons/sair.png" class="menuIcon">
+                            <span>Sair da conta</span>
+                        </div>
+                        <hr>
+
+                    </div>
+                </div>
+            </div>
 
                 <script src="../../Scripts/getAlunos.js"></script>
                 <script src="../../Scripts/menuIndex.js"></script>
@@ -93,5 +87,4 @@
                 <script src="../../Scripts/matriculasMensaisChart.js"></script>
                 <script src="../../Scripts/statusAlunosChart.js"></script>
 
-            </body>
-        </html>
+</html>
