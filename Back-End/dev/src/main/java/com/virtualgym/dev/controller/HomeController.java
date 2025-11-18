@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.virtualgym.dev.dto.AlunoDTO;
 import com.virtualgym.dev.dto.FuncionarioDTO;
+import com.virtualgym.dev.model.AlunoModel;
 import com.virtualgym.dev.repository.AlunoRepository;
 import com.virtualgym.dev.repository.FuncionarioRepository;
 import com.virtualgym.dev.service.AlunoService;
@@ -24,7 +25,13 @@ public class HomeController {
 	
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
-
+	
+	@GetMapping("/aluno/email")
+	public AlunoModel buscarAlunoPorEmail(@RequestParam(value = "email") String email) {
+		AlunoService alunoService = new AlunoService(alunoRepository);
+		return alunoService.buscarPorEmail(email);
+	}
+	
 	@GetMapping("/aluno")
 	public List<AlunoDTO> buscarQuantidadeAluno(@RequestParam(value = "position") int quantidade) {
 		AlunoService alunoService = new AlunoService(alunoRepository);
@@ -53,6 +60,12 @@ public class HomeController {
     public Map<String, Long> getPagamentosDoMes() {
         DashboardService dashboardService = new DashboardService(alunoRepository);
         return dashboardService.getPagamentosDoMes();
+    }
+    
+    @GetMapping("/dashboard/valorPagamentosMes")
+    public Map<Object, Double> getValorPagamentosDoMes() {
+        DashboardService dashboardService = new DashboardService(alunoRepository);
+        return dashboardService.getValorPagamentosDoMes();
     }
 
     @GetMapping("/dashboard/evolucaoMatriculas")

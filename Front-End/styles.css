@@ -20,6 +20,7 @@ header {
   border-bottom: 2px solid var(--green);
   padding-left: 40px;
 }
+
 header .logo {
   display: flex;
   align-items: center;
@@ -46,6 +47,7 @@ body {
   overflow: hidden;
   position: relative;
 }
+
 .login-container {
   width: 400px;
   background-color: rgba(255 255, 255, 0.15);
@@ -56,6 +58,7 @@ body {
   border-radius: 16px;
   padding: 35px;
 }
+
 .login-container h1 {
   color: #001f3f;
   text-align: center;
@@ -144,4 +147,3 @@ button:hover {
 .termos label a:hover {
   text-decoration: underline;
 }
-
