@@ -4,7 +4,6 @@ form.addEventListener("submit", (e) => {
 
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
-  const lembrar = document.getElementById("lembrar").checked;
 
   fetch("http://localhost:8080/login/funcionario", {
     method: "POST",
@@ -16,9 +15,13 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        window.location.href = "HomeFuncionario.html";
-        localStorage.setItem("login", "true");
-        localStorage.setItem("isWorker", "true");
+        localStorage.setItem("login", `${data[0]}`);
+        localStorage.setItem("isWorker", `{"worker": ${data[0]}, "admin":${data[1]}}`);
+       
+        if (data[0]) {
+          window.location.href = "HomeFuncionario.html";
+        }
+
       }
     })
     .catch((error) => {

@@ -134,6 +134,7 @@ function render() {
   OrbitControl.target = position;
   OrbitControl.minDistance = 2;
   OrbitControl.maxDistance = 2.5;
+  
   document.getElementById("treinos").style.display = "grid";
   fetch(
     `http://localhost:8080/treino/exercicios?email=${
