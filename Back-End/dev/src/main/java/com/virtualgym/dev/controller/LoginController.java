@@ -1,5 +1,7 @@
 package com.virtualgym.dev.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +45,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/funcionario")
-	public boolean consultarCadastradoFuncionarioValido(@RequestBody LoginDTO response) {
+	public List<Boolean> consultarCadastradoFuncionarioValido(@RequestBody LoginDTO response) {
 		FuncionarioService funcionarioService = new FuncionarioService(funcionarioRepository);
 		return funcionarioService.consultarCadastradoValido(response.email(), response.senha());
 	}

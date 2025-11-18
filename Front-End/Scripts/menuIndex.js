@@ -6,10 +6,23 @@ function openMenu() {
   if (!display) {
     menu.style.display = "flex";
     findBar.style.display = "none";
+    getUsername();
   } else {
     menu.style.display = "none";
     findBar.style.display = "flex";
   }
+}
+
+function getUsername() {
+  fetch(
+    `http://localhost:3306/home/aluno/email?=${
+      JSON.parse(localStorage.getItem("lastSession")).email
+    }`
+  )
+    .then((response) => response.json())
+    .then(
+      (data) => (document.getElementById("Username").innerText = data.email)
+    );
 }
 
 function logout() {

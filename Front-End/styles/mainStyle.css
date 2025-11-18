@@ -126,6 +126,7 @@ header .logo span {
 }
 
 .model {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,6 +243,9 @@ tr {
   display: none;
   position: absolute;
   width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
   height: 100%;
   background-color: rgb(140, 140, 140, 0.5);
 }

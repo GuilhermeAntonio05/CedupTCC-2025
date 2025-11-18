@@ -6,8 +6,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="../../images/icons/vgicon1.ico"
-    />
+      href="../../images/icons/vgicon1.ico" />
     <title>Virtual Gym</title>
   </head>
   <body>
@@ -22,27 +21,28 @@
 
       <div class="content">
         <div class="sidebar" id="sidebar">
-                  <nav>
-                        <ul>
-                            <li><a href="HomeFuncionario.html">Início</a></li>
-                            <li><a href="cadastroFuncionario.html">Adicionar
-                                    Funcionario</a></li>
-                            <li><a href="consultarFuncionarios.html">Consultar
-                                    Funcionario</a></li>
-                            <li><a href="cadastroExercicios.html">Adicionar
-                                    Exercicios</a></li>
-                            <li><a href="consultarExercicios.html">Consultar
-                                    Exercicios</a></li>
-                            <li><a href="cadastro.html">Adicionar Aluno</a></li>
-                            <li><a href="consultarAlunos.html">Consultar
-                                    Alunos</a></li>
-                            <li><a onclick="openMenu()"> Configurações</a></li>
-                        </ul>
-                    </nav>
-                    <footer class="sidebar-footer">
-                        © 2025 Virtual Gym. <br />Todos os direitos reservados.
-                    </footer>
-                </div>
+          <nav>
+            <ul>
+              <li><a href="HomeFuncionario.html">Início</a></li>
+              <li class="AdminGet"><a href="cadastroFuncionario.html">Adicionar
+                  Funcionario</a></li>
+              <li class="AdminGet"><a
+                  href="consultarFuncionarios.html">Consultar
+                  Funcionario</a></li>
+              <li><a href="cadastroExercicios.html">Adicionar
+                  Exercicios</a></li>
+              <li><a href="consultarExercicios.html">Consultar
+                  Exercicios</a></li>
+              <li><a href="cadastro.html">Adicionar Aluno</a></li>
+              <li><a href="consultarAlunos.html">Consultar
+                  Alunos</a></li>
+              <li><a onclick="openMenu()"> Configurações</a></li>
+            </ul>
+          </nav>
+          <footer class="sidebar-footer">
+            © 2025 Virtual Gym. <br />Todos os direitos reservados.
+          </footer>
+        </div>
 
         <div class="model" id="model">
           <div class="confirmDelete" id="confirmDelete">
@@ -82,24 +82,20 @@
               <button
                 class="tbButton"
                 style="height: 60px; width: 60px"
-                onclick="anterior()"
-              >
+                onclick="anterior()">
                 <img
                   class="tbIcon"
                   src="../../images/icons/seta-esquerda.png"
-                  alt="anterior"
-                />
+                  alt="anterior" />
               </button>
               <button
                 class="tbButton"
                 style="height: 60px; width: 60px"
-                onclick="proximo()"
-              >
+                onclick="proximo()">
                 <img
                   class="tbIcon"
                   src="../../images/icons/seta-direita.png"
-                  alt="próximo"
-                />
+                  alt="próximo" />
               </button>
             </div>
           </div>
@@ -115,8 +111,7 @@
               <div
                 class="modelMenuItem"
                 id="menuItem"
-                onclick="changeAccount()"
-              >
+                onclick="changeAccount()">
                 <img src="../../images/icons/exchange.png" class="menuIcon" />
                 <span>Trocar de conta</span>
               </div>
@@ -134,8 +129,7 @@
     </div>
 
     <script src="../../Scripts/getAlunos.js"></script>
-    <!--
-        <script src="../../Scripts/autenticatorFuncionario.js"></script> -->
+    <script src="../../Scripts/autenticatorFuncionario.js"></script>
     <script src="../../Scripts/menuIndex.js"></script>
   </body>
 </html>
