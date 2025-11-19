@@ -159,14 +159,14 @@ button:hover {
 }
 
 .btn-voltar{
-  color: var(--green);
+  color: #fff;
   font-weight: 600;
   margin-bottom: 20px;
   transition: 0.3s color;
 }
 
 .btn-voltar:hover{
-  color: #20cf3d;
+  color: #ffffff;
 }
 
 /* Responsividade */

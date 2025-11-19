@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
     <link rel="stylesheet" href="../../styles/cadastroStyle.css" />
-    <link rel="icon" type="image/x-icon"
-      href="../../images/icons/vgicon1.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../images/icons/vgicon1.ico"
+    />
     <title>Virtual Gym</title>
   </head>
   <body>
@@ -20,7 +24,7 @@
     </header>
 
     <div class="login-container">
-      <h1>Cadastro</h1>
+      <h1>Editar Aluno</h1>
       <div id="form" class="form-grid">
         <div class="caixa-login">
           <input type="text" placeholder="Nome" id="nome" required />
@@ -35,7 +39,8 @@
             required
             maxlength="14"
             inputmode="numeric"
-            autocomplete="off" />
+            autocomplete="off"
+          />
           <i class="fi fi-sr-id-card"></i>
         </div>
 
@@ -45,13 +50,8 @@
         </div>
 
         <div class="caixa-login">
-          <input
-            type="number"
-            step="0.01"
-            placeholder="Peso (kg)"
-            id="peso"
-            required />
-          <i class="fi fi-sr-weight"></i>
+          <input type="text" placeholder="Peso (kg)" id="peso" required />
+          <i class="fi fi-sr-gym"></i>
         </div>
 
         <div class="caixa-login">
@@ -59,7 +59,8 @@
             type="date"
             placeholder="Data de Nascimento"
             id="data_nascimento"
-            required />
+            required
+          />
         </div>
 
         <div class="caixa-login">
@@ -83,9 +84,8 @@
             <option value="2">Pendente</option>
             <option value="3">Cancelado</option>
           </select>
-          <i class="fi fi-sr-venus-mars"></i>
+          <i class="fi fi-sr-dollar"></i>
         </div>
-
       </div>
 
       <div class="termos">
@@ -99,6 +99,8 @@
 
       <button onclick="enviarEdicao()">Salvar</button>
     </div>
+
+    <a class="btn-voltar" href="HomeFuncionario.html">Voltar ao Início</a>
 
     <script src="../../Scripts/editarAluno.js"></script>
     <!--
