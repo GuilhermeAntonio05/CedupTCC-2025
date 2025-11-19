@@ -206,51 +206,6 @@ tr {
   margin-top: 10px;
 }
 
-.modelMenu {
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(140, 140, 140, 0.5);
-}
-
-.modelMenuContent {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 25px;
-  height: 50%;
-  gap: 20px;
-}
-
-.modelMenuContent hr {
-  border: 1px white solid;
-  width: 100%;
-}
-
-.modelMenuContent img {
-  height: 100px;
-  width: 100px;
-}
-
-.modelMenuContent span {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 100px;
-  color: black;
-  width: 100%;
-  font-size: 40px;
-  padding-left: 20px;
-}
-
-.modelMenuItem {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100px;
-}
-
 .sidebar {
   position: relative;
   top: 60px;
@@ -308,8 +263,4 @@ tr {
 .navIcon {
   height: 80px;
   width: 80px;
-}
-
-.menuIcon {
-  display: none;
 }

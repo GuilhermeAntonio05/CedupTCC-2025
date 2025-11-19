@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../styles/consultarExercicios.css" />
+    <link rel="stylesheet" href="../../styles/configFuncionarioStyle.css">
     <link
       rel="icon"
       type="image/x-icon"
@@ -98,30 +99,24 @@
           </div>
 
           <div class="modelMenu" id="menu">
-            <div class="modelMenuContent">
-              <div class="modelMenuItem" id="menuItem">
-                <img src="./images/icons/do-utilizador.png" class="menuIcon" />
-                <span id="Username" onload="getUsername()"></span>
-              </div>
-              <hr />
-
-              <div
-                class="modelMenuItem"
-                id="menuItem"
-                onclick="changeAccount()"
-              >
-                <img src="../../images/icons/exchange.png" class="menuIcon" />
-                <span>Trocar de conta</span>
-              </div>
-              <hr />
-
-              <div class="modelMenuItem" id="menuItem" onclick="logout()">
-                <img src="../../images/icons/sair.png" class="menuIcon" />
-                <span>Sair da conta</span>
-              </div>
-              <hr />
-            </div>
-          </div>
+                    <div class="modelMenuContent">
+                        <hr>
+                        
+                        <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
+                            <img src="../../images/icons/exchange.png" class="menuIcon">
+                            <span>Trocar de conta</span>
+                        </div>
+                        <hr>
+                        
+                        <div class="modelMenuItem" id="menuItem" onclick="logout()">
+                            <img src="../../images/icons/sair.png" class="menuIcon">
+                            <span>Sair da conta</span>
+                        </div>
+                        <hr>
+                        <button class="backButton" onclick="closeMenu()">
+                            Voltar
+                        </button>
+                    </div>
         </div>
       </div>
     </div>
