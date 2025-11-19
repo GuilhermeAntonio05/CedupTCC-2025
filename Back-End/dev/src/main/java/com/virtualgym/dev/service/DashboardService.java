@@ -32,13 +32,10 @@ public class DashboardService {
 
 	// Evolução mensal (excluindo mês atual)
 	public Map<String, Long> getEvolucaoMatriculas() {
-		List<AlunoModel> alunos = alunoRepository.findAll();
-		LocalDate agora = LocalDate.now();
-
-		return alunos.stream().map(a -> a.getData_inscricao().toLocalDate())
-				.filter(data -> data.getMonthValue() != agora.getMonthValue() || data.getYear() != agora.getYear())
-				.collect(Collectors.groupingBy(data -> data.getMonthValue() + "/" + data.getYear(), // AGORA CORRETO
-						TreeMap::new, Collectors.counting()));
+		return alunoRepository.findAll().stream().map(a -> a.getData_inscricao().toLocalDate())
+				.collect(Collectors.groupingBy(
+						data -> data.getYear() + "-" + String.format("%02d", data.getMonthValue()), TreeMap::new,
+						Collectors.counting()));
 	}
 
 	public Map<Object, Double> getValorPagamentosDoMes() {
