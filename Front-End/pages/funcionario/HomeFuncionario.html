@@ -62,46 +62,52 @@
                         </div>
                     </div>
                 </div>
-                    <div class="graficos-container">
+                <div class="graficos-container">
+
+                    <div class="box-dashboard">
+                        <h2 class="titulo-dash">Status dos Alunos</h2>
                         <div class="dashboard-chart">
-                            <h2>Status dos Alunos</h2>
                             <canvas id="statusAlunosChart" width="1000" height="400"></canvas>
                         </div>
+                    </div>
+
+                    <div class="box-dashboard">
+                        <h2 class="titulo-dash">Evolução de Matrículas Mensais</h2>
                         <div class="dashboard-chart">
-                            <h2>Evolução de Matrículas Mensais</h2>
                             <canvas id="matriculasMensaisChart" width="400" height="160"></canvas>
                         </div>
                     </div>
 
-                    <div class="modelMenu" id="menu">
-                        <div class="modelMenuContent">
-                            <div class="modelMenuItem" id="menuItem">
-                                <img src="./images/icons/do-utilizador.png" class="menuIcon">
-                                <span id="Username" onload="getUsername()"></span>
-                            </div>
-                            <hr>
-
-                            <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
-                                <img src="./images/icons/exchange.png" class="menuIcon">
-                                <span>Trocar de conta</span>
-                            </div>
-                            <hr>
-
-                            <div class="modelMenuItem" id="menuItem" onclick="logout()">
-                                <img src="./images/icons/sair.png" class="menuIcon">
-                                <span>Sair da conta</span>
-                            </div>
-                            <hr>
-
+                </div>
+                <div class="modelMenu" id="menu">
+                    <div class="modelMenuContent">
+                        <div class="modelMenuItem" id="menuItem">
+                            <img src="./images/icons/do-utilizador.png" class="menuIcon">
+                            <span id="Username" onload="getUsername()"></span>
                         </div>
+                        <hr>
+
+                        <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
+                            <img src="./images/icons/exchange.png" class="menuIcon">
+                            <span>Trocar de conta</span>
+                        </div>
+                        <hr>
+
+                        <div class="modelMenuItem" id="menuItem" onclick="logout()">
+                            <img src="./images/icons/sair.png" class="menuIcon">
+                            <span>Sair da conta</span>
+                        </div>
+                        <hr>
+
                     </div>
                 </div>
+            </div>
 
-                <script src="../../Scripts/getAlunos.js"></script>
-                <script src="../../Scripts/menuIndex.js"></script>
-                <script src="../../Scripts/autenticatorFuncionario.js"></script>
-                <script src="../../Scripts/matriculasMensaisChart.js"></script>
-                <script src="../../Scripts/statusAlunosChart.js"></script>
-                <script src="../../Scripts/carregarValoresPagamentos.js"></script>
+            <script src="../../Scripts/getAlunos.js"></script>
+            <script src="../../Scripts/menuIndex.js"></script>
+            <script src="../../Scripts/autenticatorFuncionario.js"></script>
+            <script src="../../Scripts/matriculasMensaisChart.js"></script>
+            <script src="../../Scripts/statusAlunosChart.js"></script>
+            <script src="../../Scripts/carregarValoresPagamentos.js"></script>
 
 </html>

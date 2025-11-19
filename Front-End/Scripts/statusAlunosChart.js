@@ -1,36 +1,48 @@
-// Função para buscar status dos alunos
 async function fetchStatusAlunos() {
     const response = await fetch("http://localhost:8080/home/dashboard/pagamentosMes");
-    const data = await response.json(); // agora retorna JSON
+    const data = await response.json(); 
     return data;
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
     const ctx = document.getElementById('statusAlunosChart').getContext('2d');
 
-    // Buscar dados do backend
+    const verde = ctx.createLinearGradient(0, 0, 0, 400);
+    verde.addColorStop(0, '#1ed760');
+    verde.addColorStop(1, '#0f8a2e');
+
+    const amarelo = ctx.createLinearGradient(0, 0, 0, 400);
+    amarelo.addColorStop(0, '#ffe066');
+    amarelo.addColorStop(1, '#d1a700');
+
+    const vermelho = ctx.createLinearGradient(0, 0, 0, 400);
+    vermelho.addColorStop(0, '#ff4d4d');
+    vermelho.addColorStop(1, '#b31212');
+
+
+
     const statusData = await fetchStatusAlunos();
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Pagaram', 'Cancelaram', 'Pendentes'],
+            labels: ['Pagaram', 'Pendentes', 'Cancelaram'],
             datasets: [{
                 label: 'Status dos Alunos',
                 data: [
                     statusData.PAGO,
+                    statusData.PENDENTE,
                     statusData.CANCELADO,
-                    statusData.PENDENTE
                 ],
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.7)',
-                    'rgba(255, 99, 132, 0.7)',
-                    'rgba(255, 206, 86, 0.7)'
+                    verde,
+                    amarelo,
+                    vermelho
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 206, 86, 1)'
+                    verde,
+                    amarelo,
+                    vermelho
                 ],
                 borderWidth: 1
             }]

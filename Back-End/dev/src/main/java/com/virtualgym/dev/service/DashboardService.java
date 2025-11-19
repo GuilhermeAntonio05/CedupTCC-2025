@@ -35,12 +35,10 @@ public class DashboardService {
 		List<AlunoModel> alunos = alunoRepository.findAll();
 		LocalDate agora = LocalDate.now();
 
-		return alunos.stream().map(a -> a.getData_vencimento().toLocalDate())
+		return alunos.stream().map(a -> a.getData_inscricao().toLocalDate())
 				.filter(data -> data.getMonthValue() != agora.getMonthValue() || data.getYear() != agora.getYear())
-				.collect(Collectors.groupingBy(data -> data.getMonth() + "/" + data.getYear(), TreeMap::new, // mantém
-																												// //
-																												// ordenado
-						Collectors.counting()));
+				.collect(Collectors.groupingBy(data -> data.getMonthValue() + "/" + data.getYear(), // AGORA CORRETO
+						TreeMap::new, Collectors.counting()));
 	}
 
 	public Map<Object, Double> getValorPagamentosDoMes() {
@@ -49,9 +47,9 @@ public class DashboardService {
 		double valor = 150;
 
 		return alunos.stream()
-				.filter(data -> data.getData_vencimento().toLocalDate().getMonthValue() == agora.getMonthValue()
+				.filter(data -> data.getData_vencimento().toLocalDate().getMonthValue() != agora.getMonthValue()
 						|| data.getData_vencimento().toLocalDate().getYear() == agora.getYear())
-				.collect(Collectors.groupingBy(data -> data.getMensalidade().getEstado(), TreeMap::new, 
+				.collect(Collectors.groupingBy(data -> data.getMensalidade().getEstado(), TreeMap::new,
 						(Collectors.summingDouble(data -> valor))));
 	}
 }
