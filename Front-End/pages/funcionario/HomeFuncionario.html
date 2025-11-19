@@ -23,15 +23,15 @@
                     <nav>
                         <ul>
                             <li><a href="HomeFuncionario.html">Início</a></li>
-                            <li class="AdminGet"><a href="cadastroFuncionario.html">Adicionar
+                            <li class="AdminGet"><a href="cadastroFuncionario.html">Cadastrar
                                     Funcionario</a></li>
                             <li class="AdminGet"><a href="consultarFuncionarios.html">Consultar
                                     Funcionario</a></li>
-                            <li><a href="cadastroExercicios.html">Adicionar
+                            <li><a href="cadastroExercicios.html">Cadastrar
                                     Exercicios</a></li>
                             <li><a href="consultarExercicios.html">Consultar
                                     Exercicios</a></li>
-                            <li><a href="cadastro.html">Adicionar Aluno</a></li>
+                            <li><a href="cadastroAluno.html">Cadastrar Aluno</a></li>
                             <li><a href="consultarAlunos.html">Consultar
                                     Alunos</a></li>
                             <li><a onclick="openMenu()"> Configurações</a></li>
@@ -76,24 +76,22 @@
 
                 <div class="modelMenu" id="menu">
                     <div class="modelMenuContent">
-                        <div class="modelMenuItem" id="menuItem">
-                            <img src="./images/icons/do-utilizador.png" class="menuIcon">
-                            <span id="Username" onload="getUsername()"></span>
-                        </div>
                         <hr>
-
+                        
                         <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
-                            <img src="./images/icons/exchange.png" class="menuIcon">
+                            <img src="../../images/icons/exchange.png" class="menuIcon">
                             <span>Trocar de conta</span>
                         </div>
                         <hr>
-
+                        
                         <div class="modelMenuItem" id="menuItem" onclick="logout()">
-                            <img src="./images/icons/sair.png" class="menuIcon">
+                            <img src="../../images/icons/sair.png" class="menuIcon">
                             <span>Sair da conta</span>
                         </div>
                         <hr>
-
+                        <button class="backButton" onclick="closeMenu()">
+                            Voltar
+                        </button>
                     </div>
                 </div>
             </div>

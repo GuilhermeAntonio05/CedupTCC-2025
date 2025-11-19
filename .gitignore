@@ -141,3 +141,18 @@ vite.config.ts.timestamp-*
 # Eclipse/IDE configs
 .settings
 .project
+
+# Node modules
+node_modules/
+
+# Vite build
+.vite/
+dist/
+
+# Ignore Windows reserved name
+nul
+
+# Node modules and build
+node_modules/
+.vite/
+dist/

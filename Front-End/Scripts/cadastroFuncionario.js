@@ -55,3 +55,23 @@ function cadastrar() {
     })
     .catch((error) => console.error("Error:", error));
 }
+
+document.getElementById("telefone").addEventListener("input", function () {
+  let tel = this.value;
+
+  tel = tel.replace(/\D/g, "");
+
+  tel = tel.substring(0, 11);
+
+  if (tel.length > 10) {
+    tel = tel.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+  } else if (tel.length > 6) {
+    tel = tel.replace(/(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
+  } else if (tel.length > 2) {
+    tel = tel.replace(/(\d{2})(\d+)/, "($1) $2");
+  } else {
+    tel = tel.replace(/(\d+)/, "($1");
+  }
+
+  this.value = tel;
+});
