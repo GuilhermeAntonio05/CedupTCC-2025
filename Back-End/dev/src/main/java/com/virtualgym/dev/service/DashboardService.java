@@ -49,8 +49,8 @@ public class DashboardService {
 		double valor = 150;
 
 		return alunos.stream()
-				.filter(data -> data.getData_vencimento().toLocalDate().getMonthValue() != agora.getMonthValue()
-						|| data.getData_vencimento().toLocalDate().getYear() != agora.getYear())
+				.filter(data -> data.getData_vencimento().toLocalDate().getMonthValue() == agora.getMonthValue()
+						|| data.getData_vencimento().toLocalDate().getYear() == agora.getYear())
 				.collect(Collectors.groupingBy(data -> data.getMensalidade().getEstado(), TreeMap::new, 
 						(Collectors.summingDouble(data -> valor))));
 	}
