@@ -51,7 +51,16 @@ function enviarEdicao() {
   let email = document.getElementById("email").value.trim();
   let mensalidade = document.getElementById("mensalidade").value.trim();
 
-  const campos = [nome, cpf, telefone, peso, data_nascimento, genero, email, mensalidade];
+  const campos = [
+    nome,
+    cpf,
+    telefone,
+    peso,
+    data_nascimento,
+    genero,
+    email,
+    mensalidade,
+  ];
 
   if (campos.some((valor) => !valor)) {
     alert("Preencha todos os campos antes de enviar!");
@@ -59,7 +68,8 @@ function enviarEdicao() {
   }
 
   fetch(`http://localhost:8080/edit/aluno?id=${id}`, {
-    method: "PUT", headers: {
+    method: "PUT",
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -72,7 +82,40 @@ function enviarEdicao() {
       email,
       mensalidade,
     }),
-  }).then(()=>window.location.href = "consultarAlunos.html");
+  }).then(() => (window.location.href = "consultarAlunos.html"));
 }
+
+document.getElementById("telefone").addEventListener("input", function () {
+  let tel = this.value;
+
+  tel = tel.replace(/\D/g, "");
+
+  tel = tel.substring(0, 11);
+
+  if (tel.length > 10) {
+    tel = tel.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+  } else if (tel.length > 6) {
+    tel = tel.replace(/(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
+  } else if (tel.length > 2) {
+    tel = tel.replace(/(\d{2})(\d+)/, "($1) $2");
+  } else {
+    tel = tel.replace(/(\d+)/, "($1");
+  }
+
+  this.value = tel;
+});
+document.getElementById("peso").addEventListener("input", function () {
+  let v = this.value;
+
+  v = v.replace(/\D/g, "");
+
+  v = v.substring(0, 5);
+
+  if (v.length >= 3) {
+    v = v.replace(/(\d{1,3})(\d{2})$/, "$1.$2");
+  }
+
+  this.value = v;
+});
 
 getAluno();

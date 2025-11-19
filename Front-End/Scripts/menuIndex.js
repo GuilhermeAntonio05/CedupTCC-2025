@@ -34,3 +34,7 @@ function logout() {
 function changeAccount() {
   window.location.href = "../../pages/aluno/chooseAccount.html";
 }
+function closeMenu() {
+    document.getElementById("menu").style.display = "none";
+}
+

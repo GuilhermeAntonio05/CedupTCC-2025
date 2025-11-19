@@ -26,7 +26,9 @@ function cadastrar() {
   const cpf = document.getElementById("cpf").value.trim();
   const telefone = document.getElementById("telefone").value.trim();
   const peso = document.getElementById("peso").value.trim();
-  const data_nascimento = document.getElementById("data_nascimento").value.trim();
+  const data_nascimento = document
+    .getElementById("data_nascimento")
+    .value.trim();
   const genero = document.getElementById("genero").value.trim();
   const senha = document.getElementById("senha").value.trim();
 
@@ -53,3 +55,36 @@ function cadastrar() {
     })
     .catch((error) => console.error("Error:", error));
 }
+
+document.getElementById("telefone").addEventListener("input", function () {
+  let tel = this.value;
+
+  tel = tel.replace(/\D/g, "");
+
+  tel = tel.substring(0, 11);
+
+  if (tel.length > 10) {
+    tel = tel.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+  } else if (tel.length > 6) {
+    tel = tel.replace(/(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
+  } else if (tel.length > 2) {
+    tel = tel.replace(/(\d{2})(\d+)/, "($1) $2");
+  } else {
+    tel = tel.replace(/(\d+)/, "($1");
+  }
+
+  this.value = tel;
+});
+
+document.getElementById("peso").addEventListener("input", function () {
+  let v = this.value;
+  v = v.replace(/\D/g, "");
+
+  v = v.substring(0, 5);
+
+  if (v.length >= 3) {
+    v = v.replace(/(\d{1,3})(\d{2})$/, "$1.$2");
+  }
+
+  this.value = v;
+});

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --background: #041333;
   --green: #2bff50;
@@ -6,8 +7,8 @@
 }
 
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   font-family: "Poppins", sans-serif;
 }
 
@@ -37,9 +38,6 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: flex;
-  top: 0;
-  left: 0;
   border-bottom: 2px solid var(--green);
   padding-left: 40px;
 }
@@ -100,6 +98,7 @@ header .logo span {
   background-color: var(--background);
   height: 100%;
 }
+
 .welcome {
   text-align: center;
 }
@@ -127,45 +126,43 @@ header .logo span {
 }
 
 .parent {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 25px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 25px;
+  padding: 20px;
 }
 
-<<<<<<< Updated upstream
 /* ESTILO BASE DOS CARDS */
 .parent > div {
-    border-radius: 18px;
-    padding: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.25);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .parent > div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* TÍTULO */
 .parent > div h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
-    font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
-/* VALOR */
 .parent > div span {
     font-size: 22px;
     font-weight: 600;
-=======
+}
+
 .parent>div {
   border-radius: 18px;
   padding: 20px;
@@ -193,7 +190,6 @@ header .logo span {
 .parent>div span {
   font-size: 22px;
   font-weight: 600;
->>>>>>> Stashed changes
 }
 
 /* CORES DOS CARDS */
@@ -208,25 +204,28 @@ header .logo span {
 
 .div3 { /* Cancelaram */
     background: linear-gradient(145deg, #b31212, #ff4d4d);
+  font-size: 22px;
+  font-weight: 600;
 }
 
-/* GRID POSITIONS */
 .div1 {
-<<<<<<< Updated upstream
     grid-column: span 2 / span 2;
     grid-row: span 5 / span 5;
 }
 
 .div2 {
-    grid-column: span 2 / span 2;
-    grid-row: span 5 / span 5;
-    grid-column-start: 3;
+  background: linear-gradient(145deg, #d1a700, #ffe066);
+  color: #333;
+  grid-column: span 2;
+  grid-row: span 5;
+  grid-column-start: 3;
 }
 
 .div3 {
-    grid-column: span 2 / span 2;
-    grid-row: span 5 / span 5;
-    grid-column-start: 5;
+  background: linear-gradient(145deg, #b31212, #ff4d4d);
+  grid-column: span 2;
+  grid-row: span 5;
+  grid-column-start: 5;
 }
 
 .box-pagamentos {
@@ -236,7 +235,6 @@ header .logo span {
     margin: 30px auto;
     width: 85%;
     box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
-=======
   background: linear-gradient(145deg, #0f8a2e, #1ed760);
   grid-column: span 2 /span 2;
   grid-row: span 5 / span 5;
@@ -264,7 +262,7 @@ header .logo span {
   margin: 30px auto;
   width: 85%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
->>>>>>> Stashed changes
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
 }
 
 .graficos-container {
@@ -302,10 +300,10 @@ header .logo span {
 
 
 .titulo-pagamentos {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 .model {
@@ -318,7 +316,7 @@ header .logo span {
   min-height: calc(100vh - 60px);
   background-color: white;
   box-sizing: border-box;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
 .modelRender {
@@ -404,8 +402,7 @@ table {
   margin-bottom: 10px;
 }
 
-th,
-td {
+th, td {
   border-left: 1px solid #e5e5e5;
   text-align: center;
   padding: 4px;
@@ -424,17 +421,16 @@ tr {
 
 .modelMenu {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(140, 140, 140, 0.5);
-  z-index: 50;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
 }
 
 .modelMenuContent {
-<<<<<<< Updated upstream
   display: flex;
   flex-direction: column;
   width: 83%;
@@ -446,7 +442,6 @@ tr {
 .modelMenuContent hr {
   border: 1px white solid;
   width: 100%;
-=======
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(18px);
   border-radius: 22px;
@@ -458,7 +453,18 @@ tr {
   gap: 22px;
   animation: menuFade 0.25s ease-out;
   border: 1px solid rgba(255, 255, 255, 0.2);
->>>>>>> Stashed changes
+=======
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 32px;
+  width: 360px;
+  box-shadow: 0px 8px 40px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: menuFade 0.25s ease-out;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .modelMenuContent img {
@@ -467,13 +473,11 @@ tr {
 }
 
 .modelMenuContent span {
-<<<<<<< Updated upstream
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 100px;
   color: black;
-=======
   font-size: 20px;
   font-weight: 500;
   color: white;
@@ -514,17 +518,54 @@ tr {
 }
 
 .backButton {
->>>>>>> Stashed changes
   width: 100%;
-  font-size: 40px;
-  padding-left: 20px;
+  background: rgba(255,255,255,0.2);
 }
 
-.modelMenuItem {
+.modelMenuItem,
+.modelMenuQItem {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+  height: 85px;
+}
+
+.modelMenuItem:hover,
+.modelMenuQItem:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: var(--green);
+  transform: translatey(-5px);
+}
+
+.menuIcon {
+  width: 42px !important;
+  height: 42px !important;
+  filter: drop-shadow(0px 0px 4px var(--green)) brightness(1.4);
+}
+
+.backButton {
   width: 100%;
-  height: 100px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #23cc3a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background: var(--green);
+  color: #fff;
+  transform: translatey(-5px);
 }
 
 .sidebar {
@@ -545,7 +586,7 @@ tr {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
- .sidebar nav {
+.sidebar nav {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -577,15 +618,6 @@ tr {
   border-radius: 8px;
 }
 
-.navIcon {
-  height: 80px;
-  width: 80px;
-}
-
-.menuIcon {
-  display: none;
-}
-
 .findBar {
   display: flex;
   justify-content: center;
@@ -612,7 +644,6 @@ tr {
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
-  padding: 0;
   width: 22px;
   height: 22px;
   cursor: pointer;
@@ -623,6 +654,11 @@ tr {
     display: block;
     height: 60px;
     width: 60px;
+  }
+
+  .modelMenuContent {
+    width: 90%;
+    padding: 25px;
   }
 
   .menuContent {
@@ -658,14 +694,8 @@ tr {
     align-items: center;
     justify-content: center;
   }
-
-<<<<<<< Updated upstream
-
-
-
-        
 }
-=======
+
 @keyframes menuFade {
   from {
     opacity: 0;
@@ -677,4 +707,3 @@ tr {
     transform: translateY(0);
   }
 }
->>>>>>> Stashed changes

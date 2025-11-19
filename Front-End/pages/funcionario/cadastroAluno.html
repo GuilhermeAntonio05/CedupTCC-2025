@@ -24,8 +24,8 @@
     </header>
 
     <div class="login-container">
-      <h1>Cadastro</h1>
-      <div id="form" class="form-grid">
+      <h1>Cadastro de Aluno</h1>
+      <div class="form-grid">
         <div class="caixa-login">
           <input type="text" placeholder="Nome" id="nome" required />
           <i class="fi fi-sr-user"></i>
@@ -50,17 +50,17 @@
         </div>
 
         <div class="caixa-login">
+          <input type="text" placeholder="Peso (kg)" id="peso" required />
+          <i class="fi fi-sr-gym"></i>
+        </div>
+
+        <div class="caixa-login">
           <input
             type="date"
             placeholder="Data de Nascimento"
             id="data_nascimento"
             required
           />
-        </div>
-
-        <div class="caixa-login">
-          <input type="text" placeholder="Cargo" id="cargo" required />
-          <i class="fi fi-sr-phone-call"></i>
         </div>
 
         <div class="caixa-login">
@@ -73,17 +73,22 @@
         </div>
 
         <div class="caixa-login form-full">
-          <input type="number" placeholder="Salário" id="salario" required />
-          <i class="fi fi-sr-envelope"></i>
-        </div>
-
-        <div class="caixa-login form-full">
           <input type="email" placeholder="Email" id="email" required />
           <i class="fi fi-sr-envelope"></i>
         </div>
 
         <div class="caixa-login form-full">
           <input type="password" placeholder="Senha" id="senha" required />
+          <i class="fi fi-sr-lock" style="cursor: pointer"></i>
+        </div>
+
+        <div class="caixa-login form-full">
+          <input
+            type="password"
+            placeholder="Confirmar Senha"
+            id="confirmarSenha"
+            required
+          />
           <i class="fi fi-sr-lock" style="cursor: pointer"></i>
         </div>
       </div>
@@ -97,10 +102,12 @@
         </label>
       </div>
 
-      <button onclick="enviarEdicao()">Salvar</button>
+      <button onclick="cadastrar()">Cadastrar</button>
     </div>
 
-    <script src="../../Scripts/editarFuncionario.js"></script>
+    <a class="btn-voltar" href="HomeFuncionario.html">Voltar ao Início</a>
+
+    <script src="../../Scripts/cadastro.js"></script>
     <!--
       <script src="../../Scripts/autenticatorFuncionario.js"></script>
       -->
