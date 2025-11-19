@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Pagaram', 'Pendentes', 'Cancelaram'],
+            labels: ['Pagos', 'Em aberto', 'Cancelados'],
             datasets: [{
                 label: 'Status dos Alunos',
                 data: [
