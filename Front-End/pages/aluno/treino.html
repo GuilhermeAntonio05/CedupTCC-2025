@@ -4,31 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/treinoStyle.css" />
-    <link rel="icon" type="image/x-icon"
-      href="../../images/icons/vgicon1.ico" />
+    <link rel="stylesheet" href="../../styles/configuracoesStyle.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../images/icons/vgicon1.ico"
+    />
     <title>Treino - Virtual Gym</title>
   </head>
   <body>
     <div class="container">
       <header>
         <div class="logo">
-          <img src="../../images/icons/logoVG.png"
-            alt="Logo Virtual Gym" />
+          <img src="../../images/icons/logoVG.png" alt="Logo Virtual Gym" />
           <span>VIRTUAL GYM</span>
         </div>
       </header>
-      <hr class="navHr">
+      <hr class="navHr" />
 
       <div class="content">
         <div class="sidebar" id="sidebar">
           <nav>
             <ul>
               <li><a href="../../index.html">Início</a></li>
-              <li><a href="cadastroTreino.html">Cadastrar Treino
-                </a></li>
+              <li><a href="cadastroTreino.html">Cadastrar Treino </a></li>
               <li><a href="treino.html">Consultar Treinos</a></li>
-              <li><a href="historico.html">Consultar
-                  Histórico</a></li>
+              <li><a href="historico.html">Consultar Histórico</a></li>
               <li><a onclick="openMenu()"> Configurações</a></li>
             </ul>
           </nav>
@@ -38,36 +39,33 @@
         </div>
 
         <div class="model" id="model">
-
-          <div class="cardContainer" id="cardContainer">
-          </div>
+          <div class="cardContainer" id="cardContainer"></div>
 
           <div class="modelMenu" id="menu">
             <div class="modelMenuContent">
-              <div class="modelMenuItem" id="menuItem">
-                <img src="./images/icons/do-utilizador.png"
-                  class="menuIcon">
-                <span id="Username"
-                  onload="getUsername()"></span>
-              </div>
               <hr>
+              <div class="modelMenuItem" id="menuItem">
+                <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
+                <span id="Username" onload="getUsername()"></span>
+              </div>
+              <hr />
 
-              <div class="modelMenuItem" id="menuItem"
-                onclick="changeAccount()">
-                <img src="./images/icons/do-utilizador.png"
-                  class="menuIcon">
+              <div
+                class="modelMenuItem"
+                id="menuItem"
+                onclick="changeAccount()"
+              >
+                <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
                 <span>Trocar de conta</span>
               </div>
-              <hr>
+              <hr />
 
-              <div class="modelMenuItem" id="menuItem"
-                onclick="logout()">
-                <img src="./images/icons/do-utilizador.png"
-                  class="menuIcon">
+              <div class="modelMenuItem" id="menuItem" onclick="logout()">
+                <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
                 <span>Sair da conta</span>
               </div>
-              <hr>
-
+              <hr />
+              <button class="backButton" onclick="closeMenu()">Voltar</button>
             </div>
           </div>
         </div>
@@ -76,12 +74,11 @@
 
     <div class="menuContent">
       <div class="menu">
-        <img src="./images/icons/casa.png" class="menuIcon">
+        <img src="./images/icons/casa.png" class="menuIcon" />
         <div class="select">
-          <img src="./images/icons/usuario-online.png"
-            class="menuIcon">
+          <img src="./images/icons/usuario-online.png" class="menuIcon" />
         </div>
-        <img src="./images/icons/historia.png" class="menuIcon">
+        <img src="./images/icons/historia.png" class="menuIcon" />
       </div>
     </div>
 
