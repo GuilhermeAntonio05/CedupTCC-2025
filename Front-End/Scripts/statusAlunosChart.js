@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 data: [
                     statusData.PAGO,
                     statusData.CANCELADO,
-                    statusData.ATRASADO
+                    statusData.PENDENTE
                 ],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.7)',
