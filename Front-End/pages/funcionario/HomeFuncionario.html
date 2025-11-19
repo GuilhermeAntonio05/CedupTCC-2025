@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../styles/homeFuncionarioStyle.css">
@@ -47,33 +48,38 @@
                     <h2 class="titulo-pagamentos">Pagamentos</h2>
                     <div class="parent">
                         <div class="div1">
-                            <h2>Pagaram</h2>
-                            <p>R$ 0,00</p>
+                            <h3>Pagaram</h3>
+                            <span id="valorPagaram">R$ 0,00</span>
                         </div>
 
                         <div class="div2">
-                            <h2>Pendentes</h2>
-                            <p>R$ 0,00</p>
+                            <h3>Pendentes</h3>
+                            <span id="valorPendentes">R$ 0,00</span>
                         </div>
 
                         <div class="div3">
-                            <h2>Cancelaram</h2>
-                            <p>R$ 0,00</p>
+                            <h3>Cancelaram</h3>
+                            <span id="valorCancelaram">R$ 0,00</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="graficos-container">
-                    <div class="dashboard-chart">
-                        <h2>Status dos Alunos</h2>
-                        <canvas id="statusAlunosChart" width="1000" height="400"></canvas>
-                    </div>
-                    <div class="dashboard-chart">
-                        <h2>Evolução de Matrículas Mensais</h2>
-                        <canvas id="matriculasMensaisChart" width="400" height="160"></canvas>
-                    </div>
-                </div>
 
+                    <div class="box-dashboard">
+                        <h2 class="titulo-dash">Status dos Alunos</h2>
+                        <div class="dashboard-chart">
+                            <canvas id="statusAlunosChart" width="1000" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="box-dashboard">
+                        <h2 class="titulo-dash">Evolução de Matrículas Mensais</h2>
+                        <div class="dashboard-chart">
+                            <canvas id="matriculasMensaisChart" width="400" height="160"></canvas>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="modelMenu" id="menu">
                     <div class="modelMenuContent">
                         <hr>
@@ -96,10 +102,11 @@
                 </div>
             </div>
 
-                <script src="../../Scripts/getAlunos.js"></script>
-                <script src="../../Scripts/menuIndex.js"></script>
-                <script src="../../Scripts/autenticatorFuncionario.js"></script>
-                <script src="../../Scripts/matriculasMensaisChart.js"></script>
-                <script src="../../Scripts/statusAlunosChart.js"></script>
+            <script src="../../Scripts/getAlunos.js"></script>
+            <script src="../../Scripts/menuIndex.js"></script>
+            <script src="../../Scripts/autenticatorFuncionario.js"></script>
+            <script src="../../Scripts/matriculasMensaisChart.js"></script>
+            <script src="../../Scripts/statusAlunosChart.js"></script>
+            <script src="../../Scripts/carregarValoresPagamentos.js"></script>
 
 </html>
