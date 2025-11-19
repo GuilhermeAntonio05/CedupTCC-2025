@@ -129,7 +129,7 @@ insert into aluno_treino_seq (next_val)value(1);
 -- insert into treino_exercicios_seq (next_val)value(1);
 
 insert into mensalidade (Estado) 
-values ("pago"),("atrasado"),("cancelado");
+values ("pago"),("pendente"),("cancelado");
 
 -- Torax
 INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
