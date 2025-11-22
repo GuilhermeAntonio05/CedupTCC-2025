@@ -1,6 +1,11 @@
 package com.virtualgym.dev.dto;
 
+import java.sql.Timestamp;
+
+import com.virtualgym.dev.model.AlunoTreinoModel;
 import com.virtualgym.dev.model.TreinoModel;
 
-public record GetHistoricoDTO(String peso, java.sql.Timestamp data, TreinoModel treino) {
+public record GetHistoricoDTO(Long id,String peso, Timestamp data, TreinoModel treino) {
+
+
 }
