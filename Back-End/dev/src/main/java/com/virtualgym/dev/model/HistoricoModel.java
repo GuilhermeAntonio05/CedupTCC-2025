@@ -60,7 +60,7 @@ public class HistoricoModel {
 		this.treino = treino;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	

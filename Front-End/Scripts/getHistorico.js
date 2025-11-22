@@ -19,6 +19,7 @@ function renderHistorico() {
 
     Object.entries(item.gruposMusculares).forEach(([grupo, exercicios]) => {
       const porDia = {};
+
       exercicios.forEach((exercicio) => {
         const dia = exercicio.data || exercicio.treino.data || "Data não informada";
         if (!porDia[dia]) porDia[dia] = [];
@@ -26,6 +27,8 @@ function renderHistorico() {
       });
 
       Object.entries(porDia).forEach(([dia, listaExercicios]) => {
+        let IDs = []; // agora é por UL
+
         let ul = document.createElement("ul");
         ul.style.marginRight = "20px";
         ul.style.listStyle = "none";
@@ -41,12 +44,22 @@ function renderHistorico() {
           let li = document.createElement("li");
           li.textContent = `${exercicio.treino.exercicios.nome} - ${exercicio.treino.serie}x${exercicio.treino.repeticoes}`;
           ul.appendChild(li);
+
+          IDs.push(exercicio.id); // IDs CORRETOS
         });
+
+        // CÓPIA correta dos IDs para o botão
+        const idsCopy = [...IDs];
 
         let button = document.createElement("button");
         button.textContent = "Ver Detalhes";
-        ul.appendChild(button);
 
+        button.onclick = () => {
+          localStorage.setItem("exercicioDetalhes", JSON.stringify(idsCopy));
+          window.location.href = "detalhes.html";
+        };
+
+        ul.appendChild(button);
         flexContainer.appendChild(ul);
       });
     });
@@ -56,10 +69,9 @@ function renderHistorico() {
 
   historicoIndex += semanasPorPagina;
 
-  // botão centralizado com hr de cada lado
+  // botão carregar mais
   let btnWrapper = document.querySelector(".load-more-container");
-
-  if (btnWrapper) btnWrapper.remove(); // remove antes de recriar
+  if (btnWrapper) btnWrapper.remove();
 
   if (historicoIndex < historicoData.length) {
     btnWrapper = document.createElement("div");
@@ -71,6 +83,7 @@ function renderHistorico() {
     let btnMais = document.createElement("button");
     btnMais.id = "btn-carregar-mais";
     btnMais.textContent = "Carregar mais";
+
     btnMais.onclick = () => {
       btnWrapper.remove();
       renderHistorico();
@@ -92,10 +105,10 @@ function getHistorico() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+        console.log(data);
         historicoData = data;
         historicoIndex = 0;
-        let container = document.getElementById("container-historico");
-        container.innerHTML = "";
+        document.getElementById("container-historico").innerHTML = "";
         renderHistorico();
       }
     })
