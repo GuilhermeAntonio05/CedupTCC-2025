@@ -22,14 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getAluno() {
   let id = localStorage.getItem("funcionarioID");
-  console.log(id);
-  //localStorage.removeItem("funcionarioID");
+  localStorage.removeItem("funcionarioID");
   fetch(`http://localhost:8080/edit/funcionario?id=${id}`, { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data) {
-        console.log(data);
         document.getElementById("nome").value = data.nome;
         document.getElementById("cpf").value = data.cpf;
         document.getElementById("telefone").value = data.telefone;
@@ -54,8 +51,6 @@ function enviarEdicao() {
   let salario = document.getElementById("salario").value.trim();
   let genero = document.getElementById("genero").value.trim();
   let senha = document.getElementById("senha").value.trim();
-
-  console.log(dataNascimento);
 
   const campos = [
     nome,

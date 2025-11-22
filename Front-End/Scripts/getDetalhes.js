@@ -31,7 +31,7 @@ function getDetalhes() {
                 cargaAtualExercicios.push(exercicio.peso);
             });
 
-            grafico(); // chama só quando os dados estiverem carregados
+            grafico();
         });
 }
 
@@ -46,7 +46,6 @@ function grafico() {
     fetch(`http://localhost:8080/historico/getPesoGraficos?${params}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             cargaAnteriorExercicios = data;
 
             new Chart(ctx, {
@@ -72,6 +71,8 @@ function grafico() {
                 },
             });
         });
+
+    JSON.parse(localStorage.removeItem("exercicioDetalhes"));
 }
 
 getDetalhes();

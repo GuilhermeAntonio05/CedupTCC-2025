@@ -105,7 +105,6 @@ function getHistorico() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        console.log(data);
         historicoData = data;
         historicoIndex = 0;
         document.getElementById("container-historico").innerHTML = "";
