@@ -47,6 +47,7 @@ public class CadastroController {
 	@PostMapping("/exercicio")
 	public void criarExercicio(@RequestBody ExerciciosModel responseExercicioModel) {
 		ExerciciosService exerciciosService = new ExerciciosService(exerciciosRepository);
+		System.out.println(responseExercicioModel);
 		exerciciosService.criar(responseExercicioModel);
 	}
 	

@@ -23,23 +23,25 @@ public class ExerciciosModel {
 	private String grupoMuscular;
 	@Column(name = "Nome", nullable = false)
 	private String nome;
+	@Column(name = "Link_Video_Exemplo")
+	private String linkVideo;
 	@OneToMany(mappedBy = "exercicios", cascade = CascadeType.ALL)
 	private List<TreinoModel> treino;
 
 	public ExerciciosModel() {
 	}
 
-	public ExerciciosModel(String grupoMuscular, String nome) {
-		super();
+	public ExerciciosModel(String grupoMuscular, String nome,String linkVideo) {
 		this.grupoMuscular = grupoMuscular;
 		this.nome = nome;
+		this.linkVideo = linkVideo;
 	}
 
-	public ExerciciosModel(Long id, String grupoMuscular, String nome) {
-		super();
+	public ExerciciosModel(Long id, String grupoMuscular, String nome,String linkVideo) {
 		this.id = id;
 		this.grupoMuscular = grupoMuscular;
 		this.nome = nome;
+		this.linkVideo = linkVideo;
 	}
 
 	public String getGrupoMuscular() {
@@ -61,11 +63,19 @@ public class ExerciciosModel {
 	public Long getId() {
 		return id;
 	}
+	
+	public String getLinkVideo() {
+		return linkVideo;
+	}
+	
+	public void setLinkVideo(String linkVideo) {
+		this.linkVideo = linkVideo;
+	}
 
 	@Override
 	public String toString() {
-		return "ExerciciosModel [id=" + id + ", grupoMuscular=" + grupoMuscular + ", nome=" + nome + ", treinoModel="
-				+ "]";
+		return "ExerciciosModel [id=" + id + ", grupoMuscular=" + grupoMuscular + ", nome=" + nome + ", linkVideo="
+				+ linkVideo + ", treino=" + treino + "]";
 	}
 
 }
