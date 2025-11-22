@@ -25,16 +25,23 @@ function fetchAlunos() {
                 <td>${aluno.data_nascimento}</td>
                 <td>${aluno.mensalidade.estado}</td>
                 <td>${aluno.data_vencimento}</td>
-                <td>${
-                  aluno.genero === "m"
-                    ? "Masculino"
-                    : aluno.genero === "f"
-                    ? "Feminino"
-                    : "Outro"
-                }</td>
+                <td>${aluno.genero === "m"
+              ? "Masculino"
+              : aluno.genero === "f"
+                ? "Feminino"
+                : "Outro"
+            }</td>
                 <td class="actions">
                   <button class="tbButton" onclick="editarAluno(${aluno.id})">
                     <img class="tbIcon" src="../../images/icons/pencil.png" alt="editar">
+                  </button>
+
+                  <button class="tbButton" onclick="verTreinos('${aluno.email}')">
+                    <img class="tbIcon" src="../../images/icons/eye.png" alt="editar">
+                  </button>
+
+                   <button class="tbButton" onclick="cadastrarTreino('${aluno.email}')">
+                    <img class="tbIcon" src="../../images/icons/add.png" alt="editar">
                   </button>
 
                   <button class="tbButton" onclick="openMenuDelete(${aluno.id}, '${aluno.nome}')">
@@ -94,9 +101,19 @@ function cancelDelete() {
   box.style.display = "none";
 }
 
-function editarAluno(id){
+function editarAluno(id) {
   localStorage.setItem("alunoID", id);
   window.location.href = "editarAluno.html";
+}
+
+function verTreinos(email) {
+  localStorage.setItem("alunoEmail", email);
+  window.location.href = "consultarTreinoAluno.html";
+}
+
+function cadastrarTreino(email) {
+  localStorage.setItem("alunoEmail", email);
+  window.location.href = "cadastroTreinoAluno.html";
 }
 
 fetchAlunos();

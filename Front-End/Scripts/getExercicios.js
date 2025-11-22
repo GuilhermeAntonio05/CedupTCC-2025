@@ -18,8 +18,6 @@ function getExercicios() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(grupo);
-          console.log(data);
 
           let titulo = (document.getElementById("titulo").innerHTML = ``);
           titulo = document.getElementById(
@@ -57,11 +55,11 @@ function anterior() {
 }
 
 function openMenuDelete(grupo, exercicio) {
-  console.log(grupo, exercicio);
+
   fetch(
     `http://localhost:8080/treino/exercicio?grupo=${grupo}&nome=${exercicio}`,
     { method: "DELETE" }
-  ).then(response => {alert("Exercício deletado"); getExercicios()});
+  ).then(response => { alert("Exercício deletado"); getExercicios() });
 }
 
 getExercicios();

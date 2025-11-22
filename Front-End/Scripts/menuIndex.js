@@ -14,14 +14,13 @@ function openMenu() {
 }
 
 function getUsername() {
+  
   fetch(
-    `http://localhost:3306/home/aluno/email?=${
-      JSON.parse(localStorage.getItem("lastSession")).email
-    }`
+    `http://localhost:8080/home/aluno/email?email=${JSON.parse(localStorage.getItem("lastSession")).email}`
   )
     .then((response) => response.json())
     .then(
-      (data) => (document.getElementById("Username").innerText = data.email)
+      (data) => (document.getElementById("Username").innerText = data.nome)
     );
 }
 
@@ -35,6 +34,6 @@ function changeAccount() {
   window.location.href = "../../pages/aluno/chooseAccount.html";
 }
 function closeMenu() {
-    document.getElementById("menu").style.display = "none";
+  document.getElementById("menu").style.display = "none";
 }
 

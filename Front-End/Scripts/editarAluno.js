@@ -28,7 +28,6 @@ function getAluno() {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        console.log(data);
         document.getElementById("nome").value = data.nome;
         document.getElementById("cpf").value = data.cpf;
         document.getElementById("telefone").value = data.telefone;
