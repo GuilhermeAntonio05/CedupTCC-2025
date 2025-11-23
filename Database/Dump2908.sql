@@ -35,7 +35,8 @@ CREATE TABLE funcionario (
 CREATE TABLE exercicios (
     Exercicio_ID int PRIMARY KEY auto_increment,
     Grupo_Muscular varchar(255) not null,
-    Nome varchar(255) not null
+    Nome varchar(255) not null,
+    Link_Video_Exemplo text
 );
 
 CREATE TABLE mensalidade (
@@ -131,104 +132,117 @@ insert into aluno_treino_seq (next_val)value(1);
 insert into mensalidade (Estado) 
 values ("pago"),("pendente"),("cancelado");
 
--- Torax
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Peito', 'Supino reto'),
-('Peito', 'Supino inclinado'),
-('Peito', 'Crucifixo com halteres'),
-('Peito', 'Crossover na polia'),
-('Peito', 'Flexão de braço'),
-('Peito', 'Peck deck');
+CREATE TABLE IF NOT EXISTS exercicios (
+    Exercicio_ID int PRIMARY KEY auto_increment,
+    Grupo_Muscular varchar(255) not null,
+    Nome varchar(255) not null,
+    Link_Video_Exemplo text
+);
 
--- Tríceps
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Triceps', 'Tríceps testa'),
-('Triceps', 'Tríceps na polia'),
-('Triceps', 'Mergulho entre bancos'),
-('Triceps', 'Tríceps coice'),
-('Triceps', 'Tríceps francês'),
-('Triceps', 'Tríceps banco');
+-- PEITO
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Peito', 'Supino reto', 'https://www.youtube.com/watch?v=Cjh2fIMQHk0'),
+('Peito', 'Supino inclinado', 'https://www.youtube.com/watch?v=WwPlIeUDeow'),
+('Peito', 'Crucifixo com halteres', 'https://www.youtube.com/watch?v=ZjIKUMtW37c'),
+('Peito', 'Crossover na polia', 'https://www.youtube.com/watch?v=pdMWt71MPlw'),
+('Peito', 'Flexão de braço', 'https://www.youtube.com/watch?v=Ps8x8c__A3M'),
+('Peito', 'Peck deck', 'https://www.youtube.com/watch?v=34WzvXIqv0w');
 
--- Abdomen
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Abdomen', 'Abdominal reto'),
-('Abdomen', 'Prancha frontal'),
-('Abdomen', 'Abdominal infra'),
-('Abdomen', 'Elevação de pernas'),
-('Abdomen', 'Abdominal oblíquo'),
-('Abdomen', 'Abdominal com bola');
+-- TRÍCEPS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Triceps', 'Tríceps testa', 'https://www.youtube.com/watch?v=VakpIeaaeXA'),
+('Triceps', 'Tríceps na polia', 'https://www.youtube.com/watch?v=3gYbjJ5ZoJM'),
+('Triceps', 'Mergulho entre bancos', 'https://www.youtube.com/watch?v=jH9RXQjbXqs'),
+('Triceps', 'Tríceps coice', 'https://www.youtube.com/watch?v=oEborayJqP4'),
+('Triceps', 'Tríceps francês', 'https://www.youtube.com/watch?v=0M-1walYH4Y'),
+('Triceps', 'Tríceps banco', 'https://www.youtube.com/watch?v=dZTn_ZlDrEQ');
 
--- Costas
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Costas', 'Puxada frontal'),
-('Costas', 'Remada curvada'),
-('Costas', 'Remada unilateral'),
-('Costas', 'Levantamento terra'),
-('Costas', 'Barra fixa'),
-('Costas', 'Pullover');
+-- ABDÔMEN
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Abdomen', 'Abdominal reto', 'https://www.youtube.com/watch?v=8Q7T7Wsok-w'),
+('Abdomen', 'Prancha frontal', 'https://www.youtube.com/watch?v=pvIjsG5Svck'),
+('Abdomen', 'Abdominal infra', 'https://www.youtube.com/watch?v=JB2oyawG9KI'),
+('Abdomen', 'Elevação de pernas', 'https://www.youtube.com/watch?v=l4kQd9eWclE'),
+('Abdomen', 'Abdominal oblíquo', 'https://www.youtube.com/watch?v=QW20cBOzayE'),
+('Abdomen', 'Abdominal com bola', 'https://www.youtube.com/watch?v=Xy-HaYFQOCM');
 
--- Quadríceps
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Quadriceps', 'Agachamento livre'),
-('Quadriceps', 'Cadeira extensora'),
-('Quadriceps', 'Leg press'),
-('Quadriceps', 'Avanço com barra'),
-('Quadriceps', 'Agachamento frontal'),
-('Quadriceps', 'Step up');
+-- COSTAS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Costas', 'Puxada frontal', 'https://www.youtube.com/watch?v=CAwf7n6Luuc'),
+('Costas', 'Remada curvada', 'https://www.youtube.com/watch?v=vT2GjY_Umpw'),
+('Costas', 'Remada unilateral', 'https://www.youtube.com/watch?v=pYcpY20QaE8'),
+('Costas', 'Levantamento terra', 'https://www.youtube.com/watch?v=op9kVnSso6Q'),
+('Costas', 'Barra fixa', 'https://www.youtube.com/watch?v=3YvfRx31xDE'),
+('Costas', 'Pullover', 'https://www.youtube.com/watch?v=OfIv7B0QzX8');
 
--- Glúteos
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Gluteos', 'Glúteo na máquina'),
-('Gluteos', 'Elevação pélvica'),
-('Gluteos', 'Agachamento sumô'),
-('Gluteos', 'Cadeira abdutora'),
-('Gluteos', 'Stiff'),
-('Gluteos', 'Kickback');
 
--- Posterior de coxa (Hamstring)
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Posterior', 'Mesa flexora'),
-('Posterior', 'Stiff com barra'),
-('Posterior', 'Cadeira flexora'),
-('Posterior', 'Good morning'),
-('Posterior', 'Agachamento sumô'),
-('Posterior', 'Flexão nórdica');
+-- QUADRÍCEPS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Quadriceps', 'Agachamento livre', 'https://www.youtube.com/watch?v=aclHkVaku9U'),
+('Quadriceps', 'Cadeira extensora', 'https://www.youtube.com/watch?v=YyzLJpK-LZU'),
+('Quadriceps', 'Leg press', 'https://www.youtube.com/watch?v=IZxyjW7MPJQ'),
+('Quadriceps', 'Avanço com barra', 'https://www.youtube.com/watch?v=QOVaaCMA9uE'),
+('Quadriceps', 'Agachamento frontal', 'https://www.youtube.com/watch?v=6xwYI6K0bEs'),
+('Quadriceps', 'Step up', 'https://www.youtube.com/watch?v=KC2yGY_o0vE');
 
--- Panturrilhas (Calf)
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Panturrilhas', 'Gêmeos em pé'),
-('Panturrilhas', 'Gêmeos sentado'),
-('Panturrilhas', 'Subida em degrau'),
-('Panturrilhas', 'Pular corda'),
-('Panturrilhas', 'Gêmeos no leg press'),
-('Panturrilhas', 'Gêmeos unilateral');
 
--- Ombros
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Ombros', 'Desenvolvimento com halteres'),
-('Ombros', 'Elevação lateral'),
-('Ombros', 'Elevação frontal'),
-('Ombros', 'Remada alta'),
-('Ombros', 'Desenvolvimento militar'),
-('Ombros', 'Arnold press');
+-- GLÚTEOS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Gluteos', 'Glúteo na máquina', 'https://www.youtube.com/watch?v=eJzHpg7Yuqw'),
+('Gluteos', 'Elevação pélvica', 'https://www.youtube.com/watch?v=SEdqd1n0cvg'),
+('Gluteos', 'Agachamento sumô', 'https://www.youtube.com/watch?v=2vjPBrBU-TM'),
+('Gluteos', 'Cadeira abdutora', 'https://www.youtube.com/watch?v=IcJr0QXBdag'),
+('Gluteos', 'Stiff', 'https://www.youtube.com/watch?v=6qZ-cXo5wUE'),
+('Gluteos', 'Kickback', 'https://www.youtube.com/watch?v=UMQv0f7Z0qA');
 
--- Bíceps
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Biceps', 'Rosca direta'),
-('Biceps', 'Rosca alternada'),
-('Biceps', 'Rosca martelo'),
-('Biceps', 'Rosca concentrada'),
-('Biceps', 'Rosca 21'),
-('Biceps', 'Rosca Scott');
 
--- Antebraço
-INSERT INTO exercicios (Grupo_Muscular, Nome) VALUES
-('Antebraco', 'Rosca inversa'),
-('Antebraco', 'Rosca punho sentado'),
-('Antebraco', 'Farmer’s walk'),
-('Antebraco', 'Toalha pull-up'),
-('Antebraco', 'Extensão de punho'),
-('Antebraco', 'Pronação e supinação com halteres');
+-- POSTERIOR DE COXA
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Posterior', 'Mesa flexora', 'https://www.youtube.com/watch?v=oVf8-1qfH7E'),
+('Posterior', 'Stiff com barra', 'https://www.youtube.com/watch?v=_oyxCn2iSjU'),
+('Posterior', 'Cadeira flexora', 'https://www.youtube.com/watch?v=Ny3F60OQ7xE'),
+('Posterior', 'Good morning', 'https://www.youtube.com/watch?v=vKPGeFRH2jI'),
+('Posterior', 'Agachamento sumô', 'https://www.youtube.com/watch?v=2vjPBrBU-TM'),
+('Posterior', 'Flexão nórdica', 'https://www.youtube.com/watch?v=E4NChx3pN9k');
+
+
+-- PANTURRILHAS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Panturrilhas', 'Gêmeos em pé', 'https://www.youtube.com/watch?v=YMmgqO8Jo-k'),
+('Panturrilhas', 'Gêmeos sentado', 'https://www.youtube.com/watch?v=Z5Q21u2Wl8U'),
+('Panturrilhas', 'Subida em degrau', 'https://www.youtube.com/watch?v=YMmgqO8Jo-k'),
+('Panturrilhas', 'Pular corda', 'https://www.youtube.com/watch?v=cY0RZ1iiuqA'),
+('Panturrilhas', 'Gêmeos no leg press', 'https://www.youtube.com/watch?v=6Y3I8yWqG1U'),
+('Panturrilhas', 'Gêmeos unilateral', 'https://www.youtube.com/watch?v=iGdcYVn0AAA');
+
+
+-- OMBROS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Ombros', 'Desenvolvimento com halteres', 'https://www.youtube.com/watch?v=B-aVuyhvLHU'),
+('Ombros', 'Elevação lateral', 'https://www.youtube.com/watch?v=3VcKaXpzqRo'),
+('Ombros', 'Elevação frontal', 'https://www.youtube.com/watch?v=-t7fuZ0KhDA'),
+('Ombros', 'Remada alta', 'https://www.youtube.com/watch?v=5nzRP1-Bzps'),
+('Ombros', 'Desenvolvimento militar', 'https://www.youtube.com/watch?v=xt5mx5vCEmU'),
+('Ombros', 'Arnold press', 'https://www.youtube.com/watch?v=vj2w851ZHRM');
+
+
+-- BÍCEPS
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Biceps', 'Rosca direta', 'https://www.youtube.com/watch?v=ykJmrZ5v0Oo'),
+('Biceps', 'Rosca alternada', 'https://www.youtube.com/watch?v=soxrZlIl35U'),
+('Biceps', 'Rosca martelo', 'https://www.youtube.com/watch?v=TwD-YGVP4Bk'),
+('Biceps', 'Rosca concentrada', 'https://www.youtube.com/watch?v=ebq5O6K7e9I'),
+('Biceps', 'Rosca 21', 'https://www.youtube.com/watch?v=H3L5Jt76y7Y'),
+('Biceps', 'Rosca Scott', 'https://www.youtube.com/watch?v=F6xvHXuJZvM');
+
+-- ANTEBRAÇO
+INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
+('Antebraco', 'Rosca inversa', 'https://www.youtube.com/watch?v=WLjI4UJumiE'),
+('Antebraco', 'Rosca punho sentado', 'https://www.youtube.com/watch?v=zrxh2lcD-lE'),
+('Antebraco', 'Farmer’s walk', 'https://www.youtube.com/watch?v=j81dJciRj9g'),
+('Antebraco', 'Toalha pull-up', 'https://www.youtube.com/watch?v=CwmxZy0-yQY'),
+('Antebraco', 'Extensão de punho', 'https://www.youtube.com/watch?v=Yy9DTKqF_gY'),
+('Antebraco', 'Pronação e supinação com halteres', 'https://www.youtube.com/watch?v=73xupKjvAoU');
 
 INSERT INTO Treino (Serie, Repeticoes, fk_Funcionario_ID, fk_Exercicios_ID) VALUES
 (3, 8, NULL, 1), (3, 10, NULL, 1), (3, 12, NULL, 1),

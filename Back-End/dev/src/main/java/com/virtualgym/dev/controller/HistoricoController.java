@@ -67,9 +67,11 @@ public class HistoricoController {
 
 	@GetMapping()
 	public List<Map<String, Object>> coletarHistorico(@RequestParam String email) {
+		
 		AlunoModel aluno = alunoRepository.findByEmail(email);
 		List<HistoricoModel> historicos = historicoRepository.findAll();
 		Map<Integer, Map<String, List<GetHistoricoDTO>>> semanas = new HashMap<>();
+		
 
 		for (HistoricoModel historico : historicos) {
 			if (historico.getTreino().getAlunoID().equals(aluno)) {
@@ -124,7 +126,6 @@ public class HistoricoController {
 
 	@GetMapping("/getPesoGraficos")
 	public List<String> coletarPeso(@RequestParam("historico") String[] resq) {
-	    List<GetHistoricoDTO> historicoDTOs = new ArrayList<>();
 	    List<String> tst = new ArrayList<String>();
 
 	    for (String id : resq) {

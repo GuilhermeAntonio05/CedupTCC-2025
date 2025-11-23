@@ -38,6 +38,7 @@ public class HistoricoModel {
 		this.data = data;
 	}
 
+
 	public HistoricoModel(String peso, AlunoTreinoModel treino, Timestamp data) {
 		this.peso = peso;
 		this.treino = treino;
@@ -63,15 +64,15 @@ public class HistoricoModel {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public Timestamp getData() {
 		return data;
 	}
-	
+
 	public void setData(Timestamp data) {
 		this.data = data;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "HistoricoModel [id=" + id + ", peso=" + peso + ", data=" + data + ", treino=" + treino + "]";
