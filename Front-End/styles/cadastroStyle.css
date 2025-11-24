@@ -1,0 +1,187 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-chubby/css/uicons-solid-chubby.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+
+:root {
+  --background: #041333;
+  --green: #2bff50;
+  --gray:#e5e5e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+button,a{
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background: #001f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #2bff50;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .logo span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2bff50;
+  text-transform: uppercase;
+}
+
+body {
+  background-image: url(../images/background/gym.png);
+  background-size: cover;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding: 0px;
+}
+
+.login-container {
+  width: 700px;
+  background-color: #fff;
+  border: 1px solid rgba(255 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  color: #000;
+  margin: 20px 0px;
+}
+
+.login-container h1 {
+  color: #001f3f;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px 30px;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+.caixa-login {
+  position: relative;
+}
+
+.caixa-login input,
+.caixa-login select {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 16px;
+  background: #fff;
+}
+
+.caixa-login input::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.caixa-login i {
+  color: #001f3f;
+  position: absolute;
+  top: 25%;
+  right: 20px;
+  font-size: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  height: 45px;
+  background-color: #2bff50;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #23cc3a;
+  transform: translateY(-5px);
+}
+
+.termos {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 15px;
+  color: #000;
+}
+
+.termos label a {
+  color: #001f3f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.termos label a:hover {
+  text-decoration: underline;
+}
+
+#termos {
+  accent-color: #2bff50;
+}
+
+.btn-voltar{
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: 0.3s color;
+}
+
+.btn-voltar:hover{
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
