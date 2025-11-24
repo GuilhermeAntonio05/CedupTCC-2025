@@ -163,7 +163,81 @@ header .logo span {
   font-weight: 600;
 }
 
+.parent>div {
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parent>div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.parent>div h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.parent>div span {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* CORES DOS CARDS */
 .div1 {
+  /* Pagaram */
+  background: linear-gradient(145deg, #0f8a2e, #1ed760);
+}
+
+.div2 {
+  /* Pendentes */
+  background: linear-gradient(145deg, #d1a700, #ffe066);
+  color: #333;
+}
+
+.div3 {
+  /* Cancelaram */
+  background: linear-gradient(145deg, #b31212, #ff4d4d);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.div1 {
+  grid-column: span 2 / span 2;
+  grid-row: span 5 / span 5;
+}
+
+.div2 {
+  background: linear-gradient(145deg, #d1a700, #ffe066);
+  color: #333;
+  grid-column: span 2;
+  grid-row: span 5;
+  grid-column-start: 3;
+}
+
+.div3 {
+  background: linear-gradient(145deg, #b31212, #ff4d4d);
+  grid-column: span 2;
+  grid-row: span 5;
+  grid-column-start: 5;
+}
+
+.box-pagamentos {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px auto;
+  width: 85%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   background: linear-gradient(145deg, #0f8a2e, #1ed760);
   grid-column: span 2 / span 2;
   grid-row: span 5 / span 5;
@@ -207,7 +281,7 @@ header .logo span {
 .box-dashboard {
   flex: 1;
   min-width: 420px;
-  min-height: 300px;
+  min-height: 250px;
   background: #ffffff;
   border-radius: 20px;
   padding: 25px;
@@ -228,6 +302,53 @@ header .logo span {
   width: 100%;
   height: 100%
 }
+
+.botao-dash {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.botao-dash button {
+  padding: 32px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-dash button:hover {
+  background: var(--background);
+  transform: translateY(-2px);
+}
+
+.botao-dash button:active {
+  transform: scale(0.97);
+}
+
+.box-botao {
+  display: flex;               /* transforma a box em flex container */
+  justify-content: center;     /* centraliza horizontalmente */
+  align-items: center;         /* centraliza verticalmente */
+  gap: 15px;                   /* espaço entre os botões */
+  flex: 1;
+  min-width: auto;
+  min-height: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+
+
+
 
 
 .titulo-pagamentos {
@@ -284,6 +405,134 @@ header .logo span {
 
 .text-right {
   justify-content: right;
+}
+
+.modelMenuContent hr {
+  border: 1px white solid;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 32px;
+  width: 360px;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: menuFade 0.25s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 32px;
+  width: 360px;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: menuFade 0.25s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modelMenuContent img {
+  height: 100px;
+  width: 100px;
+}
+
+.modelMenuContent span {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+
+.modelMenuContent hr {
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modelMenuItem,
+.modelMenuQItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+  height: 85px;
+}
+
+.modelMenuItem:hover,
+.modelMenuQItem:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--green);
+  transform: translatey(-5px);
+}
+
+.menuIcon {
+  width: 42px !important;
+  height: 42px !important;
+  filter: drop-shadow(0px 0px 4px var(--green)) brightness(1.4);
+}
+
+.backButton {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modelMenuItem,
+.modelMenuQItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+  height: 85px;
+}
+
+.modelMenuItem:hover,
+.modelMenuQItem:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--green);
+  transform: translatey(-5px);
+}
+
+.menuIcon {
+  width: 42px !important;
+  height: 42px !important;
+  filter: drop-shadow(0px 0px 4px var(--green)) brightness(1.4);
+}
+
+.backButton {
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #23cc3a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background: var(--green);
+  color: #fff;
+  transform: translatey(-5px);
 }
 
 .sidebar {
