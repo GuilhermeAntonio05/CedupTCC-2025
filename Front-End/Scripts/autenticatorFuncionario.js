@@ -10,9 +10,8 @@ function Autenticated() {
 
   let adminAcess = document.getElementsByClassName("AdminGet");
 
-  if(!isWorker.admin){
+  if (!isWorker.admin) {
     Array.from(adminAcess).forEach((data) => {
-      console.log(data);
       data.style.display = "none";
     });
   }

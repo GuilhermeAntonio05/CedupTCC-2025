@@ -1,5 +1,5 @@
+const email = localStorage.getItem("alunoEmail");
 function getExercicios() {
-  const email = JSON.parse(localStorage.getItem("lastSession")).email;
   const exercicios = [];
 
   fetch(`http://localhost:8080/treino?email=${email}`, {
@@ -40,11 +40,7 @@ function getExercicios() {
         }
 
         card.innerHTML += `
-              </ul>
-              <hr>
-              <a onclick="saveTreino('${e[0].name}')" href="iniciarTreino.html">
-                <button>Iniciar</button>
-              </a>`;
+              </ul>`;
         container.appendChild(card);
       });
     })
@@ -57,9 +53,7 @@ function saveTreino(name) {
 
 function deletarTreino(name) {
   fetch(
-    `http://localhost:8080/treino?grupo=${name}&email=${
-      JSON.parse(localStorage.getItem("lastSession")).email
-    }`,
+    `http://localhost:8080/treino?grupo=${name}&email=${email}`,
     {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },

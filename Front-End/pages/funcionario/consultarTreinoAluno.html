@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="../../styles/detalhesStyle.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../styles/treinoStyle.css" />
   <link rel="stylesheet" href="../../styles/configuracoesStyle.css" />
   <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico" />
-  <title>Virtual Gym</title>
+  <title>Treino - Virtual Gym</title>
 </head>
 
 <body>
@@ -23,15 +24,18 @@
       <div class="sidebar" id="sidebar">
         <nav>
           <ul>
-            <li><a href="../../index.html">Início</a></li>
-            <li>
-              <a href="cadastroTreino.html">Cadastrar Treino
-              </a>
-            </li>
-            <li><a href="treino.html">Consultar Treinos</a></li>
-            <li>
-              <a href="historico.html">Consultar Histórico</a>
-            </li>
+            <li><a href="HomeFuncionario.html">Início</a></li>
+            <li class="AdminGet"><a href="cadastroFuncionario.html">Cadastrar
+                Funcionario</a></li>
+            <li class="AdminGet"><a href="consultarFuncionarios.html">Consultar
+                Funcionario</a></li>
+            <li><a href="cadastroExercicios.html">Cadastrar
+                Exercicios</a></li>
+            <li><a href="consultarExercicios.html">Consultar
+                Exercicios</a></li>
+            <li><a href="cadastroAluno.html">Cadastrar Aluno</a></li>
+            <li><a href="consultarAlunos.html">Consultar
+                Alunos</a></li>
             <li><a onclick="openMenu()"> Configurações</a></li>
           </ul>
         </nav>
@@ -41,37 +45,25 @@
       </div>
 
       <div class="model" id="model">
-
-        <div class="contentDetails">
-          <section class="card">
-            <h2 class="title">PEITORAL</h2>
-            <h3 class="subtitle">ESTATÍSTICAS</h3>
-            <canvas id="grafico"></canvas>
-            <hr>
-            <h3 class="subtitle">TREINO</h3>
-            
-            <ul id="exerciseList">
-            </ul>
-            <a href="historico.html" class="btn">VOLTAR</a>
-          </section>
-        </div>
+        <div class="cardContainer" id="cardContainer"></div>
 
         <div class="modelMenu" id="menu">
           <div class="modelMenuContent">
-            <hr />
+            <hr>
             <div class="modelMenuItem" id="menuItem">
-              <img src="./images/icons/do-utilizador.png" class="menuIcon" />
+              <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
               <span id="Username" onload="getUsername()"></span>
             </div>
             <hr />
 
             <div class="modelMenuItem" id="menuItem" onclick="changeAccount()">
-              <img src="./images/icons/do-utilizador.png" class="menuIcon" />
+              <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
               <span>Trocar de conta</span>
             </div>
             <hr />
+
             <div class="modelMenuItem" id="menuItem" onclick="logout()">
-              <img src="./images/icons/do-utilizador.png" class="menuIcon" />
+              <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
               <span>Sair da conta</span>
             </div>
             <hr />
@@ -83,12 +75,9 @@
   </div>
 
 
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!--<script src="Scripts/autenticator.js"></script>-->
+  <!-- <script src="Scripts/autenticatorFuncionario.js"></script>-->
   <script src="../../Scripts/menuIndex.js"></script>
-  <script src="../../Scripts/getDetalhes.js"></script>
+  <script src="../../Scripts/getExerciciosTreinoAluno.js"></script>
 </body>
 
 </html>

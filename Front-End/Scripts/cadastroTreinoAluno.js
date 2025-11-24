@@ -1,3 +1,6 @@
+let email = localStorage.getItem("alunoEmail");
+localStorage.removeItem("alunoEmail");
+
 function getGruposMusculares() {
   fetch("http://localhost:8080/cadastro/treino", {
     method: "GET",
@@ -52,7 +55,6 @@ function enviarCadastro() {
   let series = Array.from(document.getElementsByClassName("series")).map(
     (select) => select.value
   );
-  let email = JSON.parse(localStorage.getItem("lastSession")).email;
 
   // Verificação de duplicatas (exercício + série iguais)
   let combinacoes = exercicios.map((ex, i) => `${ex}-${series[i]}`);
@@ -74,8 +76,7 @@ function enviarCadastro() {
     }),
   })
     .then((data) => {
-      if (data)
-        window.location.href = "treino.html";
+      if (data) window.location.href = "consultarAlunos.html";
     })
     .catch((error) => {
       console.error("Erro ao realizar cadastro:", error);

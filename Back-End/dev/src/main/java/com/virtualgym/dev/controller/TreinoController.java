@@ -49,6 +49,12 @@ public class TreinoController {
 		AlunoTreinoService  alunoTreinoService = new AlunoTreinoService(alunoTreinoRepository);
 		return alunoTreinoService.buscarTreinosPorGrupo(alunoRepository, email, grupo);
 	}
+	
+	@GetMapping("/exercicios/todos")
+	public List<ExerciciosModel> coletarTodosOsExercicios() {
+		ExerciciosService exerciciosService = new ExerciciosService(exerciciosRepository);
+		return exerciciosService.buscarTodos();
+	}
 
 	@DeleteMapping
 	public void deletarTreino(@RequestParam("grupo") String grupoMuscular, @RequestParam("email") String email) {

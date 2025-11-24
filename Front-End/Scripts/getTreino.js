@@ -94,8 +94,6 @@ function enviarTreino() {
     .getElementById("inputs-container")
     .getElementsByClassName("inputs");
 
-  console.log(inputs);
-
   Array.from(inputs).forEach((input) => {
     let exec = input.getElementsByTagName("h1")[0].innerText;
     exec = exec.split(" ");
@@ -132,8 +130,6 @@ function enviarTreino() {
       repeticoes: repeticoes,
       media: media,
     };
-
-    console.log(body);
 
     fetch("http://localhost:8080/historico", {
       method: "POST",
