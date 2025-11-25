@@ -23,7 +23,7 @@ public class AlunoModel {
 	@Column(name = "Aluno_ID")
 	private Long id;
 	@Column(name = "Nome", nullable = false)
-	private String nome;
+	private String nome; 
 	@Column(name = "Email", nullable = false)
 	private String email;
 	@Column(name = "CPF", nullable = false)
@@ -57,7 +57,6 @@ public class AlunoModel {
 	}
 
 	public AlunoModel() {
-
 	}
 
 	public AlunoModel(Long id, String nome, String email, String cpf, String telefone, float peso, Date data_nascimento,

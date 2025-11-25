@@ -132,13 +132,6 @@ insert into aluno_treino_seq (next_val)value(1);
 insert into mensalidade (Estado) 
 values ("pago"),("pendente"),("cancelado");
 
-CREATE TABLE IF NOT EXISTS exercicios (
-    Exercicio_ID int PRIMARY KEY auto_increment,
-    Grupo_Muscular varchar(255) not null,
-    Nome varchar(255) not null,
-    Link_Video_Exemplo text
-);
-
 -- PEITO
 INSERT INTO exercicios (Grupo_Muscular, Nome, Link_Video_Exemplo) VALUES
 ('Peito', 'Supino reto', 'https://www.youtube.com/watch?v=Cjh2fIMQHk0'),

@@ -139,9 +139,6 @@ public class HistoricoController {
 	        List<HistoricoModel> lista = historicoRepository
 	                .findAllByTreino(atual.getTreino().getId(), atual.getData());
 
-	        // Adiciona o anterior, se existir
-	        
-	        System.out.println(lista);
 	        
 	        if (!lista.isEmpty()) {
 	            tst.add(lista.get(0).getPeso());

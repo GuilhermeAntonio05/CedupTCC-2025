@@ -23,7 +23,7 @@ import com.virtualgym.dev.service.FuncionarioService;
 public class CadastroController {
 
 	@Autowired
-	AlunoRepository alunoRpeository;
+	AlunoRepository alunoRepository;
 
 	@Autowired
 	FuncionarioRepository funcionarioRepository;
@@ -33,21 +33,19 @@ public class CadastroController {
 	
 	@PostMapping("/aluno")
 	public void criarAluno(@RequestBody AlunoCadastroDTO reponseAlunoModel) {
-		AlunoService alunoService = new AlunoService(alunoRpeository);
+		AlunoService alunoService = new AlunoService(alunoRepository);
 		alunoService.criar(reponseAlunoModel);
 	}
 
 	@PostMapping("/funcionario")
 	public void criarFuncionario(@RequestBody FuncionarioModel responseFuncionarioModel) {
 		FuncionarioService funcionarioService = new FuncionarioService(funcionarioRepository);
-		System.out.println(responseFuncionarioModel);
 		funcionarioService.criar(responseFuncionarioModel);
 	}
 	
 	@PostMapping("/exercicio")
 	public void criarExercicio(@RequestBody ExerciciosModel responseExercicioModel) {
 		ExerciciosService exerciciosService = new ExerciciosService(exerciciosRepository);
-		System.out.println(responseExercicioModel);
 		exerciciosService.criar(responseExercicioModel);
 	}
 	

@@ -107,7 +107,6 @@ public class AlunoTreinoService {
 		List<AlunoTreinoModel> alunoTreinos = alunoTreinoRepository.findAllByAlunoID(aluno);
 
 		for (AlunoTreinoModel alunoTreino : alunoTreinos) {
-
 			if (alunoTreino.getTreinoID().getExercicios().getGrupoMuscular()
 					.equals(cadastroTreinoDTO.grupoMuscular())) {
 				alunoTreinoRepository.deleteById(alunoTreino.getId());
