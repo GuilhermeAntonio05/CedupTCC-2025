@@ -22,8 +22,8 @@ public class ExerciciosService {
 		boolean encontrado = false;
 
 		for (ExerciciosModel exec : exercicios) {
-			if (exec.getGrupoMuscular().equals(exercicio.getGrupoMuscular())
-					&& exercicio.getNome().equals(exec.getNome())) {
+			if (exec.getGrupoMuscular().toLowerCase().equals(exercicio.getGrupoMuscular().toLowerCase())
+					&& exercicio.getNome().toLowerCase().equals(exec.getNome().toLowerCase())) {
 				encontrado = true;
 				break;
 			}
