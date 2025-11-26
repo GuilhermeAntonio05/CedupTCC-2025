@@ -19,34 +19,36 @@ function getExercicios() {
             exercicios.push([{ name: grupo }, treino]);
           }
         });
-      }
-
-      let container = document.getElementById("cardContainer");
-      exercicios.forEach((e) => {
-        let card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-              <div class="card-header">      
+        
+        let container = document.getElementById("cardContainer");
+        exercicios.forEach((e) => {
+          let card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+          <div class="card-header">      
                 <h1>${e[0].name}</h1>
                 <img src="../../images/icons/bin.png" height="30px" width="30px" onclick="deletarTreino('${e[0].name}')">
               </div>
               <hr>
               <ul> `;
-
-        for (let i = 1; i < e.length; i++) {
-          let row = document.createElement("li");
-          row.textContent = `${e[i].exercicios.nome} - ${e[i].serie} x ${e[i].repeticoes}`;
-          card.querySelector("ul").appendChild(row);
-        }
-
-        card.innerHTML += `
+              
+              for (let i = 1; i < e.length; i++) {
+                let row = document.createElement("li");
+                row.textContent = `${e[i].exercicios.nome} - ${e[i].serie} x ${e[i].repeticoes}`;
+                card.querySelector("ul").appendChild(row);
+              }
+              
+              card.innerHTML += `
               </ul>
               <hr>
               <a onclick="saveTreino('${e[0].name}')" href="iniciarTreino.html">
-                <button>Iniciar</button>
+              <button>Iniciar</button>
               </a>`;
-        container.appendChild(card);
-      });
+              container.appendChild(card);
+            });
+      } else {
+        document.getElementById("errorMessage").textContent = "Nenhum treino encontrado.";
+      }
     })
     .catch((err) => console.error(err));
 }
