@@ -331,10 +331,10 @@ header .logo span {
 }
 
 .box-botao {
-  display: flex;               /* transforma a box em flex container */
-  justify-content: center;     /* centraliza horizontalmente */
-  align-items: center;         /* centraliza verticalmente */
-  gap: 15px;                   /* espaço entre os botões */
+  display: flex;
+  justify-content: center;     
+  align-items: center;        
+  gap: 15px;          
   flex: 1;
   min-width: auto;
   min-height: auto;
