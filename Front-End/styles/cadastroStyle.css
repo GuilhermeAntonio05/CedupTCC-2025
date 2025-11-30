@@ -139,7 +139,7 @@ button {
 }
 
 button:hover {
-  background-color: #23cc3a;
+  background-color: #23cc3a;  
   transform: translateY(-5px);
 }
 
@@ -164,15 +164,17 @@ button:hover {
   accent-color: #2bff50;
 }
 
-.btn-voltar{
-  color: #fff;
+a {
+  display: block;
+  margin-top: 20px;
+  color: #001f3f;
   font-weight: 600;
-  margin-bottom: 20px;
-  transition: 0.3s color;
+  text-decoration: none;
+  text-align: center;
 }
-
-.btn-voltar:hover{
-  color: #ffffff;
+a:hover{
+  color: var(--background);
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
