@@ -14,7 +14,6 @@ function openMenu() {
 }
 
 function getUsername() {
-
   fetch(
     `http://localhost:8080/home/aluno/email?email=${JSON.parse(localStorage.getItem("lastSession")).email}`
   )

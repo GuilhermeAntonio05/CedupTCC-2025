@@ -87,6 +87,7 @@ function confirmDelete() {
   }).then(window.location.reload());
   let box = document.getElementById("confirmDelete");
   box.style.display = "none";
+  window.location.reload();
 }
 
 function cancelDelete() {

@@ -31,6 +31,8 @@ form.addEventListener("submit", (e) => {
         window.location.href = "../../";
         localStorage.setItem("login", "true");
         localStorage.setItem("isWorker", "false");
+      } else{
+        alert("Email ou senha incorretos.");
       }
     })
     .catch((error) => {
@@ -40,12 +42,13 @@ form.addEventListener("submit", (e) => {
 
 window.onload = () => {
   const lastSession = JSON.parse(localStorage.getItem("lastSession"));
+  localStorage.removeItem("lastSession");
   const emailInput = document.getElementById("email");
   const senhaInput = document.getElementById("senha");
   const lembrar = lastSession.lembrar === "true";
   
   if (lembrar) {
-    fetch(`http://localhost:8080/login?email=${lastSession.email}`, {
+    fetch(`http://localhost:8080/login/aluno?email=${lastSession.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -66,3 +69,9 @@ window.onload = () => {
       });
   }
 };
+
+async function getPublicIP() {
+  const res = await fetch("https://api.ipify.org?format=json");
+  const data = await res.json();
+  return data.ip;
+}

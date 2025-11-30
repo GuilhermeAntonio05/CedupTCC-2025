@@ -1,11 +1,9 @@
 window.addEventListener('DOMContentLoaded', async () => {
   const ctx = document.getElementById('matriculasMensaisChart').getContext('2d');
 
-  // Buscar dados do backend
   const response = await fetch('http://localhost:8080/home/dashboard/evolucaoMatriculas');
   const dados = await response.json();
 
-  // Ordenar e formatar os meses
   const mesesNomes = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 
   const labels = Object.keys(dados).sort().map(item => {
@@ -15,7 +13,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const valores = Object.values(dados);
 
-  // Criar o gráfico
   new Chart(ctx, {
     type: 'line',
     data: {
