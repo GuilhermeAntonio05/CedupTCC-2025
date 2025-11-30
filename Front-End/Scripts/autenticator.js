@@ -6,8 +6,4 @@ function Autenticated() {
   }
 }
 
-function main() {
-  Autenticated();
-}
-
-main();
+Autenticated();

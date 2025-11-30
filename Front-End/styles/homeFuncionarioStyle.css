@@ -192,14 +192,11 @@ header .logo span {
   font-weight: 600;
 }
 
-/* CORES DOS CARDS */
 .div1 {
-  /* Pagaram */
   background: linear-gradient(145deg, #0f8a2e, #1ed760);
 }
 
 .div2 {
-  /* Pendentes */
   background: linear-gradient(145deg, #d1a700, #ffe066);
   color: #333;
 }
@@ -238,7 +235,6 @@ header .logo span {
   margin: 30px auto;
   width: 85%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(145deg, #0f8a2e, #1ed760);
   grid-column: span 2 / span 2;
   grid-row: span 5 / span 5;
 }
@@ -261,14 +257,7 @@ header .logo span {
 }
 
 
-.box-pagamentos {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 20px;
-  margin: 30px auto;
-  width: 85%;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-}
+
 
 .graficos-container {
   width: 90%;
@@ -331,10 +320,10 @@ header .logo span {
 }
 
 .box-botao {
-  display: flex;               /* transforma a box em flex container */
-  justify-content: center;     /* centraliza horizontalmente */
-  align-items: center;         /* centraliza verticalmente */
-  gap: 15px;                   /* espaço entre os botões */
+  display: flex;               
+  justify-content: center; 
+  align-items: center;         
+  gap: 15px;                   
   flex: 1;
   min-width: auto;
   min-height: auto;
