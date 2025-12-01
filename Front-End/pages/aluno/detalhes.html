@@ -49,7 +49,7 @@
             <canvas id="grafico"></canvas>
             <hr>
             <h3 class="subtitle">TREINO</h3>
-            
+
             <ul id="exerciseList">
             </ul>
             <a href="historico.html" class="btn">VOLTAR</a>
@@ -57,41 +57,38 @@
         </div>
 
         <div class="model" id="model">
-        <div class="cardContainer" id="cardContainer"></div>
-        
-        <div class="modelMenu" id="menu">
-          <div class="modelMenuContent">
-            <hr>
-            <div class="modelMenuItem" id="menuItem">
-              <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
-              <span id="Username" onload="getUsername()"></span>
-            </div>
-            <hr />
+          <div class="cardContainer" id="cardContainer"></div>
 
-            <div class="modelMenuItem" id="menuItem" onclick="changeAccount()">
-              <img src="../../images/icons/exchange.png" class="menuIcon" />
-              <span>Trocar de conta</span>
-            </div>
-            <hr />
+          <div class="modelMenu" id="menu">
+            <div class="modelMenuContent">
+              <hr>
+              <div class="modelMenuItem" id="menuItem">
+                <img src="../../images/icons/do-utilizador.png" class="menuIcon" />
+                <span id="Username" onload="getUsername()"></span>
+              </div>
+              <hr />
 
-            <div class="modelMenuItem" id="menuItem" onclick="logout()">
-              <img src="../../images/icons/sair.png" class="menuIcon" />
-              <span>Sair da conta</span>
+              <div class="modelMenuItem" id="menuItem" onclick="changeAccount()">
+                <img src="../../images/icons/exchange.png" class="menuIcon" />
+                <span>Trocar de conta</span>
+              </div>
+              <hr />
+
+              <div class="modelMenuItem" id="menuItem" onclick="logout()">
+                <img src="../../images/icons/sair.png" class="menuIcon" />
+                <span>Sair da conta</span>
+              </div>
+              <hr />
+              <button class="backButton" onclick="closeMenu()">Voltar</button>
             </div>
-            <hr />
-            <button class="backButton" onclick="closeMenu()">Voltar</button>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
 
-
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!--<script src="Scripts/autenticator.js"></script>-->
+  <script src="../../Scripts/autenticator.js"></script>
   <script src="../../Scripts/menuIndex.js"></script>
   <script src="../../Scripts/getDetalhes.js"></script>
 </body>

@@ -24,7 +24,7 @@ public class AlunoTreinoModel {
 	@ManyToOne
 	@JoinColumn(name = "fk_Aluno_ID")
 	private AlunoModel alunoID;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_Treino_ID")
 	private TreinoModel treinoID;
 	@OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)
