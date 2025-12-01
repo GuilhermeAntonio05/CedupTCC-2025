@@ -1,5 +1,8 @@
 package com.virtualgym.dev.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,9 +28,12 @@ public class TreinoModel {
 	@ManyToOne
 	@JoinColumn(name = "fk_Funcionario_ID")
 	private FuncionarioModel funcionario;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_Exercicios_ID", nullable = false)
 	private ExerciciosModel exercicios;
+	
+	@OneToMany(mappedBy = "treinoID",cascade = CascadeType.ALL)
+	private List<AlunoTreinoModel> alunoTreinoModel;
 	
 	public TreinoModel() {
 	}

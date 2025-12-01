@@ -45,12 +45,12 @@ function getExercicios() {
 }
 
 function proximo() {
-  posicao += 1;
+  if (posicao < gruposMusculares.length - 1) posicao += 1;
   getExercicios();
 }
 
 function anterior() {
-  posicao -= 1;
+  if (posicao > 0) posicao -= 1;
   getExercicios();
 }
 
