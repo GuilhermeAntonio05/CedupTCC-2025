@@ -24,7 +24,8 @@ function getUsername() {
 }
 
 function logout() {
-  localStorage.removeItem("login");
+  localStorage.removeItem("login"); 
+  localStorage.removeItem("isWorker");
   window.location.href = "../../pages/aluno/login.html";
 }
 

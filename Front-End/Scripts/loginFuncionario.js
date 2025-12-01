@@ -14,14 +14,16 @@ form.addEventListener("submit", (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data) {
+      if (data.every(el => el === true)) {
         localStorage.setItem("login", `${data[0]}`);
         localStorage.setItem("isWorker", `{"worker": ${data[0]}, "admin":${data[1]}}`);
-       
+
         if (data[0]) {
           window.location.href = "HomeFuncionario.html";
         }
 
+      } else {
+        alert("Email ou senha incorretos.");
       }
     })
     .catch((error) => {

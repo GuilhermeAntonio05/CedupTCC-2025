@@ -1,113 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../styles/consultarExercicios.css" />
-    <link rel="stylesheet" href="../../styles/configuracoesStyle.css" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../../images/icons/vgicon1.ico"
-    />
-    <title>Virtual Gym</title>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="logo">
-          <img src="../../images/icons/logoVG.png" alt="Logo Virtual Gym" />
-          <span>VIRTUAL GYM</span>
-        </div>
-      </header>
-      <hr class="navHr" />
 
-      <div class="content">
-        <div class="sidebar" id="sidebar">
-          <nav>
-            <ul>
-              <li><a href="HomeFuncionario.html">Início</a></li>
-              <li class="AdminGet">
-                <a href="cadastroFuncionario.html">Cadastrar Funcionario</a>
-              </li>
-              <li class="AdminGet">
-                <a href="consultarFuncionarios.html">Consultar Funcionario</a>
-              </li>
-              <li>
-                <a href="cadastroExercicios.html">Cadastrar Exercicios</a>
-              </li>
-              <li>
-                <a href="consultarExercicios.html">Consultar Exercicios</a>
-              </li>
-              <li><a href="cadastroAluno.html">Cadastrar Aluno</a></li>
-              <li><a href="consultarAlunos.html">Consultar Alunos</a></li>
-              <li><a onclick="openMenu()"> Configurações</a></li>
-            </ul>
-          </nav>
-          <footer class="sidebar-footer">
-            © 2025 Virtual Gym. <br />Todos os direitos reservados.
-          </footer>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../../styles/consultarExercicios.css" />
+  <link rel="stylesheet" href="../../styles/configuracoesStyle.css" />
+  <link rel="icon" type="image/x-icon" href="../../images/icons/vgicon1.ico" />
+  <title>Virtual Gym</title>
+</head>
 
-        <div class="model" id="model">
-          <div class="confirmDelete" id="confirmDelete">
-            <p>
-              Você está prestes a deletar o aluno de ID:
-              <span id="deleteId"></span>
-            </p>
-            <div>
-              <button class="btn" onclick="confirmDelete()">Confirmar</button>
-              <button class="btn" onclick="cancelDelete()">Cancelar</button>
-            </div>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="../../images/icons/logoVG.png" alt="Logo Virtual Gym" />
+        <span>VIRTUAL GYM</span>
+      </div>
+    </header>
+    <hr class="navHr" />
+
+    <div class="content">
+      <div class="sidebar" id="sidebar">
+        <nav>
+          <ul>
+            <li><a href="HomeFuncionario.html">Início</a></li>
+            <li class="AdminGet">
+              <a href="cadastroFuncionario.html">Cadastrar Funcionário</a>
+            </li>
+            <li class="AdminGet">
+              <a href="consultarFuncionarios.html">Consultar Funcionário</a>
+            </li>
+            <li>
+              <a href="cadastroExercicios.html">Cadastrar Exercícios</a>
+            </li>
+            <li>
+              <a href="consultarExercicios.html">Consultar Exercícios</a>
+            </li>
+            <li><a href="cadastroAluno.html">Cadastrar Aluno</a></li>
+            <li><a href="consultarAlunos.html">Consultar Alunos</a></li>
+            <li><a onclick="openMenu()"> Configurações</a></li>
+          </ul>
+        </nav>
+        <footer class="sidebar-footer">
+          © 2025 Virtual Gym. <br />Todos os direitos reservados.
+        </footer>
+      </div>
+
+      <div class="model" id="model">
+        <div class="confirmDelete" id="confirmDelete">
+          <p>
+            Você está prestes a deletar o aluno de ID:
+            <span id="deleteId"></span>
+          </p>
+          <div>
+            <button class="btn" onclick="confirmDelete()">Confirmar</button>
+            <button class="btn" onclick="cancelDelete()">Cancelar</button>
           </div>
+        </div>
 
-          <div class="tableContainer">
-            <h1 id="titulo">Exercicios</h1>
-            <hr class="tbHr" />
-            <table>
-              <thead>
-                <tr>
-                  <th>nome</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody"></tbody>
-            </table>
-            <div class="tbButtons">
-              <button
-                class="tbButton"
-                style="height: 60px; width: 60px"
-                onclick="anterior()"
-              >
-                <img
-                  class="tbIcon"
-                  src="../../images/icons/seta-esquerda.png"
-                  alt="anterior"
-                />
-              </button>
-              <button
-                class="tbButton"
-                style="height: 60px; width: 60px"
-                onclick="proximo()"
-              >
-                <img
-                  class="tbIcon"
-                  src="../../images/icons/seta-direita.png"
-                  alt="próximo"
-                />
-              </button>
-            </div>
+        <div class="tableContainer">
+          <h1 id="titulo">Exercícios</h1>
+          <hr class="tbHr" />
+          <table>
+            <thead>
+              <tr>
+                <th>nome</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          <div class="tbButtons">
+            <button class="tbButton" style="height: 60px; width: 60px" onclick="anterior()">
+              <img class="tbIcon" src="../../images/icons/seta-esquerda.png" alt="anterior" />
+            </button>
+            <button class="tbButton" style="height: 60px; width: 60px" onclick="proximo()">
+              <img class="tbIcon" src="../../images/icons/seta-direita.png" alt="próximo" />
+            </button>
           </div>
+        </div>
 
-          <div class="modelMenu" id="menu">
+        <div class="modelMenu" id="menu">
                     <div class="modelMenuContent">
+                        <!--
+                            <hr>
+                            <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
+                                <img src="../../images/icons/exchange.png" class="menuIcon">
+                                <span>Trocar de conta</span>
+                            </div>
+                        -->
                         <hr>
-                        
-                        <div class="modelMenuQItem" id="menuItem" onclick="changeAccount()">
-                            <img src="../../images/icons/exchange.png" class="menuIcon">
-                            <span>Trocar de conta</span>
-                        </div>
-                        <hr>
-                        
+
                         <div class="modelMenuItem" id="menuItem" onclick="logout()">
                             <img src="../../images/icons/sair.png" class="menuIcon">
                             <span>Sair da conta</span>
@@ -117,12 +100,13 @@
                             Voltar
                         </button>
                     </div>
-        </div>
+                </div>
       </div>
     </div>
 
     <script src="../../Scripts/getExercicios.js"></script>
     <script src="../../Scripts/autenticatorFuncionario.js"></script>
     <script src="../../Scripts/menuIndex.js"></script>
-  </body>
+</body>
+
 </html>
