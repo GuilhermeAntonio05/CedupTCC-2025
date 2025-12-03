@@ -26,11 +26,24 @@ function cadastrar() {
   const cpf = document.getElementById("cpf").value.trim();
   const telefone = document.getElementById("telefone").value.trim();
   const peso = document.getElementById("peso").value.trim();
-  const data_nascimento = document
-    .getElementById("data_nascimento")
-    .value.trim();
+  const data_nascimento = document.getElementById("data_nascimento").value.trim();
   const genero = document.getElementById("genero").value.trim();
   const senha = document.getElementById("senha").value.trim();
+  const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
+
+  const campo = [nome, email, cpf, telefone, peso, data_nascimento, genero, senha, confirmarSenha];
+
+   Array.from(campo).forEach((campo) => {
+    if (!campo) {
+      alert("Por favor, preencha todos os campos.");
+      throw new Error("Campo vazio");
+    }
+  });
+
+  if (senha !== confirmarSenha) {
+    alert("As senhas não conferem!");
+    return;
+  }
 
   fetch("http://localhost:8080/cadastro/aluno", {
     method: "POST",

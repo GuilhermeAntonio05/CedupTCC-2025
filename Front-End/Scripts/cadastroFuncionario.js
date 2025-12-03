@@ -30,6 +30,21 @@ function cadastrar() {
   const cargo = document.getElementById("cargo").value;
   const genero = document.getElementById("genero").value;
   const senha = document.getElementById("senha").value;
+  const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+  const campo = [nome, email, cpf, telefone, salario, dataNascimento, cargo, genero, senha, confirmarSenha];
+
+  Array.from(campo).forEach((campo) => {
+    if (!campo) {
+      alert("Por favor, preencha todos os campos.");
+      throw new Error("Campo vazio");
+    }
+  });
+
+  if (senha !== confirmarSenha) {
+    alert("As senhas não conferem!");
+    return;
+  }
 
   fetch("http://localhost:8080/cadastro/funcionario", {
     method: "POST",
